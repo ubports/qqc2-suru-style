@@ -22,6 +22,8 @@
 ****************************************************************************/
 
 import QtQuick 2.9
+import QtQuick.Controls 2.3
+import QtQuick.Controls.impl 2.3
 import QtQuick.Templates 2.2 as T
 import QtQuick.Controls.Suru 2.2
 
@@ -87,11 +89,11 @@ T.SpinBox {
             }
         }
 
-        Image {
+        ColorImage {
             anchors.centerIn: parent
             width: 16; height: width
-            source: "image://suru/" + (control.mirrored ? "left" : "right") + "arrow/"
-                    + control.Suru.foregroundColor
+            color: control.Suru.foregroundColor
+            source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/" + (control.mirrored ? "left" : "right") + "arrow.png"
             sourceSize.width: width
             sourceSize.height: height
         }
@@ -120,11 +122,11 @@ T.SpinBox {
             }
         }
 
-        Image {
+        ColorImage {
             anchors.centerIn: parent
             width: control.Suru.units.gu(2); height: width
-            source: "image://suru/" + (control.mirrored ? "right" : "left") + "arrow/"
-                    + control.Suru.foregroundColor
+            color: control.Suru.foregroundColor
+            source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/" + (control.mirrored ? "right" : "left") + "arrow.png"
             sourceSize.width: width
             sourceSize.height: height
         }

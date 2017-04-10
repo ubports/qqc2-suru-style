@@ -22,7 +22,8 @@
 ****************************************************************************/
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.3
+import QtQuick.Controls.impl 2.3
 import QtQuick.Templates 2.2 as T
 import QtQuick.Controls.Suru 2.2
 
@@ -54,14 +55,15 @@ T.ComboBox {
         hoverEnabled: control.hoverEnabled
     }
 
-    indicator: Image {
+    indicator: ColorImage {
         x: control.mirrored ? control.leftPadding : control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
 
         width: control.Suru.units.gu(2)
         height: control.Suru.units.gu(2)
 
-        source: "image://suru/down/" + control.Suru.foregroundColor
+        color: control.Suru.foregroundColor
+        source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/down.png"
         sourceSize.width: width
         sourceSize.height: height
     }
