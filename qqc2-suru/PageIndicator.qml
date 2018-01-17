@@ -1,0 +1,71 @@
+/****************************************************************************
+**
+** Copyright (C) 2017, 2018 Stefano Verzegnassi <stefano@ubports.com>
+** Copyright (C) 2017 The Qt Company Ltd.
+**
+** GNU Lesser General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU Lesser
+** General Public License version 3 as published by the Free Software
+** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+** packaging of this file. Please review the following information to
+** ensure the GNU Lesser General Public License version 3 requirements
+** will be met: https://www.gnu.org/licenses/lgpl.html.
+**
+** GNU General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU
+** General Public License version 2.0 or later as published by the Free
+** Software Foundation and appearing in the file LICENSE.GPL included in
+** the packaging of this file. Please review the following information to
+** ensure the GNU General Public License version 2.0 requirements will be
+** met: http://www.gnu.org/licenses/gpl-2.0.html.
+**
+****************************************************************************/
+
+import QtQuick 2.9
+import QtQuick.Templates 2.2 as T
+import QtQuick.Controls.Suru 2.2
+
+T.PageIndicator {
+    id: control
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                             contentItem.implicitHeight + topPadding + bottomPadding)
+
+    padding: 4
+    spacing: 4
+
+    delegate: Rectangle {
+        implicitWidth: 8
+        implicitHeight: 8
+
+        radius: width / 2
+
+        color: index == control.currentIndex
+               ? control.Suru.accentColor
+               : pressed ? control.Suru.neutralColor : "transparent"
+
+        border {
+            width: index == control.currentIndex ? 0 : 1
+            color: index == control.currentIndex ? control.Suru.accentColor : control.Suru.neutralColor
+        }
+
+        Behavior on color {
+            ColorAnimation { duration: 150 }
+        }
+
+        Behavior on border.color {
+            ColorAnimation { duration: 150 }
+        }
+    }
+
+    contentItem: Row {
+        spacing: control.spacing
+
+        Repeater {
+            model: control.count
+            delegate: control.delegate
+        }
+    }
+}

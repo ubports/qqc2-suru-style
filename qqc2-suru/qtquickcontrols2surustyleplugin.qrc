@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/qt-project.org/imports/QtQuick/Controls.2/Suru">
+        <file>assets/spinner.png</file>
+        <file>assets/checkmark.png</file>
+        <file>assets/checkmark@2.png</file>
+        <file>assets/checkmark@3.png</file>
+        <file>assets/checkmark@4.png</file>
+        <file>assets/checkmark-undefined.png</file>
+        <file>assets/checkmark-undefined@2.png</file>
+        <file>assets/checkmark-undefined@3.png</file>
+        <file>assets/checkmark-undefined@4.png</file>
+        <file>assets/down.png</file>
+        <file>assets/down@2.png</file>
+        <file>assets/down@3.png</file>
+        <file>assets/down@4.png</file>
+        <file>assets/spinner@2.png</file>
+        <file>assets/spinner@3.png</file>
+        <file>assets/spinner@4.png</file>
+        <file>assets/up.png</file>
+        <file>assets/up@2.png</file>
+        <file>assets/up@3.png</file>
+        <file>assets/up@4.png</file>
+        <file>assets/leftarrow.png</file>
+        <file>assets/leftarrow@2.png</file>
+        <file>assets/leftarrow@3.png</file>
+        <file>assets/leftarrow@4.png</file>
+        <file>assets/rightarrow.png</file>
+        <file>assets/rightarrow@2.png</file>
+        <file>assets/rightarrow@3.png</file>
+        <file>assets/rightarrow@4.png</file>
+    </qresource>
+</RCC>

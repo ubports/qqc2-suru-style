@@ -1,0 +1,124 @@
+/****************************************************************************
+**
+** Copyright (C) 2017, 2018 Stefano Verzegnassi <stefano@ubports.com>
+** Copyright (C) 2017 The Qt Company Ltd.
+**
+** GNU Lesser General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU Lesser
+** General Public License version 3 as published by the Free Software
+** Foundation and appearing in the file LICENSE.LGPLv3 included in the
+** packaging of this file. Please review the following information to
+** ensure the GNU Lesser General Public License version 3 requirements
+** will be met: https://www.gnu.org/licenses/lgpl.html.
+**
+** GNU General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU
+** General Public License version 2.0 or later as published by the Free
+** Software Foundation and appearing in the file LICENSE.GPL included in
+** the packaging of this file. Please review the following information to
+** ensure the GNU General Public License version 2.0 requirements will be
+** met: http://www.gnu.org/licenses/gpl-2.0.html.
+**
+****************************************************************************/
+
+#include "qquicksurutheme_p.h"
+
+#include <QtGui/qfont.h>
+#include <QtGui/qfontinfo.h>
+
+QT_BEGIN_NAMESPACE
+
+QQuickSuruTheme::QQuickSuruTheme(QPlatformTheme *theme)
+    : QQuickProxyTheme(theme)
+{
+    headingOne.setPixelSize(48);
+    headingOne.setWeight(QFont::Light);
+
+    headingTwo.setPixelSize(36);
+    headingTwo.setWeight(QFont::Light);
+
+    headingThree.setPixelSize(28);
+    headingThree.setWeight(QFont::Light);
+
+    headingFour.setPixelSize(24);
+    headingFour.setWeight(QFont::Light);
+
+    headingFive.setPixelSize(20);
+    headingFive.setWeight(QFont::Light);
+
+    headingSix.setPixelSize(16);
+    headingSix.setWeight(QFont::Normal);
+
+    body.setPixelSize(14);
+    body.setWeight(QFont::Light);
+
+    small.setPixelSize(12);
+    small.setWeight(QFont::Light);
+
+    strong.setPixelSize(14);
+    strong.setWeight(QFont::Normal);
+
+    const QFont font(QLatin1String("Ubuntu"));
+    if (QFontInfo(font).family() == QLatin1String("Ubuntu")) {
+        const QString family = font.family();
+
+        headingOne.setFamily(family);
+        headingTwo.setFamily(family);
+        headingThree.setFamily(family);
+        headingFour.setFamily(family);
+        headingFive.setFamily(family);
+        headingSix.setFamily(family);
+        body.setFamily(family);
+        small.setFamily(family);
+        strong.setFamily(family);
+    }
+
+    if (QFontInfo(font).family() == QLatin1String("Ubuntu")) {
+        const QString family = font.family();
+        systemFont.setFamily(family);
+        groupBoxTitleFont.setFamily(family);
+        tabButtonFont.setFamily(family);
+    }
+
+}
+
+const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const
+{
+    switch (type) {
+    case QPlatformTheme::GroupBoxTitleFont:
+        return &small;
+    case QPlatformTheme::ComboMenuItemFont:
+    case QPlatformTheme::TipLabelFont:
+    case QPlatformTheme::TabButtonFont:
+    case QPlatformTheme::SystemFont:
+    case QPlatformTheme::MenuFont:
+    case QPlatformTheme::MenuBarFont:
+    case QPlatformTheme::MenuItemFont:
+    case QPlatformTheme::MessageBoxFont:
+    case QPlatformTheme::LabelFont:
+    case QPlatformTheme::StatusBarFont:
+    case QPlatformTheme::TitleBarFont:
+    case QPlatformTheme::MdiSubWindowTitleFont:
+    case QPlatformTheme::DockWidgetTitleFont:
+    case QPlatformTheme::PushButtonFont:
+    case QPlatformTheme::CheckBoxFont:
+    case QPlatformTheme::RadioButtonFont:
+    case QPlatformTheme::ToolButtonFont:
+    case QPlatformTheme::ItemViewFont:
+    case QPlatformTheme::ListViewFont:
+    case QPlatformTheme::HeaderViewFont:
+    case QPlatformTheme::ListBoxFont:
+    case QPlatformTheme::ComboLineEditFont:
+    case QPlatformTheme::SmallFont:
+    case QPlatformTheme::MiniFont:
+    case QPlatformTheme::FixedFont:
+//    case QPlatformTheme::GroupBoxTitleFont:
+//    case QPlatformTheme::TabButtonFont:
+    case QPlatformTheme::EditorFont:
+    case QPlatformTheme::NFonts:
+    default:
+        return &body;
+    }
+}
+
+QT_END_NAMESPACE

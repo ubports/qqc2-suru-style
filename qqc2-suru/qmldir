@@ -1,0 +1,4 @@
+module QtQuick.Controls.Suru
+plugin qtquickcontrols2surustyleplugin
+classname QtQuickControls2SuruStylePlugin
+depends QtQuick.Controls 2.2
