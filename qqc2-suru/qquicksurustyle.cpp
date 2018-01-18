@@ -28,8 +28,6 @@
 #include <QtQml/qqmlinfo.h>
 #include <QtQuickControls2/private/qquickstyleattached_p.h>
 
-QT_BEGIN_NAMESPACE
-
 static QRgb qquicksuru_color(QQuickSuruStyle::Color colorRole)
 {  
     static const QRgb colors[] = {
@@ -1457,5 +1455,3 @@ bool QQuickSuruStyle::variantToRgba(const QVariant &var, const char *name, QRgb 
     }
     return true;
 }
-
-QT_END_NAMESPACE

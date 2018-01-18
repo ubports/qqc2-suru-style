@@ -24,23 +24,8 @@
 #ifndef QQUICKSURUSTYLE_P_H
 #define QQUICKSURUSTYLE_P_H
 
-//
-//  W A R N I N G
-//  -------------
-//
-// This file is not part of the Qt API.  It exists purely as an
-// implementation detail.  This header file may change from version to
-// version without notice, or even be removed.
-//
-// We mean it.
-//
-
 #include <QtGui/qcolor.h>
 #include <QtQuickControls2/private/qquickstyleattached_p.h>
-
-QT_BEGIN_NAMESPACE
-
-class QQuickSuruStylePrivate;
 
 class QQuickSuruStyle : public QQuickStyleAttached
 {
@@ -93,20 +78,6 @@ public:
         Blue, Green, Yellow, Orange, Red, Purple
     };
     Q_ENUM(Color)
-
-    enum Shade {
-        Shade50,
-        Shade100,
-        Shade200,
-        Shade300,
-        Shade400,
-        Shade500,
-        Shade600,
-        Shade700,
-        Shade800,
-        Shade900,
-    };
-    Q_ENUM(Shade)
 
     explicit QQuickSuruStyle(QObject *parent = nullptr);
 
@@ -223,10 +194,6 @@ public:
     //QQuickSuruAnimation* animation() const { return m_animation; }
 
     Q_INVOKABLE QColor color(Color color) const;
-
-    Q_INVOKABLE bool isLightColor(const QColor &color) const {
-        return color.lightnessF() > .85;
-    }
 
 Q_SIGNALS:
     void themeChanged();
@@ -348,8 +315,6 @@ private:
     //QQuickSuruUnits* m_units;
     //QQuickSuruAnimation* m_animation;
 };
-
-QT_END_NAMESPACE
 
 QML_DECLARE_TYPEINFO(QQuickSuruStyle, QML_HAS_ATTACHED_PROPERTIES)
 

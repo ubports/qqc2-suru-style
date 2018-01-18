@@ -39,8 +39,6 @@ static inline void initResources()
 #endif
 }
 
-QT_BEGIN_NAMESPACE
-
 class QtQuickControls2SuruStylePlugin: public QQuickStylePlugin
 {
     Q_OBJECT
@@ -86,7 +84,5 @@ QQuickProxyTheme *QtQuickControls2SuruStylePlugin::createTheme() const
 {
     return new QQuickSuruTheme;
 }
-
-QT_END_NAMESPACE
 
 #include "qtquickcontrols2surustyleplugin.moc"

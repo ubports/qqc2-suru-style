@@ -26,8 +26,6 @@
 #include <QtGui/qfont.h>
 #include <QtGui/qfontinfo.h>
 
-QT_BEGIN_NAMESPACE
-
 QQuickSuruTheme::QQuickSuruTheme(QPlatformTheme *theme)
     : QQuickProxyTheme(theme)
 {
@@ -120,5 +118,3 @@ const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const
         return &body;
     }
 }
-
-QT_END_NAMESPACE
