@@ -40,6 +40,8 @@ T.Frame {
     spacing: 16
 
     background: Rectangle {
+        anchors.fill: parent
+        anchors.margins: -1
         radius: 2
         color: control.Suru.secondaryBackgroundColor
         border.width: 1

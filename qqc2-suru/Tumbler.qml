@@ -59,4 +59,25 @@ T.Tumbler {
 
         property real delegateHeight: control.availableHeight / control.visibleItemCount
     }
+
+    Rectangle {
+        anchors.centerIn: parent
+        height: tumblerView.delegateHeight
+        width: parent.width
+        color: control.Suru.backgroundColor
+        z: -1
+
+        Rectangle {
+            anchors { left: parent.left; right: parent.right }
+            color: control.Suru.neutralColor
+            height: 1
+        }
+
+        Rectangle {
+            anchors { left: parent.left; right: parent.right }
+            anchors.bottom: parent.bottom
+            color: control.Suru.neutralColor
+            height: 1
+        }
+    }
 }
