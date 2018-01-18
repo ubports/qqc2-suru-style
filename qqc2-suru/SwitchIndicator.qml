@@ -51,6 +51,29 @@ Item {
         }
     }
 
+    Row {
+        width: parent.width
+        height: parent.height
+
+        Label {
+            width: parent.width * 0.5
+            height: parent.height
+            text: "I"
+            color: control.Suru.neutralColor
+            horizontalAlignment: Label.AlignHCenter
+            verticalAlignment: Label.AlignVCenter
+        }
+
+        Label {
+            width: parent.width * 0.5
+            height: parent.height
+            text: "O"
+            color: Qt.darker(control.Suru.neutralColor, 1.2)
+            horizontalAlignment: Label.AlignHCenter
+            verticalAlignment: Label.AlignVCenter
+        }
+    }
+
     Rectangle {
         width: 20
         height: 20
