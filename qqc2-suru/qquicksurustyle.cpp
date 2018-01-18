@@ -43,7 +43,7 @@ static QRgb qquicksuru_color(QQuickSuruStyle::Color colorRole)
         0xFF5D5D5D, // Slate
         0xFF666666, // Graphite
 
-        0xFF19B6EE, // Blue
+        0xFF007AA6, // Blue
         0xFF3EB34F, // Green
         0xFFEF9928, // Yellow
         0xFFE95420, // Orange
