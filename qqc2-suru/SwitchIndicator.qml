@@ -35,11 +35,11 @@ Item {
         height: parent.height
 
         radius: 4
-        color: control.checked ? control.Suru.accentColor : control.Suru.neutralColor
+        color: control.checked ? control.Suru.positiveColor : control.Suru.neutralColor
 
         border.width: 1
         border.color: control.checked
-                      ? Qt.darker(control.Suru.accentColor, 1.1)
+                      ? Qt.darker(control.Suru.positiveColor, 1.1)
                       : Qt.darker(control.Suru.neutralColor, 1.1)
 
         Behavior on color {
@@ -59,7 +59,7 @@ Item {
             width: parent.width * 0.5
             height: parent.height
             text: "I"
-            color: control.Suru.neutralColor
+            color: control.Suru.backgroundColor
             horizontalAlignment: Label.AlignHCenter
             verticalAlignment: Label.AlignVCenter
         }
