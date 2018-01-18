@@ -36,6 +36,9 @@ T.Menu {
 
     margins: 0
 
+    topPadding: 4
+    bottomPadding: 4
+
     transformOrigin: Item.Top
 
     // TODO: Suru animations These are imported from Material.
@@ -68,7 +71,7 @@ T.Menu {
         implicitWidth: 200
         implicitHeight: 48
 
-        radius: 2
+        radius: 4
         color: control.Suru.backgroundColor
 
         border.color: control.Suru.neutralColor
