@@ -46,7 +46,7 @@ void QQuickSuruHighlightRectangle::paint(QPainter *painter)
 
     QRect bounds = boundingRect().toAlignedRect();
     const int boundsWidth = bounds.width();
-    const int boundsHeight = bounds.width();
+    const int boundsHeight = bounds.height();
 
     const QString key = QStringLiteral("qquicksuruhighlightrectangle_%1_%2_%3_%4_%5").arg(QString::number(boundsWidth),
                                                                                           QString::number(boundsHeight),
