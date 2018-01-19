@@ -122,7 +122,7 @@ T.ComboBox {
             color: control.Suru.secondaryBackgroundColor
             border.color: control.Suru.neutralColor
             border.width: 1
-            radius: 2
+            radius: 4
         }
     }
 }
