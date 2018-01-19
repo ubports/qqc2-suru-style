@@ -31,7 +31,7 @@ Rectangle {
     property Item control
 
     radius: width / 2
-    color: control.Suru.secondaryBackgroundColor
+    color: control.Suru.backgroundColor
     border.color: control.down
         ? control.checked ? "transparent" : control.Suru.positiveColor
         : control.checked ? control.Suru.positiveColor : control.Suru.neutralColor
