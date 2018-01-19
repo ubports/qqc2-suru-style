@@ -38,11 +38,5 @@ T.Pane {
 
     background: Rectangle {
         color: control.Suru.backgroundColor
-
-        // TODO: Test!
-        layer.enabled: control.hasOwnProperty("x_suru_highlighted")
-        layer.effect: ElevationEffect {
-            elevation: 8
-        }
     }
 }
