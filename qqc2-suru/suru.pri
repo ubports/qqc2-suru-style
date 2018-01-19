@@ -7,6 +7,7 @@ QML_FILES += \
     $$PWD/CheckIndicator.qml \
     $$PWD/ComboBox.qml \
     $$PWD/CursorDelegate.qml \
+    $$PWD/DelayButton.qml \
     $$PWD/Dial.qml \
     $$PWD/Dialog.qml \
     $$PWD/DialogButtonBox.qml \
