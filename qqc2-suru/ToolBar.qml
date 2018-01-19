@@ -50,5 +50,11 @@ T.ToolBar {
             color: control.Suru.neutralColor
             visible: control.position == T.ToolBar.Header || control.position == T.ToolBar.Footer
         }
+
+        // TODO: Use our own implementation of DropShadow
+        layer.enabled: true
+        layer.effect: ElevationEffect {
+            elevation: 1
+        }
     }
 }
