@@ -29,6 +29,8 @@ import QtQuick.Templates 2.2 as T
 T.RadioButton {
     id: control
 
+    property bool useSystemFocusVisuals: true
+
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0,

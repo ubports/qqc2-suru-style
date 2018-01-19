@@ -94,5 +94,14 @@ T.Dial {
                 origin.y: handle.height / 2
             }
         ]
+
+        Rectangle {
+            anchors { fill: parent; margins: -4 }
+            radius: width * 0.5
+            visible: control.visualFocus
+            border.width: 2
+            border.color: control.Suru.accentColor
+            color: "transparent"
+        }
     }
 }

@@ -43,13 +43,13 @@ T.ApplicationWindow {
     Rectangle {
         parent: window.activeFocusControl
         anchors.centerIn: parent
-        width: parent ? parent.width + 2 : 0
-        height: parent ? parent.height + 2 : 0
+        width: parent ? parent.width + 8 : 0
+        height: parent ? parent.height + 8 : 0
         visible: parent && !!parent.useSystemFocusVisuals && !!parent.visualFocus
 
         color: "transparent"
         border {
-            width: 1
+            width: 2
             color: window.Suru.accentColor
         }
     }

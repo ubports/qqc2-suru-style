@@ -29,6 +29,8 @@ import QtQuick.Controls.Suru 2.2
 T.ComboBox {
     id: control
 
+    property bool useSystemFocusVisuals: true
+
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
@@ -85,7 +87,7 @@ T.ComboBox {
 
         border.width: control.flat ? 0 : 1
 
-        border.color: control.pressed || popup.visible
+        border.color: control.pressed || popup.visible || control.visualFocus
                       ? control.Suru.accentColor
                       : control.Suru.neutralColor
 
