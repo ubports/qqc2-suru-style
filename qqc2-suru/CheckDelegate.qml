@@ -67,20 +67,17 @@ T.CheckDelegate {
         implicitHeight: 56
         color: control.Suru.backgroundColor
 
-        Rectangle {
-            anchors { left: parent.left; right: parent.right }
-            anchors.bottom: parent.bottom
-            height: 1
-            color: control.Suru.neutralColor
+        HighlightFocusRectangle {
+            control: control
+            width: parent.width
+            height: parent.height
         }
 
-        HighlightRectangle {
-            anchors.fill: parent
-            visible: control.down || control.hovered || control.highlighted
-            borderColor: control.highlighted ? control.Suru.accentColor : control.Suru.neutralColor
-            backgroundColor: control.highlighted ? control.Suru.accentColor
-                                                 : control.down ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1) : control.Suru.secondaryBackgroundColor
-            backgroundOpacity: control.highlighted ? 0.5 : 1.0
+        Rectangle {
+            anchors.bottom: parent.bottom
+            width: parent.width
+            height: 1
+            color: control.Suru.neutralColor
         }
     }
 }

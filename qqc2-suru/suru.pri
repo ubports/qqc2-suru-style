@@ -14,6 +14,7 @@ QML_FILES += \
     $$PWD/ElevationEffect.qml \
     $$PWD/Frame.qml \
     $$PWD/GroupBox.qml \
+    $$PWD/HighlightFocusRectangle.qml \
     $$PWD/ItemDelegate.qml \
     $$PWD/Label.qml \
     $$PWD/Menu.qml \
@@ -50,10 +51,9 @@ QML_FILES += \
 
 HEADERS += \
     $$PWD/qquicksurustyle_p.h \
-    $$PWD/qquicksurutheme_p.h \
-    $$PWD/qquicksuruhighlightrectangle.h
+    $$PWD/qquicksurutheme_p.h
 
 SOURCES += \
     $$PWD/qquicksurustyle.cpp \
-    $$PWD/qquicksurutheme.cpp \
-    $$PWD/qquicksuruhighlightrectangle.cpp
+    $$PWD/qquicksurutheme.cpp
+    

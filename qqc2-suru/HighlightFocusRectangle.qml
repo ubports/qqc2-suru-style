@@ -1,7 +1,6 @@
 /****************************************************************************
 **
 ** Copyright (C) 2017, 2018 Stefano Verzegnassi <stefano@ubports.com>
-** Copyright (C) 2017 The Qt Company Ltd.
 **
 ** GNU Lesser General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU Lesser
@@ -21,32 +20,37 @@
 **
 ****************************************************************************/
 
-#ifndef QQUICKSURUHIGHLIGHTRECTANGLE_H
-#define QQUICKSURUHIGHLIGHTRECTANGLE_H
+import QtQuick 2.9
+import QtQuick.Controls.Suru 2.2
 
-#include <QtQuick/qquickpainteditem.h>
+Item {
+    property Item control
 
-class QQuickSuruHighlightRectangle : public QQuickPaintedItem
-{
-    Q_OBJECT
-    Q_PROPERTY(QColor backgroundColor MEMBER m_backgroundColor NOTIFY backgroundColorChanged)
-    Q_PROPERTY(QColor borderColor MEMBER m_borderColor NOTIFY borderColorChanged)
-    Q_PROPERTY(qreal backgroundOpacity MEMBER m_backgroundOpacity NOTIFY backgroundOpacityChanged)
+    Rectangle {
+        id: highlightRect
+        width: parent.width
+        height: parent.height
 
-public:
-    QQuickSuruHighlightRectangle(QQuickItem *parent = nullptr);
+        visible: control.down || control.hovered || control.highlighted
 
-    void paint(QPainter *painter) override;
+        opacity: control.highlighted ? 0.5 : 1.0
+        color: {
+            if (control.highlighted)
+                return control.Suru.accentColor
 
-Q_SIGNALS:
-    void backgroundColorChanged();
-    void borderColorChanged();
-    void backgroundOpacityChanged();
+            return control.down ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1) : control.Suru.secondaryBackgroundColor
+        }
+    }
 
-private:
-    QColor m_backgroundColor;
-    QColor m_borderColor;
-    qreal m_backgroundOpacity;
-};
+    Rectangle {
+        width: parent.width
+        height: parent.height
 
-#endif // QQUICKSURUHIGHLIGHTRECTANGLE_H
+        visible: control.visualFocus
+        color: "transparent"
+        border {
+            width: 2
+            color: control.Suru.accentColor
+        }
+    }
+}

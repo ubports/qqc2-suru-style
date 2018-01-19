@@ -71,13 +71,10 @@ T.MenuItem {
 
         color: control.Suru.backgroundColor
 
-        HighlightRectangle {
-            anchors.fill: parent
-            visible: control.down || control.hovered || control.visualFocus
-            borderColor: control.visualFocus ? control.Suru.accentColor : control.Suru.neutralColor
-            backgroundColor: control.visualFocus ? control.Suru.accentColor
-                                                 : control.down ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1) : control.Suru.secondaryBackgroundColor
-            backgroundOpacity: control.visualFocus ? 0.5 : 1.0
+        HighlightFocusRectangle {
+            control: control
+            width: parent.width
+            height: parent.height
         }
     }
 }

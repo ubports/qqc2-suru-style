@@ -27,7 +27,6 @@
 #include "qquicksurutheme_p.h"
 //#include "qquicksuruanimation_p.h"
 //#include "qquicksuruunits_p.h"
-#include "qquicksuruhighlightrectangle.h"
 
 #include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
 
@@ -64,8 +63,6 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
     qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
     //qmlRegisterUncreatableType<QQuickSuruAnimation>(uri, 2, 2, "Animation", tr("Use Suru attached property instead"));
     //qmlRegisterUncreatableType<QQuickSuruUnits>(uri, 2, 2, "Units", tr("Use Suru attached property instead"));
-    qmlRegisterType<QQuickSuruHighlightRectangle>(uri, 2, 2, "HighlightRectangle");
-
 }
 
 void QtQuickControls2SuruStylePlugin::initializeEngine(QQmlEngine *engine, const char *uri)
