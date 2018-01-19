@@ -58,9 +58,6 @@ T.Button {
         }
     }
 
-    scale: control.highlighted ? control.down ? 0.98 : 1.0
-                               : 1.0
-
     background: Rectangle {
         implicitWidth: 64
         implicitHeight: 32
@@ -74,20 +71,10 @@ T.Button {
         border.width: (control.highlighted || control.checked || control.flat) ? 0 : 1
         border.color: control.Suru.neutralColor
 
-        Rectangle {
-            width: parent.width
-            height: parent.height
-
-            y: !control.down ? 2 : 0
-            z: -1000
-
-            Behavior on y {
-                NumberAnimation { duration: 100 }
-            }
-
-            color: control.Suru.neutralColor
-            radius: control.background.radius
-            visible: (control.highlighted || control.checked) && !control.flat
+        // TODO: Use our own implementation of DropShadow
+        layer.enabled: (control.highlighted || control.checked) && !control.flat
+        layer.effect: ElevationEffect {
+            elevation: control.down ? 4 : 2
         }
 
         Behavior on color {
