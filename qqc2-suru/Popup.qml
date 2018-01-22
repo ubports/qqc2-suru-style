@@ -54,12 +54,12 @@ T.Popup {
 
     background: Rectangle {
         color: control.Suru.backgroundColor
-        border.color: control.Suru.neutralColor
-        border.width: 1
+   //     border.color: control.Suru.neutralColor
+    //    border.width: 1
 
         layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: 3
         }
     }
 }

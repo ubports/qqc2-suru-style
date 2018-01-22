@@ -66,10 +66,9 @@ T.RoundButton {
         border.width: !control.flat && (control.highlighted || control.checked) ? 0 : 1
         border.color: control.Suru.neutralColor
 
-        // TODO: Use our own implementation of DropShadow
         layer.enabled: !control.flat
         layer.effect: ElevationEffect {
-            elevation: !control.down ? 2 : 1
+            elevation: !control.down ? 2 : 3
         }
 
         Behavior on color {

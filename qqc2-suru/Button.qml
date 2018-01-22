@@ -71,10 +71,9 @@ T.Button {
         border.width: (control.highlighted || control.checked || control.flat) ? 0 : 1
         border.color: control.Suru.neutralColor
 
-        // TODO: Use our own implementation of DropShadow
         layer.enabled: (control.highlighted || control.checked) && !control.flat
         layer.effect: ElevationEffect {
-            elevation: control.down ? 4 : 2
+            elevation: !control.down ? 2 : 3
         }
 
         Behavior on color {

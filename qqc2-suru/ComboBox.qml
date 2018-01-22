@@ -122,9 +122,14 @@ T.ComboBox {
 
         background: Rectangle {
             color: control.Suru.secondaryBackgroundColor
-            border.color: control.Suru.neutralColor
-            border.width: 1
+         //   border.color: control.Suru.neutralColor
+         //   border.width: 1
             radius: 4
+
+            layer.enabled: true
+            layer.effect: ElevationEffect {
+                elevation: 3
+            }
         }
     }
 }
