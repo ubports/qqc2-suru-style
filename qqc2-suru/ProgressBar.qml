@@ -24,7 +24,6 @@
 import QtQuick 2.9
 import QtQuick.Templates 2.2 as T
 import QtQuick.Controls.Suru 2.2
-import QtQuick.Controls.Material.impl 2.2 as MaterialImpl
 
 T.ProgressBar {
     id: control
@@ -36,13 +35,37 @@ T.ProgressBar {
 
     opacity: control.enabled ? 1.0 : 0.5
 
-    // TODO: Use our own animation for indeterminate state
-    contentItem: MaterialImpl.ProgressBarImpl {
-        implicitHeight: 3
-        scale: control.mirrored ? -1 : 1
-        color: control.Suru.accentColor
-        progress: control.position
-        indeterminate: control.visible && control.indeterminate
+    contentItem: Item {
+        id: contentItem
+        clip: true
+
+        Rectangle {
+            id: thumb
+            implicitWidth: (control.indeterminate ? 0.25 : control.position) * contentItem.width
+            implicitHeight: 3
+            color: control.Suru.accentColor
+
+            SequentialAnimation {
+                running: control.indeterminate
+                loops: Animation.Infinite
+
+                XAnimator {
+                    target: thumb
+                    from: -thumb.width;
+                    to: contentItem.width
+                    duration: 1000
+                    easing.type: Easing.InOutQuad
+                }
+
+                XAnimator {
+                    target: thumb
+                    from: contentItem.width
+                    to: -thumb.width
+                    duration: 1000
+                    easing.type: Easing.InOutQuad
+                }
+            }
+        }
     }
 
     background: Rectangle {
