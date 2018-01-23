@@ -50,12 +50,12 @@ T.Dialog {
     background: Rectangle {
         color: control.Suru.backgroundColor
         radius: 4
-        border.width: 1
-        border.color: control.Suru.neutralColor
+       // border.width: 1
+      //  border.color: control.Suru.neutralColor
 
         layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: 3
         }
     }
 

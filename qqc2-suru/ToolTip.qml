@@ -71,10 +71,9 @@ T.ToolTip {
         radius: 4
         opacity: 0.85    // Match opacity of overlayColor
 
-        // TODO: Use our own implementation of DropShadow
         layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: 3
         }
     }
 }

@@ -84,10 +84,9 @@ Item {
         border.width: 1
         border.color: control.Suru.secondaryBackgroundColor
 
-        // TODO: Use our own implementation of DropShadow
-        layer.enabled: !control.down
+        layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: control.enabled ? 2 : 1
         }
 
         x: Math.max(0, Math.min(parent.width - width,

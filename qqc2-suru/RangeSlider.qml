@@ -45,16 +45,16 @@ T.RangeSlider {
         x: control.leftPadding + (horizontal ? control.first.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.first.visualPosition * (control.availableHeight - height))
 
-        border.width: activeFocus ? 2 : (first.pressed ? 1 : 0)
-        border.color: activeFocus ? control.Suru.accentColor : control.Suru.neutralColor
+        border.width: activeFocus ? 2 : 0   //(first.pressed ? 1 : 0)
+        border.color: /*activeFocus ?*/ control.Suru.accentColor /*: control.Suru.neutralColor*/
         radius: 4
         color: first.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
                : first.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
 
-        layer.enabled: !first.pressed
+        layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: !first.pressed ? 2 : 3
         }
     }
 
@@ -67,16 +67,16 @@ T.RangeSlider {
         x: control.leftPadding + (horizontal ? control.second.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.second.visualPosition * (control.availableHeight - height))
 
-        border.width: activeFocus ? 2 : (second.pressed ? 1 : 0)
-        border.color: activeFocus ? control.Suru.accentColor : control.Suru.neutralColor
+        border.width: activeFocus ? 2 : 0       //(second.pressed ? 1 : 0)
+        border.color: /*activeFocus ?*/ control.Suru.accentColor /*: control.Suru.neutralColor*/
         radius: 4
         color: second.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
                : second.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
 
-        layer.enabled: !second.pressed
+        layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: !second.pressed ? 2 : 3
         }
     }
 

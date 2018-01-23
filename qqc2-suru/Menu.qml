@@ -34,7 +34,7 @@ T.Menu {
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              contentItem ? contentItem.implicitHeight : 0) + topPadding + bottomPadding
 
-    margins: 0
+    margins: 8
 
     topPadding: 4
     bottomPadding: 4
@@ -74,13 +74,12 @@ T.Menu {
         radius: 4
         color: control.Suru.backgroundColor
 
-        border.color: control.Suru.neutralColor
-        border.width: 1
+     //   border.color: control.Suru.neutralColor
+     //   border.width: 1
 
-        // TODO: Use our own implementation of DropShadow
         layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 1
+            elevation: 3
         }
     }
 }

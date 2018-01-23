@@ -58,8 +58,7 @@ T.Drawer {
 
         layer.enabled: control.position > 0
         layer.effect: ElevationEffect {
-            elevation: !interactive && !dim ? 0 : 16
-            fullHeight: true
+            elevation: !interactive && !dim ? 0 : 3
         }
     }
 }
