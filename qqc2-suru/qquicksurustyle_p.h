@@ -61,13 +61,6 @@ class QQuickSuruStyle : public QQuickStyleAttached
     Q_PROPERTY(QColor secondaryBackgroundColor READ secondaryBackgroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY paletteChanged FINAL)
 
-
-    // TODO: QQuickSuruUnits
-    // Q_PROPERTY(QQuickSuruUnits* units READ units CONSTANT)
-
-    // TODO: QQuickSuruAnimation
-    // Q_PROPERTY(QQuickSuruAnimation* animation READ animation CONSTANT)
-
 public:
     enum Theme { Light, Dark, System };
     Q_ENUM(Theme)
@@ -190,9 +183,6 @@ public:
     QColor secondaryBackgroundColor() const;
     QColor backgroundColor() const;
 
-    // QQuickSuruUnits* units() const { return m_units; }
-    //QQuickSuruAnimation* animation() const { return m_animation; }
-
     Q_INVOKABLE QColor color(Color color) const;
 
 Q_SIGNALS:
@@ -311,9 +301,6 @@ private:
     QRgb m_darkMid;
     QRgb m_darkMidLow;
     QRgb m_darkLow;
-
-    //QQuickSuruUnits* m_units;
-    //QQuickSuruAnimation* m_animation;
 };
 
 QML_DECLARE_TYPEINFO(QQuickSuruStyle, QML_HAS_ATTACHED_PROPERTIES)
