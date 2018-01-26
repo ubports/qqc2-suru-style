@@ -45,7 +45,7 @@ T.TextArea {
     opacity: control.enabled ? 1.0 : 0.5
 
     color: control.Suru.foregroundColor
-    selectionColor: control.Suru.accentColor
+    selectionColor: control.Suru.highlightColor
     selectedTextColor: "white"
     verticalAlignment: TextInput.AlignVCenter
 
@@ -74,7 +74,7 @@ T.TextArea {
         radius: 4
         border.width: 1
         border.color: control.activeFocus
-                      ? control.Suru.accentColor
+                      ? control.Suru.activeFocusColor
                       : control.Suru.neutralColor
 
         color: control.hovered && !control.activeFocus ? control.Suru.secondaryBackgroundColor

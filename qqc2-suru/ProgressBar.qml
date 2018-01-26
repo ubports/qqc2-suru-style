@@ -43,7 +43,7 @@ T.ProgressBar {
             id: thumb
             implicitWidth: (control.indeterminate ? 0.25 : control.position) * contentItem.width
             implicitHeight: 3
-            color: control.Suru.accentColor
+            color: control.Suru.highlightColor
 
             SequentialAnimation {
                 running: control.indeterminate

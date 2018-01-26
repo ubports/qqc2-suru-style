@@ -59,7 +59,7 @@ T.TabBar {
                 height: 3
                 width: parent.width
                 y: control.position === T.TabBar.Footer ? 0 : parent.height - height
-                color: control.Suru.accentColor
+                color: control.Suru.highlightColor
             }
         }
     }

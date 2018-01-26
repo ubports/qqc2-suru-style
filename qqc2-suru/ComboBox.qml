@@ -88,7 +88,7 @@ T.ComboBox {
         border.width: control.flat ? 0 : 1
 
         border.color: control.pressed || popup.visible || control.visualFocus
-                      ? control.Suru.accentColor
+                      ? control.Suru.highlightColor
                       : control.Suru.neutralColor
 
         color: control.pressed || popup.visible
@@ -107,7 +107,6 @@ T.ComboBox {
         padding: 1
 
         Suru.theme: control.Suru.theme
-        Suru.accent: control.Suru.accent
 
         contentItem: ListView {
             clip: true

@@ -53,7 +53,7 @@ T.SpinBox {
         text: control.textFromValue(control.value, control.locale)
 
         font: control.font
-        selectionColor: control.Suru.accentColor
+        selectionColor: control.Suru.highlightColor
         selectedTextColor: "white"
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: TextInput.AlignVCenter
@@ -72,7 +72,7 @@ T.SpinBox {
             x: 2; y: 4
             width: parent.width - 4
             height: parent.height - 8
-            color: control.activeFocus ? control.Suru.accentColor :
+            color: control.activeFocus ? control.Suru.activeFocusColor :
                    control.up.pressed ? Qt.darker(control.Suru.backgroundColor, 1.2) :
                    control.up.hovered ? Qt.darker(control.Suru.backgroundColor, 1.1) : control.Suru.backgroundColor
             visible: control.up.pressed || control.up.hovered
@@ -98,7 +98,7 @@ T.SpinBox {
             x: 2; y: 4
             width: parent.width - 4
             height: parent.height - 8
-            color: control.activeFocus ? control.Suru.accentColor :
+            color: control.activeFocus ? control.Suru.activeFocusColor :
                    control.down.pressed ? Qt.darker(control.Suru.backgroundColor, 1.2) :
                    control.down.hovered ? Qt.darker(control.Suru.backgroundColor, 1.1) : control.Suru.backgroundColor
             visible: control.down.pressed || control.down.hovered
@@ -123,7 +123,7 @@ T.SpinBox {
         border.width: 1
 
         border.color: control.activeFocus
-                      ? control.Suru.accentColor
+                      ? control.Suru.highlightColor
                       : control.Suru.neutralColor
 
         color: control.hovered && !control.up.hovered && !control.down.hovered

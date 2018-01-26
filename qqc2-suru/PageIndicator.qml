@@ -43,12 +43,12 @@ T.PageIndicator {
         radius: width / 2
 
         color: index == control.currentIndex
-               ? control.Suru.accentColor
+               ? control.Suru.highlightColor
                : pressed ? control.Suru.neutralColor : "transparent"
 
         border {
             width: index == control.currentIndex ? 0 : 1
-            color: index == control.currentIndex ? control.Suru.accentColor : control.Suru.neutralColor
+            color: index == control.currentIndex ? control.Suru.highlightColor : control.Suru.neutralColor
         }
 
         Behavior on color {

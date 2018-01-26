@@ -30,5 +30,5 @@ T.Label {
 
     opacity: enabled ? 1.0 : 0.5
     color: control.Suru.foregroundColor
-    linkColor: control.Suru.accentColor
+    linkColor: control.Suru.highlightColor
 }

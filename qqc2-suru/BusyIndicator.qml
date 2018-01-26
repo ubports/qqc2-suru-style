@@ -35,7 +35,7 @@ T.BusyIndicator {
         width: 96
         height: 96
 
-        source: "image://suru/spinner/" + control.Suru.accentColor
+        source: "image://suru/spinner/" + control.Suru.highlightColor
         opacity: enabled ? 1.0 : 0.3
 
         RotationAnimator on rotation {

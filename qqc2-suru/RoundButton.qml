@@ -49,7 +49,7 @@ T.RoundButton {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
-        color: control.flat && control.highlighted ? control.Suru.accentColor
+        color: control.flat && control.highlighted ? control.Suru.highlightColor
                                                    : !control.flat && control.highlighted ? control.Suru.backgroundColor : control.Suru.foregroundColor
 
     }
@@ -59,7 +59,7 @@ T.RoundButton {
         implicitHeight: 48
         radius: control.radius
 
-        property color __normalColor: (control.highlighted || control.checked) && !control.flat ? control.Suru.accentColor : control.Suru.backgroundColor
+        property color __normalColor: (control.highlighted || control.checked) && !control.flat ? control.Suru.highlightColor : control.Suru.backgroundColor
 
         color: control.down ? Qt.darker(__normalColor, 1.2)
                             : control.hovered ? Qt.darker(__normalColor, 1.1) : __normalColor

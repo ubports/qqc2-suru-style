@@ -27,7 +27,7 @@ import QtQuick.Controls.Suru 2.2
 Rectangle {
     id: cursor
 
-    color: parent.Suru.accentColor
+    color: parent.Suru.highlightColor
     width: 2
     visible: parent.activeFocus && !parent.readOnly && parent.selectionStart === parent.selectionEnd
 

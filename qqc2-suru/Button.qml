@@ -50,7 +50,7 @@ T.Button {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
-        color: control.flat && control.highlighted ? control.Suru.accentColor
+        color: control.flat && control.highlighted ? control.Suru.highlightColor
                                                    : !control.flat && control.highlighted ? control.Suru.backgroundColor : control.Suru.foregroundColor
 
         Behavior on color {
@@ -62,7 +62,7 @@ T.Button {
         implicitWidth: 64
         implicitHeight: 32
 
-        property color __normalColor: (control.highlighted || control.checked) && !control.flat ? control.Suru.accentColor
+        property color __normalColor: (control.highlighted || control.checked) && !control.flat ? control.Suru.highlightColor
                                                                                                 : control.flat ? control.Suru.backgroundColor : control.Suru.secondaryBackgroundColor
 
         color: control.down ? Qt.darker(__normalColor, 1.2)

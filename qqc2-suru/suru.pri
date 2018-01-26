@@ -57,4 +57,3 @@ HEADERS += \
 SOURCES += \
     $$PWD/qquicksurustyle.cpp \
     $$PWD/qquicksurutheme.cpp
-    

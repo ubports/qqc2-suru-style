@@ -46,7 +46,7 @@ T.RangeSlider {
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.first.visualPosition * (control.availableHeight - height))
 
         border.width: activeFocus ? 2 : 0   //(first.pressed ? 1 : 0)
-        border.color: /*activeFocus ?*/ control.Suru.accentColor /*: control.Suru.neutralColor*/
+        border.color: /*activeFocus ?*/ control.Suru.activeFocusColor /*: control.Suru.neutralColor*/
         radius: 4
         color: first.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
@@ -68,7 +68,7 @@ T.RangeSlider {
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.second.visualPosition * (control.availableHeight - height))
 
         border.width: activeFocus ? 2 : 0       //(second.pressed ? 1 : 0)
-        border.color: /*activeFocus ?*/ control.Suru.accentColor /*: control.Suru.neutralColor*/
+        border.color: /*activeFocus ?*/ control.Suru.activeFocusColor /*: control.Suru.neutralColor*/
         radius: 4
         color: second.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
@@ -108,7 +108,7 @@ T.RangeSlider {
             width: parent.horizontal ? control.second.position * parent.width - control.first.position * parent.width : 2
             height: !parent.horizontal ? control.second.position * parent.height - control.first.position * parent.height : 2
 
-            color: control.Suru.accentColor
+            color: control.Suru.highlightColor
         }
     }
 }

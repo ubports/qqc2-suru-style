@@ -27,34 +27,51 @@
 #include <QtGui/qcolor.h>
 #include <QtQuickControls2/private/qquickstyleattached_p.h>
 
+#define SURU_PALETTE_COLOR(name, theme, palettecolor) \
+    Q_PROPERTY(QVariant name READ name WRITE set##name RESET reset##name NOTIFY paletteChanged FINAL) \
+    public: \
+        QVariant name() const { return m_colors[ theme ][ palettecolor ]; } \
+        void set##name(const QVariant &value) { setPaletteColor(value, theme, palettecolor ); } \
+        void reset##name() { resetPaletteColor( theme, palettecolor ); } \
+    private:
+
+
 class QQuickSuruStyle : public QQuickStyleAttached
 {
     Q_OBJECT
+
+    // Light or dark theme
     Q_PROPERTY(Theme theme READ theme WRITE setTheme RESET resetTheme NOTIFY themeChanged FINAL)
 
-    Q_PROPERTY(QVariant accent READ accent WRITE setAccent RESET resetAccent NOTIFY accentChanged FINAL)
-    Q_PROPERTY(QVariant positive READ positive WRITE setPositive RESET resetPositive NOTIFY positiveChanged FINAL)
-    Q_PROPERTY(QVariant negative READ negative WRITE setNegative RESET resetNegative NOTIFY negativeChanged FINAL)
-    Q_PROPERTY(QVariant warning READ warning WRITE setWarning RESET resetWarning NOTIFY warningChanged FINAL)
-    Q_PROPERTY(QVariant information READ information WRITE setInformation RESET resetInformation NOTIFY informationChanged FINAL)
+    SURU_PALETTE_COLOR(lightPositive, Light, Positive)
+    SURU_PALETTE_COLOR(lightNegative, Light, Negative)
+    SURU_PALETTE_COLOR(lightWarning, Light, Warning)
+    SURU_PALETTE_COLOR(lightInformation, Light, Information)
+    SURU_PALETTE_COLOR(lightHigh, Light, High)
+    SURU_PALETTE_COLOR(lightMidHigh, Light, MidHigh)
+    SURU_PALETTE_COLOR(lightMid, Light, Mid)
+    SURU_PALETTE_COLOR(lightMidLow, Light, MidLow)
+    SURU_PALETTE_COLOR(lightLow, Light, Low)
 
-    Q_PROPERTY(QVariant lightHigh READ lightHigh WRITE setLightHigh RESET resetLightHigh NOTIFY lightHighChanged FINAL)
-    Q_PROPERTY(QVariant lightMidHigh READ lightMidHigh WRITE setLightMidHigh RESET resetLightMidHigh NOTIFY lightMidHighChanged FINAL)
-    Q_PROPERTY(QVariant lightMid READ lightMid WRITE setLightMid RESET resetLightMid NOTIFY lightMidChanged FINAL)
-    Q_PROPERTY(QVariant lightMidLow READ lightMidLow WRITE setLightMidLow RESET resetLightMidLow NOTIFY lightMidLowChanged FINAL)
-    Q_PROPERTY(QVariant lightLow READ lightLow WRITE setLightLow RESET resetLightLow NOTIFY lightLowChanged FINAL)
+    SURU_PALETTE_COLOR(darkPositive, Dark, Positive)
+    SURU_PALETTE_COLOR(darkNegative, Dark, Negative)
+    SURU_PALETTE_COLOR(darkWarning, Dark, Warning)
+    SURU_PALETTE_COLOR(darkInformation, Dark, Information)
+    SURU_PALETTE_COLOR(darkHigh, Dark, High)
+    SURU_PALETTE_COLOR(darkMidHigh, Dark, MidHigh)
+    SURU_PALETTE_COLOR(darkMid, Dark, Mid)
+    SURU_PALETTE_COLOR(darkMidLow, Dark, MidLow)
+    SURU_PALETTE_COLOR(darkLow, Dark, Low)
 
-    Q_PROPERTY(QVariant darkHigh READ darkHigh WRITE setDarkHigh RESET resetDarkHigh NOTIFY darkHighChanged FINAL)
-    Q_PROPERTY(QVariant darkMidHigh READ darkMidHigh WRITE setDarkMidHigh RESET resetDarkMidHigh NOTIFY darkMidHighChanged FINAL)
-    Q_PROPERTY(QVariant darkMid READ darkMid WRITE setDarkMid  RESET resetDarkMid NOTIFY darkMidChanged FINAL)
-    Q_PROPERTY(QVariant darkMidLow READ darkMidLow WRITE setDarkMidLow RESET resetDarkMidLow NOTIFY darkMidLowChanged FINAL)
-    Q_PROPERTY(QVariant darkLow READ darkLow WRITE setDarkLow RESET resetDarkLow NOTIFY darkLowChanged FINAL)
+    // Can be used where 'highlighted' property is provided. It's not propagated to children.
+    // When set, 'highlightColor' property returns {positive|negative|warning|information} color, as defined in Suru palettes.
+    // Default is Highlight. If unset, it's InformationHighlight as well
+    Q_PROPERTY(HighlightType highlightType READ highlightType WRITE setHighlightType RESET resetHighlightType NOTIFY highlightTypeChanged FINAL)
 
-    Q_PROPERTY(QColor accentColor READ accentColor NOTIFY paletteChanged FINAL)
-    Q_PROPERTY(QColor positiveColor READ positiveColor NOTIFY paletteChanged FINAL)
-    Q_PROPERTY(QColor negativeColor READ negativeColor NOTIFY paletteChanged FINAL)
-    Q_PROPERTY(QColor warningColor READ warningColor NOTIFY paletteChanged FINAL)
-    Q_PROPERTY(QColor informationColor READ informationColor NOTIFY paletteChanged FINAL)
+    // Colors as result from 'theme' + '{dark|light}Palette' properties
+    Q_PROPERTY(QColor highlightColor READ highlightColor NOTIFY paletteChanged FINAL)
+    Q_PROPERTY(QColor activeFocusColor READ activeFocusColor NOTIFY paletteChanged FINAL)
+    Q_PROPERTY(QColor overlayColor READ overlayColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor foregroundColor READ foregroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor secondaryForegroundColor READ secondaryForegroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor neutralColor READ neutralColor NOTIFY paletteChanged FINAL)
@@ -62,15 +79,33 @@ class QQuickSuruStyle : public QQuickStyleAttached
     Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY paletteChanged FINAL)
 
 public:
-    enum Theme { Light, Dark, System };
+    enum Theme {
+        Light, Dark, System
+    };
     Q_ENUM(Theme)
 
+    enum HighlightType {
+        PositiveHighlight,
+        NegativeHighlight,
+        WarningHighlight,
+        InformationHighlight
+    };
+    Q_ENUM(HighlightType)
+
     enum Color {
-        White, Porcelain, Silk, Ash,
-        Jet, Inkstone, Slate, Graphite,
-        Blue, Green, Yellow, Orange, Red, Purple
+        Black, Jet, Inkstone, Graphite,
+        Ash, Silk, Porcelain, White,
+        Blue, Green, Red, Yellow,
+        Orange, Purple,
+        LightBlue, LightGreen, LightYellow, LightRed
     };
     Q_ENUM(Color)
+
+    enum PaletteColor {
+        Positive, Negative, Warning, Information,
+        High, MidHigh, Mid, MidLow, Low
+    };
+    Q_ENUM(PaletteColor)
 
     explicit QQuickSuruStyle(QObject *parent = nullptr);
 
@@ -82,130 +117,24 @@ public:
     void propagateTheme();
     void resetTheme();
 
-    QVariant accent() const;
-    void setAccent(const QVariant &accent);
-    void inheritAccent(QRgb accent, bool custom);
-    void propagateAccent();
-    void resetAccent();
+    HighlightType highlightType() const;
+    void setHighlightType(HighlightType type);
+    void resetHighlightType();
 
-    QVariant positive() const;
-    void setPositive(const QVariant &positive);
-    void inheritPositive(QRgb positive, bool custom);
-    void propagatePositive();
-    void resetPositive();
-
-    QVariant negative() const;
-    void setNegative(const QVariant &negative);
-    void inheritNegative(QRgb negative, bool custom);
-    void propagateNegative();
-    void resetNegative();
-
-    QVariant warning() const;
-    void setWarning(const QVariant &warning);
-    void inheritWarning(QRgb warning, bool custom);
-    void propagateWarning();
-    void resetWarning();
-
-    QVariant information() const;
-    void setInformation(const QVariant &information);
-    void inheritInformation(QRgb information, bool custom);
-    void propagateInformation();
-    void resetInformation();
-
-    QVariant lightHigh() const;
-    void setLightHigh(const QVariant &lightHigh);
-    void inheritLightHigh(QRgb lightHigh, bool custom);
-    void propagateLightHigh();
-    void resetLightHigh();
-
-    QVariant lightMidHigh() const;
-    void setLightMidHigh(const QVariant &lightMidHigh);
-    void inheritLightMidHigh(QRgb lightMidHigh, bool custom);
-    void propagateLightMidHigh();
-    void resetLightMidHigh();
-
-    QVariant lightMid() const;
-    void setLightMid(const QVariant &lightMid);
-    void inheritLightMid(QRgb lightMid, bool custom);
-    void propagateLightMid();
-    void resetLightMid();
-
-    QVariant lightMidLow() const;
-    void setLightMidLow(const QVariant &lightMidLow);
-    void inheritLightMidLow(QRgb lightMidLow, bool custom);
-    void propagateLightMidLow();
-    void resetLightMidLow();
-
-    QVariant lightLow() const;
-    void setLightLow(const QVariant &lightLow);
-    void inheritLightLow(QRgb lightLow, bool custom);
-    void propagateLightLow();
-    void resetLightLow();
-
-    QVariant darkHigh() const;
-    void setDarkHigh(const QVariant &darkHigh);
-    void inheritDarkHigh(QRgb darkHigh, bool custom);
-    void propagateDarkHigh();
-    void resetDarkHigh();
-
-    QVariant darkMidHigh() const;
-    void setDarkMidHigh(const QVariant &darkMidHigh);
-    void inheritDarkMidHigh(QRgb darkMidHigh, bool custom);
-    void propagateDarkMidHigh();
-    void resetDarkMidHigh();
-
-    QVariant darkMid() const;
-    void setDarkMid(const QVariant &darkMid);
-    void inheritDarkMid(QRgb darkMid, bool custom);
-    void propagateDarkMid();
-    void resetDarkMid();
-
-    QVariant darkMidLow() const;
-    void setDarkMidLow(const QVariant &darkMidLow);
-    void inheritDarkMidLow(QRgb darkMidLow, bool custom);
-    void propagateDarkMidLow();
-    void resetDarkMidLow();
-
-    QVariant darkLow() const;
-    void setDarkLow(const QVariant &darkLow);
-    void inheritDarkLow(QRgb darkLow, bool custom);
-    void propagateDarkLow();
-    void resetDarkLow();
-
-    QColor accentColor() const;
-    QColor positiveColor() const;
-    QColor negativeColor() const;
-    QColor warningColor() const;
-    QColor informationColor() const;
+    QColor highlightColor() const;
+    QColor activeFocusColor() const;
+    QColor overlayColor() const;
     QColor foregroundColor() const;
     QColor secondaryForegroundColor() const;
     QColor neutralColor() const;
     QColor secondaryBackgroundColor() const;
     QColor backgroundColor() const;
 
-    Q_INVOKABLE QColor color(Color color) const;
+    Q_INVOKABLE QColor color(Color color, qreal opacity = 1.0) const;
 
 Q_SIGNALS:
     void themeChanged();
-
-    void accentChanged();
-    void positiveChanged();
-    void negativeChanged();
-    void warningChanged();
-    void informationChanged();
-
-    void lightHighChanged();
-    void lightMidHighChanged();
-    void lightMidChanged();
-    void lightMidLowChanged();
-    void lightLowChanged();
-
-    void darkHighChanged();
-    void darkMidHighChanged();
-    void darkMidChanged();
-    void darkMidLowChanged();
-    void darkLowChanged();
-
+    void highlightTypeChanged();
     void paletteChanged();
 
 protected:
@@ -213,94 +142,20 @@ protected:
 
 private:
     void init();
-    bool variantToRgba(const QVariant &var, const char *name, QRgb *rgba, bool *custom) const;
-    void solveSuruColor(bool &globalCustom, bool &localCustom, QRgb &globalColor, QRgb &localColor, const QByteArray &env, QSharedPointer<QSettings> settings, const QString &name) const;
 
+    void initPaletteColor(const Theme &theme, const PaletteColor &paletteColor, const QByteArray &env, QSharedPointer<QSettings> settings);
+    bool setPaletteColor(const QVariant &value, const Theme &theme, const PaletteColor &paletteColor);
+    void inheritPaletteColor(const Theme &theme, const PaletteColor &paletteColor, QRgb value, bool custom);
+    void propagatePaletteColor(const Theme &theme, const PaletteColor &paletteColor);
+    void resetPaletteColor(const Theme &theme, const PaletteColor &paletteColor);
 
-    // These reflect whether a color value was explicitly set on the specific
-    // item that this attached style object represents.
     bool m_explicitTheme;
-    bool m_explicitAccent;
-    bool m_explicitPositive;
-    bool m_explicitNegative;
-    bool m_explicitWarning;
-    bool m_explicitInformation;
-
-    bool m_explicitLightHigh;
-    bool m_explicitLightMidHigh;
-    bool m_explicitLightMid;
-    bool m_explicitLightMidLow;
-    bool m_explicitLightLow;
-
-    bool m_explicitDarkHigh;
-    bool m_explicitDarkMidHigh;
-    bool m_explicitDarkMid;
-    bool m_explicitDarkMidLow;
-    bool m_explicitDarkLow;
-
-    // These reflect whether the color value that was either inherited or
-    // explicitly set is in the form that QColor expects, rather than one of
-    // our pre-defined color enum values.
-    bool m_customAccent;
-    bool m_customPositive;
-    bool m_customNegative;
-    bool m_customWarning;
-    bool m_customInformation;
-
-    bool m_customLightHigh;
-    bool m_customLightMidHigh;
-    bool m_customLightMid;
-    bool m_customLightMidLow;
-    bool m_customLightLow;
-
-    bool m_customDarkHigh;
-    bool m_customDarkMidHigh;
-    bool m_customDarkMid;
-    bool m_customDarkMidLow;
-    bool m_customDarkLow;
-
-    // These will be true when this item has an explicit or inherited foreground/background
-    // color, or these colors were declared globally via settings (e.g. conf or env vars).
-    // Some color properties of the style will return different values depending on whether
-    // or not these are set.
-    bool m_hasAccent;
-    bool m_hasPositive;
-    bool m_hasNegative;
-    bool m_hasWarning;
-    bool m_hasInformation;
-
-    bool m_hasLightHigh;
-    bool m_hasLightMidHigh;
-    bool m_hasLightMid;
-    bool m_hasLightMidLow;
-    bool m_hasLightLow;
-
-    bool m_hasDarkHigh;
-    bool m_hasDarkMidHigh;
-    bool m_hasDarkMid;
-    bool m_hasDarkMidLow;
-    bool m_hasDarkLow;
-
-    // The actual values for this item, whether explicit, inherited or globally set.
     QQuickSuruStyle::Theme m_theme;
+    HighlightType m_highlightType;
 
-    QRgb m_accent;
-    QRgb m_positive;
-    QRgb m_negative;
-    QRgb m_warning;
-    QRgb m_information;
-
-    QRgb m_lightHigh;
-    QRgb m_lightMidHigh;
-    QRgb m_lightMid;
-    QRgb m_lightMidLow;
-    QRgb m_lightLow;
-
-    QRgb m_darkHigh;
-    QRgb m_darkMidHigh;
-    QRgb m_darkMid;
-    QRgb m_darkMidLow;
-    QRgb m_darkLow;
+    bool m_explicits[2][9];
+    bool m_customs[2][9];
+    QRgb m_colors[2][9];
 };
 
 QML_DECLARE_TYPEINFO(QQuickSuruStyle, QML_HAS_ATTACHED_PROPERTIES)

@@ -31,12 +31,12 @@ T.ApplicationWindow {
     color: window.Suru.backgroundColor
 
     overlay.modal: Rectangle {
-        color: Qt.rgba(window.Suru.foregroundColor.r, window.Suru.foregroundColor.g, window.Suru.foregroundColor.b, 0.85)
+        color: window.Suru.overlayColor
         Behavior on opacity { NumberAnimation { duration: 150 } }
     }
 
     overlay.modeless: Rectangle {
-        color: Qt.rgba(window.Suru.foregroundColor.r, window.Suru.foregroundColor.g, window.Suru.foregroundColor.b, 0.85)
+        color: window.Suru.overlayColor
         Behavior on opacity { NumberAnimation { duration: 150 } }
     }
 
@@ -50,7 +50,7 @@ T.ApplicationWindow {
         color: "transparent"
         border {
             width: 2
-            color: window.Suru.accentColor
+            color: window.Suru.activeFocusColor
         }
     }
 }

@@ -89,7 +89,7 @@ T.Slider {
             width: parent.horizontal ? control.position * parent.width : 2
             height: !parent.horizontal ? control.position * parent.height : 2
 
-            color: control.Suru.accentColor
+            color: control.Suru.highlightColor
         }
     }
 }

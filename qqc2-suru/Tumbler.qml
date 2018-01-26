@@ -69,14 +69,14 @@ T.Tumbler {
 
         Rectangle {
             anchors { left: parent.left; right: parent.right }
-            color: control.activeFocus ? control.Suru.accentColor : control.Suru.neutralColor
+            color: control.activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
             height: 1
         }
 
         Rectangle {
             anchors { left: parent.left; right: parent.right }
             anchors.bottom: parent.bottom
-            color: control.activeFocus ? control.Suru.accentColor : control.Suru.neutralColor
+            color: control.activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
             height: 1
         }
     }

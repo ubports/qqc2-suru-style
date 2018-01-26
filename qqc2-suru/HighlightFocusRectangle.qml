@@ -36,7 +36,7 @@ Item {
         opacity: control.highlighted ? 0.5 : 1.0
         color: {
             if (control.highlighted)
-                return control.Suru.accentColor
+                return control.Suru.highlightColor
 
             return control.down ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1) : control.Suru.secondaryBackgroundColor
         }
@@ -50,7 +50,7 @@ Item {
         color: "transparent"
         border {
             width: 2
-            color: control.Suru.accentColor
+            color: control.Suru.activeFocusColor
         }
     }
 }

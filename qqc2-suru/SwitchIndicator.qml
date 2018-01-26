@@ -35,11 +35,11 @@ Item {
         height: parent.height
 
         radius: 4
-        color: control.checked ? control.Suru.positiveColor : control.Suru.neutralColor
+        color: control.checked ? control.Suru.highlightColor : control.Suru.neutralColor
 
         border.width: 1
         border.color: control.checked
-                      ? Qt.darker(control.Suru.positiveColor, 1.1)
+                      ? Qt.darker(control.Suru.highlightColor, 1.1)
                       : Qt.darker(control.Suru.neutralColor, 1.1)
 
         Behavior on color {

@@ -33,8 +33,8 @@ Rectangle {
     radius: width / 2
     color: control.Suru.backgroundColor
     border.color: control.down
-        ? control.checked ? "transparent" : control.Suru.positiveColor
-        : control.checked ? control.Suru.positiveColor : control.Suru.neutralColor
+        ? control.checked ? "transparent" : control.Suru.highlightColor
+        : control.checked ? control.Suru.highlightColor : control.Suru.neutralColor
 
     border.width: 1
 
@@ -48,7 +48,7 @@ Rectangle {
         radius: parent.radius
         scale: control.checked ? 1.0 : 0.0
 
-        color: control.Suru.positiveColor
+        color: control.Suru.highlightColor
 
         Behavior on scale {
             NumberAnimation { duration: 75 }

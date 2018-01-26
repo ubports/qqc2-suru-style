@@ -46,7 +46,7 @@ T.ToolButton {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
-        color: (control.checked || control.highlighted) ? control.Suru.accentColor : control.Suru.foregroundColor
+        color: (control.checked || control.highlighted) ? control.Suru.highlightColor : control.Suru.foregroundColor
     }
 
     background: Rectangle {

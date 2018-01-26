@@ -57,16 +57,16 @@ T.Dial {
             gradient: control.position == 1.0 ? pos100Gradient : stdGradient
             Gradient {
                 id: stdGradient
-                GradientStop { position: 0.00; color: control.Suru.accentColor }
-                GradientStop { position: control.position * 280 / 360; color: control.Suru.accentColor }
+                GradientStop { position: 0.00; color: control.Suru.highlightColor }
+                GradientStop { position: control.position * 280 / 360; color: control.Suru.highlightColor }
                 GradientStop { position: control.position * 280 / 360 + 0.0000000000001; color: "transparent" }
                 GradientStop { position: 1.00 * 280 / 360; color: "transparent" }
             }
 
             Gradient {
                 id: pos100Gradient
-                GradientStop { position: 0.00; color: control.Suru.accentColor }
-                GradientStop { position: control.position * 280 / 360; color: control.Suru.accentColor }
+                GradientStop { position: 0.00; color: control.Suru.highlightColor }
+                GradientStop { position: control.position * 280 / 360; color: control.Suru.highlightColor }
                 GradientStop { position: control.position * 280 / 360 + 0.0000000000001; color: "transparent" }
                 GradientStop { position: 1.00; color: "transparent" }
             }
@@ -81,7 +81,7 @@ T.Dial {
         x: background.x + background.width / 2 - handle.width / 2
         y: background.y + background.height / 2 - handle.height / 2
 
-        color: control.pressed ? control.Suru.accentColor
+        color: control.pressed ? control.Suru.highlightColor
                                : Qt.darker(control.Suru.neutralColor, control.hovered ? 1.1 : 1.0)
 
         transform: [
@@ -100,7 +100,7 @@ T.Dial {
             radius: width * 0.5
             visible: control.visualFocus
             border.width: 2
-            border.color: control.Suru.accentColor
+            border.color: control.Suru.activeFocusColor
             color: "transparent"
         }
     }

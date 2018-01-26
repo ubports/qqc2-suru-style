@@ -68,7 +68,7 @@ T.DelayButton {
         implicitWidth: 64
         implicitHeight: 32
 
-        property color __normalColor: control.checked ? control.Suru.accentColor : control.Suru.secondaryBackgroundColor
+        property color __normalColor: control.checked ? control.Suru.highlightColor : control.Suru.secondaryBackgroundColor
 
         color: control.down ? Qt.darker(__normalColor, 1.2)
                             : control.hovered ? Qt.darker(__normalColor, 1.1) : __normalColor
@@ -87,7 +87,7 @@ T.DelayButton {
                 width: parent.width + (control.progress == 1.0 ? 0 : controlBg.radius)
                 height: parent.height + controlBg.radius
                 radius: controlBg.radius
-                color: control.Suru.accentColor
+                color: control.Suru.highlightColor
                 anchors.bottom: parent.bottom
             }
         }
