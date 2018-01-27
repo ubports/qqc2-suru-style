@@ -39,10 +39,7 @@ Item {
         border.width: 1
         radius: 4
 
-        scale: control.down ? 0.9 : 1.0
-        Behavior on scale {
-            NumberAnimation { duration: 75 }
-        }
+        scale: control.down ? 0.91 : 1.0
 
         Rectangle {
             anchors.fill: parent
@@ -52,16 +49,31 @@ Item {
             color: control.Suru.highlightColor
 
             Behavior on scale {
-                NumberAnimation { duration: 75 }
+                NumberAnimation {
+                    duration: control.Suru.animations.SnapDuration
+                    easing: control.down
+                            ? control.Suru.animations.EasingIn
+                            : control.Suru.animations.EasingOut
+                }
             }
         }
 
-        Behavior on color {
-            ColorAnimation { duration: 150 }
+        Behavior on scale {
+            NumberAnimation {
+                duration: control.Suru.animations.SnapDuration
+                easing: control.down
+                        ? control.Suru.animations.EasingIn
+                        : control.Suru.animations.EasingOut
+            }
         }
 
         Behavior on border.color {
-            ColorAnimation { duration: 150 }
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.down || control.checked
+                        ? control.Suru.animations.EasingIn
+                        : control.Suru.animations.EasingOut
+            }
         }
     }
 

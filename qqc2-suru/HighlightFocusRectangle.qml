@@ -40,6 +40,20 @@ Item {
 
             return control.down ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1) : control.Suru.secondaryBackgroundColor
         }
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
     }
 
     Rectangle {

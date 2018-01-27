@@ -66,15 +66,15 @@ T.ScrollBar {
         Transition {
             to: "active"
             ParallelAnimation {
-                NumberAnimation { targets: contentItem; property: "opacity"; to: 1.0 }
-                NumberAnimation { targets: background; property: "opacity"; to: .5 }
+                NumberAnimation { targets: contentItem; property: "opacity"; to: 1.0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingIn }
+                NumberAnimation { targets: background; property: "opacity"; to: .5; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingIn }
             }
         },
         Transition {
             from: "active"
             SequentialAnimation {
                 PauseAnimation { duration: 3000 }
-                NumberAnimation { targets: [contentItem, background]; property: "opacity"; to: 0.0 }
+                NumberAnimation { targets: [contentItem, background]; property: "opacity"; to: 0.0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingIn }
             }
         }
     ]

@@ -35,19 +35,8 @@ public:
     const QFont *font(Font type = SystemFont) const override;
 
 private:
-    QFont headingOne;
-    QFont headingTwo;
-    QFont headingThree;
-    QFont headingFour;
-    QFont headingFive;
-    QFont headingSix;
     QFont body;
     QFont small;
-    QFont strong;
-
-    QFont systemFont;
-    QFont groupBoxTitleFont;
-    QFont tabButtonFont;
 };
 
 #endif // QQUICKSURUTHEME_P_H

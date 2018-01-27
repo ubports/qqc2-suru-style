@@ -50,14 +50,6 @@ T.PageIndicator {
             width: index == control.currentIndex ? 0 : 1
             color: index == control.currentIndex ? control.Suru.highlightColor : control.Suru.neutralColor
         }
-
-        Behavior on color {
-            ColorAnimation { duration: 150 }
-        }
-
-        Behavior on border.color {
-            ColorAnimation { duration: 150 }
-        }
     }
 
     contentItem: Row {

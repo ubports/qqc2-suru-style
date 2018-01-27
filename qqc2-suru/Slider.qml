@@ -55,6 +55,14 @@ T.Slider {
                : control.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
         opacity: control.enabled ? 1.0 : 0.5
 
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration  
+                easing: control.Suru.animations.EasingIn
+            }
+        }
+
         layer.enabled: true
         layer.effect: ElevationEffect {
             elevation: !control.pressed ? 2 : 3

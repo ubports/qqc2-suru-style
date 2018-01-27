@@ -71,6 +71,13 @@ T.Tumbler {
             anchors { left: parent.left; right: parent.right }
             color: control.activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
             height: 1
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: control.Suru.animations.FastDuration
+                    easing: control.Suru.animations.EasingIn
+                }
+            }
         }
 
         Rectangle {
@@ -78,6 +85,13 @@ T.Tumbler {
             anchors.bottom: parent.bottom
             color: control.activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
             height: 1
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: control.Suru.animations.FastDuration
+                    easing: control.Suru.animations.EasingIn
+                }
+            }
         }
     }
 }

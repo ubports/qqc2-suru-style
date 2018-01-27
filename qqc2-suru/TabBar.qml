@@ -46,7 +46,7 @@ T.TabBar {
         flickableDirection: Flickable.AutoFlickIfNeeded
         snapMode: ListView.SnapToItem
 
-        highlightMoveDuration: 250
+        highlightMoveDuration: control.Suru.animations.BriskDuration
         highlightResizeDuration: 0
         highlightFollowsCurrentItem: true
         highlightRangeMode: ListView.ApplyRange

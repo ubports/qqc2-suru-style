@@ -54,7 +54,10 @@ T.Button {
                                                    : !control.flat && control.highlighted ? control.Suru.backgroundColor : control.Suru.foregroundColor
 
         Behavior on color {
-            ColorAnimation { duration: 100 }
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
         }
     }
 
@@ -77,7 +80,10 @@ T.Button {
         }
 
         Behavior on color {
-            ColorAnimation { duration: 100 }
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
         }
     }
 }

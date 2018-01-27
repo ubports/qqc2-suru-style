@@ -53,16 +53,16 @@ T.ProgressBar {
                     target: thumb
                     from: -thumb.width;
                     to: contentItem.width
-                    duration: 1000
-                    easing.type: Easing.InOutQuad
+                    duration: control.Suru.animations.SleepyDuration
+                    easing: control.Suru.animations.EasingInOut
                 }
 
                 XAnimator {
                     target: thumb
                     from: contentItem.width
                     to: -thumb.width
-                    duration: 1000
-                    easing.type: Easing.InOutQuad
+                    duration: control.Suru.animations.SleepyDuration
+                    easing: control.Suru.animations.EasingInOut
                 }
             }
         }

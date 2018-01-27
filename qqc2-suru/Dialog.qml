@@ -47,6 +47,17 @@ T.Dialog {
     topPadding: 16
     bottomPadding: 16
 
+    enter: Transition {
+        // grow_fade_in
+        NumberAnimation { property: "scale"; from: 0.91; to: 1.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.SnapDuration }
+        NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.SnapDuration }
+    }
+
+    exit: Transition {
+        // fade_out
+        NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.SnapDuration }
+    }
+
     background: Rectangle {
         color: control.Suru.backgroundColor
         radius: 4

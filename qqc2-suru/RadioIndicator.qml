@@ -37,11 +37,7 @@ Rectangle {
         : control.checked ? control.Suru.highlightColor : control.Suru.neutralColor
 
     border.width: 1
-
-    scale: control.down ? 0.9 : 1.0
-    Behavior on scale {
-        NumberAnimation { duration: 75 }
-    }
+    scale: control.down ? 0.91 : 1.0
 
     Rectangle {
         anchors.fill: parent
@@ -51,7 +47,10 @@ Rectangle {
         color: control.Suru.highlightColor
 
         Behavior on scale {
-            NumberAnimation { duration: 75 }
+            NumberAnimation {
+                duration: control.Suru.animations.SnapDuration
+                easing: control.Suru.animations.EasingIn
+            }
         }
 
         Rectangle {
@@ -63,16 +62,32 @@ Rectangle {
             opacity: visible ? 1.0 : 0.0
 
             Behavior on opacity {
-                NumberAnimation { duration: 150 }
+                NumberAnimation {
+                    duration: control.Suru.animations.FastDuration
+                    easing: control.Suru.animations.EasingIn
+                }
             }
         }
     }
 
+    Behavior on scale {
+        NumberAnimation {
+            duration: control.Suru.animations.SnapDuration
+            easing: control.Suru.animations.EasingIn
+        }
+    }
+
     Behavior on color {
-        ColorAnimation { duration: 150 }
+        ColorAnimation {
+            duration: control.Suru.animations.FastDuration
+            easing: control.Suru.animations.EasingIn
+        }
     }
 
     Behavior on border.color {
-        ColorAnimation { duration: 150 }
+        ColorAnimation {
+            duration: control.Suru.animations.FastDuration
+            easing: control.Suru.animations.EasingIn
+        }
     }
 }

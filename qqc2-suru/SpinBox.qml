@@ -77,6 +77,14 @@ T.SpinBox {
                    control.up.hovered ? Qt.darker(control.Suru.backgroundColor, 1.1) : control.Suru.backgroundColor
             visible: control.up.pressed || control.up.hovered
             opacity: control.activeFocus && !control.up.pressed ? 0.5 : 1.0
+
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: control.Suru.animations.FastDuration  
+                    easing: control.Suru.animations.EasingIn
+                }
+            }
         }
 
         Image {
@@ -103,6 +111,13 @@ T.SpinBox {
                    control.down.hovered ? Qt.darker(control.Suru.backgroundColor, 1.1) : control.Suru.backgroundColor
             visible: control.down.pressed || control.down.hovered
             opacity: control.activeFocus && !control.down.pressed ? 0.5 : 1.0
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: control.Suru.animations.FastDuration  
+                    easing: control.Suru.animations.EasingIn
+                }
+            }
         }
 
         Image {
@@ -129,5 +144,12 @@ T.SpinBox {
         color: control.hovered && !control.up.hovered && !control.down.hovered
                ? Qt.darker(control.Suru.backgroundColor, 1.1)
                : control.Suru.backgroundColor
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration  
+                easing: control.Suru.animations.EasingIn
+            }
+        }
     }
 }

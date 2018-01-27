@@ -41,18 +41,15 @@ T.Menu {
 
     transformOrigin: Item.Top
 
-    // TODO: Suru animations These are imported from Material.
     enter: Transition {
         // grow_fade_in
-        NumberAnimation { property: "scale"; from: 0.9; to: 1.0; easing.type: Easing.OutQuint; duration: 220 }
-        NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; easing.type: Easing.OutCubic; duration: 150 }
+        NumberAnimation { property: "scale"; from: 0.91; to: 1.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.FastDuration }
+        NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.FastDuration }
     }
 
-    // TODO: Suru animations. These are imported from Material.
     exit: Transition {
-        // shrink_fade_out
-        NumberAnimation { property: "scale"; from: 1.0; to: 0.9; easing.type: Easing.OutQuint; duration: 220 }
-        NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; easing.type: Easing.OutCubic; duration: 150 }
+        // fade_out
+        NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.FastDuration }
     }
 
     contentItem: ListView {

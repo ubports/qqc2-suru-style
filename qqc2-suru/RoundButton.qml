@@ -71,8 +71,9 @@ T.RoundButton {
             elevation: !control.down ? 2 : 3
         }
 
-        Behavior on color {
-            ColorAnimation { duration: 100 }
+        ColorAnimation {
+            duration: control.Suru.animations.FastDuration
+            easing: control.Suru.animations.EasingIn
         }
     }
 }

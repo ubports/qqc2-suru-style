@@ -41,8 +41,8 @@ T.Drawer {
     rightPadding: control.edge === Qt.LeftEdge
     bottomPadding: control.edge === Qt.TopEdge
 
-    enter: Transition { SmoothedAnimation { velocity: 5 } }
-    exit: Transition { SmoothedAnimation { velocity: 5 } }
+    enter: Transition { NumberAnimation { duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingInOut } }
+    exit: Transition { NumberAnimation { duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingInOut } }
 
     background: Rectangle {
         color: control.Suru.secondaryBackgroundColor

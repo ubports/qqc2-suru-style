@@ -52,8 +52,8 @@ T.ToolTip {
         NumberAnimation {
             property: "opacity"
             from: 0.0; to: 1.0
-            easing.type: Easing.OutQuad
-            duration: 150
+            easing: control.Suru.animations.EasingInOut
+            duration: control.Suru.animations.BriskDuration
         }
     }
 
@@ -61,8 +61,8 @@ T.ToolTip {
         NumberAnimation {
             property: "opacity"
             from: 1.0; to: 0.0
-            easing.type: Easing.InQuad
-            duration: 150
+            easing: control.Suru.animations.EasingInOut
+            duration: control.Suru.animations.BriskDuration
         }
     }
 

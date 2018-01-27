@@ -43,11 +43,17 @@ Item {
                       : Qt.darker(control.Suru.neutralColor, 1.1)
 
         Behavior on color {
-            ColorAnimation { duration: 75 }
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
         }
 
         Behavior on border.color {
-            ColorAnimation { duration: 75 }
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
         }
     }
 
@@ -68,7 +74,7 @@ Item {
             width: parent.width * 0.5
             height: parent.height
             text: "O"
-            color: Qt.darker(control.Suru.neutralColor, 1.2)
+            color: Qt.darker(control.Suru.neutralColor, 1.5)
             horizontalAlignment: Label.AlignHCenter
             verticalAlignment: Label.AlignVCenter
         }
@@ -95,7 +101,10 @@ Item {
 
         Behavior on x {
             enabled: !control.pressed
-            NumberAnimation { duration: 100 }
+            NumberAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingInOut
+            }
         }
     }
 }

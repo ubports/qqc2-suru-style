@@ -96,6 +96,13 @@ T.ComboBox {
                : control.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
 
         visible: !control.flat || control.pressed || control.hovered || control.visualFocus
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
     }
 
     popup: T.Popup {

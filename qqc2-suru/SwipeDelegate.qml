@@ -44,7 +44,7 @@ T.SwipeDelegate {
 
     opacity: control.enabled ? 1.0 : 0.5
 
-    swipe.transition: Transition { SmoothedAnimation { velocity: 3; easing.type: Easing.InOutCubic } }
+    swipe.transition: Transition { SmoothedAnimation { velocity: 3; easing: control.Suru.animations.EasingInOut } }
 
     contentItem: Text {
         leftPadding: !control.mirrored ? (control.indicator ? control.indicator.width + control.spacing : 0) : 0

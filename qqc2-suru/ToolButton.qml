@@ -47,6 +47,13 @@ T.ToolButton {
         verticalAlignment: Text.AlignVCenter
 
         color: (control.checked || control.highlighted) ? control.Suru.highlightColor : control.Suru.foregroundColor
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
     }
 
     background: Rectangle {
@@ -55,5 +62,12 @@ T.ToolButton {
 
         visible: control.down || control.hovered
         color: control.down ? Qt.darker(control.Suru.backgroundColor, 1.2) : Qt.darker(control.Suru.backgroundColor, 1.1)
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
     }
 }

@@ -53,13 +53,13 @@ T.ScrollIndicator {
         transitions: [
             Transition {
                 to: "active"
-                NumberAnimation { target: indicator; property: "opacity"; to: 1.0 }
+                NumberAnimation { target: indicator; property: "opacity"; to: 1.0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingIn }
             },
             Transition {
                 from: "active"
                 SequentialAnimation {
                     PauseAnimation { duration: 3000 }
-                    NumberAnimation { target: indicator; property: "opacity"; to: 0.0 }
+                    NumberAnimation { target: indicator; property: "opacity"; to: 0.0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingIn }
                 }
             }
         ]

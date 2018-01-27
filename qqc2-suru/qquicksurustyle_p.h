@@ -36,6 +36,8 @@
     private:
 
 
+class QQuickSuruAnimations;
+
 class QQuickSuruStyle : public QQuickStyleAttached
 {
     Q_OBJECT
@@ -77,6 +79,8 @@ class QQuickSuruStyle : public QQuickStyleAttached
     Q_PROPERTY(QColor neutralColor READ neutralColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor secondaryBackgroundColor READ secondaryBackgroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY paletteChanged FINAL)
+
+    Q_PROPERTY(QQuickSuruAnimations* animations READ animations CONSTANT)
 
 public:
     enum Theme {
@@ -132,6 +136,8 @@ public:
 
     Q_INVOKABLE QColor color(Color color, qreal opacity = 1.0) const;
 
+    QQuickSuruAnimations *animations() const { return m_animations; }
+
 Q_SIGNALS:
     void themeChanged();
     void highlightTypeChanged();
@@ -156,6 +162,8 @@ private:
     bool m_explicits[2][9];
     bool m_customs[2][9];
     QRgb m_colors[2][9];
+
+    QQuickSuruAnimations *m_animations;
 };
 
 QML_DECLARE_TYPEINFO(QQuickSuruStyle, QML_HAS_ATTACHED_PROPERTIES)

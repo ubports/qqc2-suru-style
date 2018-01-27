@@ -47,5 +47,12 @@ T.TabButton {
 
         opacity: control.checked || control.down || control.hovered ? 1.0 : 0.5
         color: control.Suru.foregroundColor
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: control.Suru.animations.FastDuration  
+                easing: control.Suru.animations.EasingIn
+            }
+        }
     }
 }

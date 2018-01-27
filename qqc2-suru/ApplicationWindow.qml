@@ -32,12 +32,12 @@ T.ApplicationWindow {
 
     overlay.modal: Rectangle {
         color: window.Suru.overlayColor
-        Behavior on opacity { NumberAnimation { duration: 150 } }
+        Behavior on opacity { NumberAnimation { duration: window.Suru.animations.FastDuration } }
     }
 
     overlay.modeless: Rectangle {
         color: window.Suru.overlayColor
-        Behavior on opacity { NumberAnimation { duration: 150 } }
+        Behavior on opacity { NumberAnimation { duration: window.Suru.animations.FastDuration } }
     }
 
     Rectangle {

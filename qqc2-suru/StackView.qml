@@ -32,34 +32,34 @@ T.StackView {
 
     popEnter: Transition {
         ParallelAnimation {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 165; easing.type: Easing.InQuint }
-            NumberAnimation { property: "x"; from: (control.mirrored ? -0.45 : 0.45) * -control.width; to: 0; duration: 165; easing.type: Easing.OutCubic }
+            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
+            NumberAnimation { property: "x"; from: (control.mirrored ? -0.62 : 0.62) * -control.width; to: 0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingOut }
         }
     }
 
     popExit: Transition {
-        NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 165; easing.type: Easing.OutQuint }
+        NumberAnimation { property: "opacity"; from: 1; to: 0; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingIn }
     }
 
     pushEnter: Transition {
         ParallelAnimation {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 165; easing.type: Easing.InQuint }
-            NumberAnimation { property: "x"; from: (control.mirrored ? -0.45 : 0.45) * control.width; to: 0; duration: 165; easing.type: Easing.OutCubic }
+            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
+            NumberAnimation { property: "x"; from: (control.mirrored ? -0.62 : 0.62) * control.width; to: 0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingOut }
         }
     }
 
     pushExit: Transition {
-        NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 165; easing.type: Easing.OutQuint }
+        NumberAnimation { property: "opacity"; from: 1; to: 0; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingIn }
     }
 
     replaceEnter: Transition {
         ParallelAnimation {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 165; easing.type: Easing.InQuint }
-            NumberAnimation { property: "x"; from: (control.mirrored ? -0.45 : 0.45) * control.width; to: 0; duration: 165; easing.type: Easing.OutCubic }
+            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
+            NumberAnimation { property: "x"; from: (control.mirrored ? -0.62 : 0.62) * control.width; to: 0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingOut }
         }
     }
 
     replaceExit: Transition {
-        NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 165; easing.type: Easing.OutQuint }
+        NumberAnimation { property: "opacity"; from: 1; to: 0; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingIn }
     }
 }

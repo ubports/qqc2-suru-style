@@ -29,55 +29,19 @@
 QQuickSuruTheme::QQuickSuruTheme(QPlatformTheme *theme)
     : QQuickProxyTheme(theme)
 {
-    headingOne.setPixelSize(48);
-    headingOne.setWeight(QFont::Light);
-
-    headingTwo.setPixelSize(36);
-    headingTwo.setWeight(QFont::Light);
-
-    headingThree.setPixelSize(28);
-    headingThree.setWeight(QFont::Light);
-
-    headingFour.setPixelSize(24);
-    headingFour.setWeight(QFont::Light);
-
-    headingFive.setPixelSize(20);
-    headingFive.setWeight(QFont::Light);
-
-    headingSix.setPixelSize(16);
-    headingSix.setWeight(QFont::Normal);
-
     body.setPixelSize(14);
     body.setWeight(QFont::Light);
 
     small.setPixelSize(12);
     small.setWeight(QFont::Light);
 
-    strong.setPixelSize(14);
-    strong.setWeight(QFont::Normal);
-
     const QFont font(QLatin1String("Ubuntu"));
     if (QFontInfo(font).family() == QLatin1String("Ubuntu")) {
         const QString family = font.family();
 
-        headingOne.setFamily(family);
-        headingTwo.setFamily(family);
-        headingThree.setFamily(family);
-        headingFour.setFamily(family);
-        headingFive.setFamily(family);
-        headingSix.setFamily(family);
         body.setFamily(family);
         small.setFamily(family);
-        strong.setFamily(family);
     }
-
-    if (QFontInfo(font).family() == QLatin1String("Ubuntu")) {
-        const QString family = font.family();
-        systemFont.setFamily(family);
-        groupBoxTitleFont.setFamily(family);
-        tabButtonFont.setFamily(family);
-    }
-
 }
 
 const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const

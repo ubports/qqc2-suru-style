@@ -81,7 +81,10 @@ T.TextArea {
                                                        : control.down ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1) : control.Suru.backgroundColor
 
         Behavior on color {
-            ColorAnimation { duration: 100 }
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration  
+                easing: control.Suru.animations.EasingIn
+            }
         }
     }
 }

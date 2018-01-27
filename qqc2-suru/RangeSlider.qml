@@ -52,6 +52,13 @@ T.RangeSlider {
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
                : first.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
 
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
+
         layer.enabled: true
         layer.effect: ElevationEffect {
             elevation: !first.pressed ? 2 : 3
@@ -73,6 +80,14 @@ T.RangeSlider {
         color: second.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
                : second.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
+
+
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
 
         layer.enabled: true
         layer.effect: ElevationEffect {

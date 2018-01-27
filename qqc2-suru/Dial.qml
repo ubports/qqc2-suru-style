@@ -84,6 +84,13 @@ T.Dial {
         color: control.pressed ? control.Suru.highlightColor
                                : Qt.darker(control.Suru.neutralColor, control.hovered ? 1.1 : 1.0)
 
+        Behavior on color {
+            ColorAnimation {
+                duration: control.Suru.animations.FastDuration
+                easing: control.Suru.animations.EasingIn
+            }
+        }
+
         transform: [
             Translate {
                 y: -Math.min(background.width, background.height) * 0.4 + handle.height / 2
