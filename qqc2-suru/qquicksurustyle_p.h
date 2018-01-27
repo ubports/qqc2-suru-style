@@ -30,7 +30,7 @@
 #define SURU_PALETTE_COLOR(name, theme, palettecolor) \
     Q_PROPERTY(QVariant name READ name WRITE set##name RESET reset##name NOTIFY paletteChanged FINAL) \
     public: \
-        QVariant name() const { return m_colors[ theme ][ palettecolor ]; } \
+        QVariant name() const { return QColor::fromRgba(m_colors[ theme ][ palettecolor ]); } \
         void set##name(const QVariant &value) { setPaletteColor(value, theme, palettecolor ); } \
         void reset##name() { resetPaletteColor( theme, palettecolor ); } \
     private:
