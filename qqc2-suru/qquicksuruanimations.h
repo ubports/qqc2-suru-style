@@ -40,6 +40,7 @@ class QQuickSuruAnimations : public QObject
     Q_PROPERTY(QEasingCurve EasingIn READ easingIn CONSTANT)
     Q_PROPERTY(QEasingCurve EasingOut READ easingOut CONSTANT)
     Q_PROPERTY(QEasingCurve EasingInOut READ easingInOut CONSTANT)
+    Q_PROPERTY(QEasingCurve EasingOutIn READ easingOutIn CONSTANT)
 
 public:
     explicit QQuickSuruAnimations(QObject *parent = 0);
