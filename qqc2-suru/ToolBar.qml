@@ -42,18 +42,13 @@ T.ToolBar {
         implicitHeight: control.Suru.units.gu(6)
         color: control.Suru.backgroundColor
 
-   /*     Rectangle {
+        Rectangle {
             anchors { left: parent.left; right: parent.right }
             anchors.top: control.position == T.ToolBar.Header ? parent.bottom : undefined
             anchors.bottom: control.position == T.ToolBar.Footer ? parent.top : undefined
-            height: 1
+            height: control.Suru.units.dp(1)
             color: control.Suru.neutralColor
             visible: control.position == T.ToolBar.Header || control.position == T.ToolBar.Footer
-        }*/
-
-        layer.enabled: true
-        layer.effect: ElevationEffect {
-            elevation: 2
         }
     }
 }
