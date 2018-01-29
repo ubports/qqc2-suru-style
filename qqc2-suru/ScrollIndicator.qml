@@ -36,8 +36,8 @@ T.ScrollIndicator {
     contentItem: Rectangle {
         id: indicator
 
-        implicitWidth: 3
-        implicitHeight: 3
+        implicitWidth: control.Suru.units.dp(3)
+        implicitHeight: control.Suru.units.dp(3)
 
         color: control.Suru.secondaryForegroundColor
         visible: control.size < 1.0

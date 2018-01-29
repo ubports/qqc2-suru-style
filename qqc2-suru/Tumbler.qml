@@ -30,8 +30,8 @@ import QtQuick.Controls.impl 2.2
 T.Tumbler {
     id: control
 
-    implicitWidth: 60
-    implicitHeight: 200
+    implicitWidth: control.Suru.units.gu(8)
+    implicitHeight: control.Suru.units.gu(24)
 
     opacity: control.enabled ? 1.0 : 0.5
 
@@ -70,7 +70,7 @@ T.Tumbler {
         Rectangle {
             anchors { left: parent.left; right: parent.right }
             color: control.activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
-            height: 1
+            height: control.Suru.units.dp(1)
 
             Behavior on color {
                 ColorAnimation {
@@ -84,7 +84,7 @@ T.Tumbler {
             anchors { left: parent.left; right: parent.right }
             anchors.bottom: parent.bottom
             color: control.activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
-            height: 1
+            height: control.Suru.units.dp(1)
 
             Behavior on color {
                 ColorAnimation {

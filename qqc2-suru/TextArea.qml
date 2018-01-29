@@ -37,10 +37,10 @@ T.TextArea {
                              background ? background.implicitHeight : 0,
                              placeholder.implicitHeight + topPadding + bottomPadding)
 
-    leftPadding: 12
-    rightPadding: 12
-    topPadding: 8
-    bottomPadding: 8
+    leftPadding: control.Suru.units.gu(1.5)
+    rightPadding: control.Suru.units.gu(1.5)
+    topPadding: control.Suru.units.gu(1)
+    bottomPadding: control.Suru.units.gu(1)
 
     opacity: control.enabled ? 1.0 : 0.5
 
@@ -68,11 +68,11 @@ T.TextArea {
     }
 
     background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 32
+        implicitWidth: control.Suru.units.gu(24)
+        implicitHeight: control.Suru.units.gu(4)
 
-        radius: 4
-        border.width: 1
+        radius: control.Suru.units.dp(4)
+        border.width: control.Suru.units.dp(1)
         border.color: control.activeFocus
                       ? control.Suru.activeFocusColor
                       : control.Suru.neutralColor

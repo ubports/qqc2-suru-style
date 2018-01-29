@@ -31,14 +31,14 @@ T.ToolSeparator {
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentItem.implicitHeight + topPadding + bottomPadding)
 
-    leftPadding: vertical ? 16 : 8
-    rightPadding: vertical ? 16 : 8
-    topPadding: vertical ? 8 : 16
-    bottomPadding: vertical ? 8 : 16
+    leftPadding: vertical ? control.Suru.units.gu(2) : control.Suru.units.gu(1)
+    rightPadding: vertical ? control.Suru.units.gu(2) : control.Suru.units.gu(1)
+    topPadding: vertical ? control.Suru.units.gu(1) : control.Suru.units.gu(2)
+    bottomPadding: vertical ? control.Suru.units.gu(1) : control.Suru.units.gu(2)
 
     contentItem: Rectangle {
-        implicitWidth: vertical ? 1 : 32
-        implicitHeight: vertical ? 32 : 1
+        implicitWidth: vertical ? control.Suru.units.dp(1) : control.Suru.units.gu(4)
+        implicitHeight: vertical ? control.Suru.units.gu(4) : control.Suru.units.dp(1)
         color: control.Suru.neutralColor
     }
 }

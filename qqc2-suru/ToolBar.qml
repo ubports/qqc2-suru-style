@@ -34,12 +34,12 @@ T.ToolBar {
     contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
-    spacing: 8
-    leftPadding: 8
-    rightPadding: 8
+    spacing: control.Suru.units.gu(1)
+    leftPadding: control.Suru.units.gu(1)
+    rightPadding: control.Suru.units.gu(1)
 
     background: Rectangle {
-        implicitHeight: 48
+        implicitHeight: control.Suru.units.gu(6)
         color: control.Suru.backgroundColor
 
    /*     Rectangle {

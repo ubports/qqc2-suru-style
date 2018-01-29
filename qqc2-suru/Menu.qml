@@ -34,10 +34,11 @@ T.Menu {
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              contentItem ? contentItem.implicitHeight : 0) + topPadding + bottomPadding
 
-    margins: 8
+    margins: control.Suru.units.gu(1)
 
-    topPadding: 4
-    bottomPadding: 4
+    // Expressed in dp, since it matches background radius size
+    topPadding: control.Suru.units.dp(4)
+    bottomPadding: control.Suru.units.dp(4)
 
     transformOrigin: Item.Top
 
@@ -65,10 +66,10 @@ T.Menu {
     }
 
     background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 48
+        implicitWidth: control.Suru.units.gu(24)
+        implicitHeight: control.Suru.units.gu(6)
 
-        radius: 4
+        radius: control.Suru.units.dp(4)
         color: control.Suru.backgroundColor
 
      //   border.color: control.Suru.neutralColor

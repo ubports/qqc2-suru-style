@@ -42,7 +42,7 @@ T.ProgressBar {
         Rectangle {
             id: thumb
             implicitWidth: (control.indeterminate ? 0.25 : control.position) * contentItem.width
-            implicitHeight: 3
+            implicitHeight: control.Suru.units.dp(3)
             color: control.Suru.highlightColor
 
             SequentialAnimation {
@@ -69,13 +69,13 @@ T.ProgressBar {
     }
 
     background: Rectangle {
-        implicitWidth: 256
-        implicitHeight: 3
+        implicitWidth: control.Suru.units.gu(32)
+        implicitHeight: control.Suru.units.dp(3)
 
         x: control.leftPadding
         y: control.topPadding + (control.availableHeight - height) / 2
         width: control.availableWidth
-        height: 3
+        height: control.Suru.units.dp(3)
         color: control.Suru.neutralColor
     }
 }

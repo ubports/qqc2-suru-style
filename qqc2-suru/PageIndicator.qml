@@ -33,12 +33,12 @@ T.PageIndicator {
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              contentItem.implicitHeight + topPadding + bottomPadding)
 
-    padding: 4
-    spacing: 4
+    padding: control.Suru.units.gu(0.5)
+    spacing: control.Suru.units.gu(0.5)
 
     delegate: Rectangle {
-        implicitWidth: 8
-        implicitHeight: 8
+        implicitWidth: control.Suru.units.gu(1)
+        implicitHeight: control.Suru.units.gu(1)
 
         radius: width / 2
 
@@ -47,7 +47,7 @@ T.PageIndicator {
                : pressed ? control.Suru.neutralColor : "transparent"
 
         border {
-            width: index == control.currentIndex ? 0 : 1
+            width: index == control.currentIndex ? 0 : control.Suru.units.dp(1)
             color: index == control.currentIndex ? control.Suru.highlightColor : control.Suru.neutralColor
         }
     }

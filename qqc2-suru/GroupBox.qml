@@ -37,8 +37,8 @@ T.GroupBox {
     contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
-    spacing: 12
-    padding: 16
+    spacing: control.Suru.units.gu(1.5)
+    padding: control.Suru.units.gu(2)
     topPadding: padding + (label && label.implicitWidth > 0 ? label.implicitHeight + spacing : 0)
 
     label: Text {
@@ -57,9 +57,9 @@ T.GroupBox {
         width: parent.width
         height: parent.height - control.topPadding + control.padding
 
-        radius: 2
+        radius: control.Suru.units.dp(2)
         color: control.Suru.backgroundColor
-        border.width: 1
+        border.width: control.Suru.units.dp(1)
         border.color: control.Suru.neutralColor
     }
 }

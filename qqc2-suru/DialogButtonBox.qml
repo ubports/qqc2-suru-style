@@ -34,10 +34,10 @@ T.DialogButtonBox {
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              contentItem.implicitHeight + topPadding + bottomPadding)
 
-    spacing: 8
-    padding: 16
-    topPadding: position === T.DialogButtonBox.Footer ? 8 : 16
-    bottomPadding: position === T.DialogButtonBox.Header ? 8 : 16
+    spacing: control.Suru.units.gu(1)
+    padding: control.Suru.units.gu(2)
+    topPadding: position === T.DialogButtonBox.Footer ? control.Suru.units.gu(1) : control.Suru.units.gu(2)
+    bottomPadding: position === T.DialogButtonBox.Header ? control.Suru.units.gu(1) : control.Suru.units.gu(2)
     alignment: Qt.AlignRight
 
     delegate: Button {
@@ -49,7 +49,7 @@ T.DialogButtonBox {
 
     contentItem: ListView {
         implicitWidth: contentWidth
-        implicitHeight: 32
+        implicitHeight: control.Suru.units.gu(4)
 
         model: control.contentModel
         spacing: control.spacing

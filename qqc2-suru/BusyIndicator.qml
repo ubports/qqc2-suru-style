@@ -32,11 +32,11 @@ T.BusyIndicator {
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
 
     contentItem: Image {
-        width: 96
-        height: 96
+        width: control.Suru.units.gu(12)
+        height: control.Suru.units.gu(12)
 
         source: "image://suru/spinner/" + control.Suru.highlightColor
-        opacity: enabled ? 1.0 : 0.3
+        opacity: running ? 1.0 : 0.0
 
         RotationAnimator on rotation {
             running: control.visible && control.running

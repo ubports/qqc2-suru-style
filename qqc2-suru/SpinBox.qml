@@ -38,8 +38,8 @@ T.SpinBox {
                              down.indicator ? down.indicator.implicitHeight : 0)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 4
-    spacing: 12
+    padding: control.Suru.units.gu(0.5)
+    spacing: control.Suru.units.gu(1.5)
     leftPadding: padding + (control.mirrored ? (up.indicator ? up.indicator.width : 0) : (down.indicator ? down.indicator.width : 0))
     rightPadding: padding - 4 + (control.mirrored ? (down.indicator ? down.indicator.width : 0) : (up.indicator ? up.indicator.width : 0))
 
@@ -64,7 +64,7 @@ T.SpinBox {
     }
 
     up.indicator: Item {
-        implicitWidth: 24
+        implicitWidth: control.Suru.units.gu(3)
         height: parent.height
         x: control.mirrored ? 0 : parent.width - width
 
@@ -98,7 +98,7 @@ T.SpinBox {
     }
 
     down.indicator: Item {
-        implicitWidth: 24
+        implicitWidth: control.Suru.units.gu(3)
         height: parent.height
         x: control.mirrored ? parent.width - width : 0
 
@@ -122,7 +122,7 @@ T.SpinBox {
 
         Image {
             anchors.centerIn: parent
-            width: 16; height: width
+            width: control.Suru.units.gu(2); height: width
             source: "image://suru/" + (control.mirrored ? "right" : "left") + "arrow/"
                     + control.Suru.foregroundColor
             sourceSize.width: width
@@ -131,11 +131,11 @@ T.SpinBox {
     }
 
     background: Rectangle {
-        implicitWidth: 160
-        implicitHeight: 32
+        implicitWidth: control.Suru.units.gu(20)
+        implicitHeight: control.Suru.units.gu(4)
 
-        radius: 2
-        border.width: 1
+        radius: control.Suru.units.dp(2)
+        border.width: control.Suru.units.dp(1)
 
         border.color: control.activeFocus
                       ? control.Suru.highlightColor

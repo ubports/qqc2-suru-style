@@ -37,8 +37,8 @@ T.CheckBox {
                                       indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 4
-    spacing: 12
+    padding: control.Suru.units.gu(0.5)
+    spacing: control.Suru.units.gu(1.5)
 
     opacity: control.enabled ? 1.0 : 0.5
 

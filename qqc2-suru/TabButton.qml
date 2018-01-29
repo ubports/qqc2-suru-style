@@ -36,7 +36,7 @@ T.TabButton {
                              contentItem.implicitHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 16
+    padding: control.Suru.units.gu(2)
 
     contentItem: Text {
         text: control.text

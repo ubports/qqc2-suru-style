@@ -34,10 +34,10 @@ T.Button {
                              contentItem.implicitHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    leftPadding: 16
-    rightPadding: 16
-    topPadding: 8
-    bottomPadding: 8
+    leftPadding: control.Suru.units.gu(2)
+    rightPadding: control.Suru.units.gu(2)
+    topPadding: control.Suru.units.gu(1)
+    bottomPadding: control.Suru.units.gu(1)
 
     property bool useSystemFocusVisuals: true
 
@@ -62,15 +62,16 @@ T.Button {
     }
 
     background: Rectangle {
-        implicitWidth: 64
-        implicitHeight: 32
+        implicitWidth: control.Suru.units.gu(8)
+        implicitHeight: control.Suru.units.gu(4)
 
         property color __normalColor: (control.highlighted || control.checked) && !control.flat ? control.Suru.highlightColor
                                                                                                 : control.flat ? control.Suru.backgroundColor : control.Suru.secondaryBackgroundColor
 
         color: control.down ? Qt.darker(__normalColor, 1.2)
                             : control.hovered ? Qt.darker(__normalColor, 1.1) : __normalColor
-        radius: 4
+
+        radius: control.Suru.units.dp(4)
         border.width: (control.highlighted || control.checked || control.flat) ? 0 : 1
         border.color: control.Suru.neutralColor
 

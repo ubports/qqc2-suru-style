@@ -28,7 +28,7 @@ Rectangle {
     id: cursor
 
     color: parent.Suru.highlightColor
-    width: 2
+    width: parent.Suru.units.dp(2)
     visible: parent.activeFocus && !parent.readOnly && parent.selectionStart === parent.selectionEnd
 
     Connections {

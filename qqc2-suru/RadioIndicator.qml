@@ -25,8 +25,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 
 Rectangle {
-    implicitWidth: 18
-    implicitHeight: 18
+    implicitWidth: control.Suru.units.gu(2.5)
+    implicitHeight: control.Suru.units.gu(2.5)
 
     property Item control
 
@@ -36,7 +36,7 @@ Rectangle {
         ? control.checked ? "transparent" : control.Suru.highlightColor
         : control.checked ? control.Suru.highlightColor : control.Suru.neutralColor
 
-    border.width: 1
+    border.width: control.Suru.units.dp(1)
     scale: control.down ? 0.91 : 1.0
 
     Rectangle {
@@ -55,7 +55,8 @@ Rectangle {
 
         Rectangle {
             anchors.centerIn: parent
-            width: 6; height: width
+            width: control.Suru.units.gu(1)
+            height: width
             radius: width * 0.5
             color: control.Suru.secondaryBackgroundColor
             visible: control.checked

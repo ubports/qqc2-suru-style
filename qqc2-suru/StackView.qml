@@ -25,8 +25,6 @@ import QtQuick 2.9
 import QtQuick.Templates 2.2 as T
 import QtQuick.Controls.Suru 2.2
 
-// TODO: Use our own animations
-
 T.StackView {
     id: control
 

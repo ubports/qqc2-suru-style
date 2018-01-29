@@ -35,12 +35,12 @@ T.MenuItem {
                                       indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    leftPadding: 16
-    rightPadding: 16
-    topPadding: 16 - 1
-    bottomPadding: 16 + 1
+    leftPadding: control.Suru.units.gu(2)
+    rightPadding: control.Suru.units.gu(2)
+    topPadding: control.Suru.units.gu(2) - control.Suru.units.dp(1)
+    bottomPadding: control.Suru.units.gu(2) + control.Suru.units.dp(1)
 
-    spacing: 16
+    spacing: control.Suru.units.gu(2)
 
     opacity: control.enabled ? 1.0 : 0.5
 
@@ -66,8 +66,8 @@ T.MenuItem {
     }
 
     background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 48
+        implicitWidth: control.Suru.units.gu(24)
+        implicitHeight: control.Suru.units.gu(6)
 
         color: control.Suru.backgroundColor
 

@@ -23,6 +23,7 @@
 
 #include "qquicksurustyle_p.h"
 #include "qquicksuruanimations.h"
+#include "qquicksuruunits.h"
 
 #include <QtCore/qdebug.h>
 #include <QtCore/qsettings.h>
@@ -103,6 +104,7 @@ QQuickSuruStyle::QQuickSuruStyle(QObject *parent) : QQuickStyleAttached(parent),
     m_highlightType(InformationHighlight)
 {
     m_animations = new QQuickSuruAnimations(this);
+    m_units = new QQuickSuruUnits(this);
 
     for (int i=0; i<2; ++i) {
         for (int j=0; j<9; ++j) {

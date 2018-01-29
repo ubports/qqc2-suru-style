@@ -36,7 +36,7 @@ T.RoundButton {
                              contentItem.implicitHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 16
+    padding: control.Suru.units.gu(2)
 
     property bool useSystemFocusVisuals: true
 
@@ -55,8 +55,8 @@ T.RoundButton {
     }
 
     background: Rectangle {
-        implicitWidth: 48
-        implicitHeight: 48
+        implicitWidth: control.Suru.units.gu(6)
+        implicitHeight: control.Suru.units.gu(6)
         radius: control.radius
 
         property color __normalColor: (control.highlighted || control.checked) && !control.flat ? control.Suru.highlightColor : control.Suru.backgroundColor

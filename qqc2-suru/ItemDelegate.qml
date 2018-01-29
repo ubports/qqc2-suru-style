@@ -35,12 +35,12 @@ T.ItemDelegate {
                                       indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    topPadding: 16
-    bottomPadding: 16
-    leftPadding: 16
-    rightPadding: 16
+    topPadding: control.Suru.units.gu(2)
+    bottomPadding: control.Suru.units.gu(2)
+    leftPadding: control.Suru.units.gu(2)
+    rightPadding: control.Suru.units.gu(2)
 
-    spacing: 12
+    spacing: control.Suru.units.gu(1.5)
 
     opacity: control.enabled ? 1.0 : 0.5
 
@@ -59,7 +59,7 @@ T.ItemDelegate {
     }
 
     background: Rectangle {
-        implicitHeight: 56
+        implicitHeight: control.Suru.units.gu(7)
         color: control.Suru.backgroundColor
 
         HighlightFocusRectangle {
@@ -71,7 +71,7 @@ T.ItemDelegate {
         Rectangle {
             anchors.bottom: parent.bottom
             width: parent.width
-            height: 1
+            height: control.Suru.units.dp(1)
             color: control.Suru.neutralColor
         }
     }

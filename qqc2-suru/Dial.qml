@@ -29,8 +29,8 @@ import QtGraphicalEffects 1.0
 T.Dial {
     id: control
 
-    implicitWidth: 192
-    implicitHeight: 192
+    implicitWidth: control.Suru.units.gu(24)
+    implicitHeight: control.Suru.units.gu(24)
 
     opacity: control.enabled ? 1.0 : 0.5
 
@@ -43,7 +43,7 @@ T.Dial {
 
         color: "transparent"
         border.color: control.Suru.neutralColor
-        border.width: 2
+        border.width: control.Suru.units.dp(3)
 
         // http://stackoverflow.com/questions/22873550/how-to-create-a-circular-progress-bar-in-pure-qmljs
         ConicalGradient {
@@ -74,8 +74,8 @@ T.Dial {
     }
 
     handle: Rectangle {
-        implicitWidth: 16
-        implicitHeight: 16
+        implicitWidth: control.Suru.units.gu(2)
+        implicitHeight: control.Suru.units.gu(2)
         radius: width * 0.5
 
         x: background.x + background.width / 2 - handle.width / 2
@@ -106,7 +106,7 @@ T.Dial {
             anchors { fill: parent; margins: -4 }
             radius: width * 0.5
             visible: control.visualFocus
-            border.width: 2
+            border.width: control.Suru.units.dp(2)
             border.color: control.Suru.activeFocusColor
             color: "transparent"
         }

@@ -42,10 +42,10 @@ T.Dialog {
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
 
-    leftPadding: 16
-    rightPadding: 16
-    topPadding: 16
-    bottomPadding: 16
+    leftPadding: control.Suru.units.gu(2)
+    rightPadding: control.Suru.units.gu(2)
+    topPadding: control.Suru.units.gu(1)
+    bottomPadding: control.Suru.units.gu(1)
 
     enter: Transition {
         // grow_fade_in
@@ -60,7 +60,7 @@ T.Dialog {
 
     background: Rectangle {
         color: control.Suru.backgroundColor
-        radius: 4
+        radius: control.Suru.units.dp(4)
        // border.width: 1
       //  border.color: control.Suru.neutralColor
 
@@ -74,11 +74,12 @@ T.Dialog {
         text: control.title
         visible: control.title
         elide: Label.ElideRight
-        topPadding: 24
-        bottomPadding: 16
-        leftPadding: 16
-        rightPadding: 16
+        topPadding: control.Suru.units.gu(3)
+        bottomPadding: control.Suru.units.gu(2)
+        leftPadding: control.Suru.units.gu(2)
+        rightPadding: control.Suru.units.gu(2)
 
+        // TODO: Use font utils
         font.pixelSize: 20
     }
 

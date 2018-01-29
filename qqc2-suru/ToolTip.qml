@@ -29,15 +29,15 @@ T.ToolTip {
     id: control
 
     x: parent ? (parent.width - implicitWidth) / 2 : 0
-    y: -implicitHeight - 16
+    y: -implicitHeight - control.Suru.units.gu(2)
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              contentItem.implicitHeight + topPadding + bottomPadding)
 
-    margins: 8
-    padding: 8
+    margins: control.Suru.units.gu(1)
+    padding: control.Suru.units.gu(1)
 
     closePolicy: T.Popup.CloseOnEscape | T.Popup.CloseOnPressOutsideParent | T.Popup.CloseOnReleaseOutsideParent
 
@@ -68,7 +68,7 @@ T.ToolTip {
 
     background: Rectangle {
         color: control.Suru.foregroundColor
-        radius: 4
+        radius: control.Suru.units.dp(4)
         opacity: 0.85    // Match opacity of overlayColor
 
         layer.enabled: true

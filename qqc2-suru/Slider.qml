@@ -30,17 +30,17 @@ T.Slider {
 
     readonly property bool horizontal: control.orientation === Qt.Horizontal
 
-    implicitWidth: horizontal ? 256 : 40
-    implicitHeight: horizontal ? 40 : 256
+    implicitWidth: horizontal ? control.Suru.units.gu(32) : control.Suru.units.gu(5)
+    implicitHeight: horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(32)
 
-    padding: 8
+    padding: control.Suru.units.gu(1)
     opacity: control.enabled ? 1.0 : 0.5
 
     property bool useSystemFocusVisuals: true
 
     handle: Rectangle {
-        implicitHeight: 16
-        implicitWidth: 16
+        implicitHeight: control.Suru.units.gu(2)
+        implicitWidth: control.Suru.units.gu(2)
 
         readonly property bool horizontal: control.orientation === Qt.Horizontal
 
@@ -49,7 +49,7 @@ T.Slider {
 
         //border.width: control.pressed ? 1 : 0
      //   border.color: control.Suru.neutralColor
-        radius: 4
+        radius: control.Suru.units.dp(4)
         color: control.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
                : control.hovered ? control.Suru.secondaryBackgroundColor : control.Suru.backgroundColor
@@ -70,8 +70,8 @@ T.Slider {
     }
 
     background: Item {
-        implicitWidth: horizontal ? 40 : 16
-        implicitHeight: horizontal ? 16 : 40
+        implicitWidth: horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(2)
+        implicitHeight: horizontal ? control.Suru.units.gu(2) : control.Suru.units.gu(5)
 
         readonly property bool horizontal: control.orientation === Qt.Horizontal
 

@@ -27,17 +27,17 @@ import QtQuick.Controls.Suru 2.2
 Item {
     property Item control
 
-    implicitWidth: 40
-    implicitHeight: 20
+    implicitWidth: control.Suru.units.gu(5)
+    implicitHeight: control.Suru.units.gu(2.5)
 
     Rectangle {
         width: parent.width
         height: parent.height
 
-        radius: 4
+        radius: control.Suru.units.dp(4)
         color: control.checked ? control.Suru.highlightColor : control.Suru.neutralColor
 
-        border.width: 1
+        border.width: control.Suru.units.dp(1)
         border.color: control.checked
                       ? Qt.darker(control.Suru.highlightColor, 1.1)
                       : Qt.darker(control.Suru.neutralColor, 1.1)
@@ -81,13 +81,13 @@ Item {
     }
 
     Rectangle {
-        width: 20
-        height: 20
-        radius: 4
+        width: control.Suru.units.gu(2.5)
+        height: control.Suru.units.gu(2.5)
+        radius: control.Suru.units.dp(4)
 
         color: control.Suru.backgroundColor
 
-        border.width: 1
+        border.width: control.Suru.units.dp(1)
         border.color: control.Suru.secondaryBackgroundColor
 
         layer.enabled: true

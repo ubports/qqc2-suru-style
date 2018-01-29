@@ -24,8 +24,8 @@ import QtQuick 2.9
 import QtQuick.Controls.Suru 2.2
 
 Item {
-    implicitWidth: 18
-    implicitHeight: 18
+    implicitWidth: control.Suru.units.gu(2.5)
+    implicitHeight: control.Suru.units.gu(2.5)
 
     property Item control
 
@@ -78,7 +78,7 @@ Item {
     }
 
     Image {
-        anchors { fill: parent; margins: 2 }
+        anchors { fill: parent; margins: control.Suru.units.dp(2) }
 
         source: control.checkState == Qt.PartiallyChecked
                 ? "image://suru/checkmark-undefined/" + control.Suru.backgroundColor

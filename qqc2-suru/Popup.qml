@@ -36,7 +36,7 @@ T.Popup {
     contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
-    padding: 16
+    padding: control.Suru.units.gu(2)
 
     enter: Transition {
         // grow_fade_in

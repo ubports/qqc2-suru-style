@@ -38,17 +38,17 @@ T.ComboBox {
                                       indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    spacing: 16
-    topPadding: 4
-    bottomPadding: 4
-    leftPadding: 16
-    rightPadding: 16
+    spacing: control.Suru.units.gu(2)
+    topPadding: control.Suru.units.gu(0.5)
+    bottomPadding: control.Suru.units.gu(0.5)
+    leftPadding: control.Suru.units.gu(2)
+    rightPadding: control.Suru.units.gu(2)
 
     opacity: enabled ? 1.0 : 0.5
 
     delegate: ItemDelegate {
         width: control.popup.width
-        height: 32 + control.topPadding + control.bottomPadding
+        height: control.Suru.units.gu(4) + control.topPadding + control.bottomPadding
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
         highlighted: control.highlightedIndex === index
         hoverEnabled: control.hoverEnabled
@@ -58,8 +58,8 @@ T.ComboBox {
         x: control.mirrored ? control.leftPadding : control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
 
-        width: 16
-        height: 16
+        width: control.Suru.units.gu(2)
+        height: control.Suru.units.gu(2)
 
         source: "image://suru/down/" + control.Suru.foregroundColor
         sourceSize.width: width
@@ -80,10 +80,10 @@ T.ComboBox {
     }
 
     background: Rectangle {
-        implicitWidth: 160
-        implicitHeight: 32
+        implicitWidth: Math.max(control.Suru.units.gu(20), parent.width * 0.45)
+        implicitHeight: control.Suru.units.gu(4)
 
-        radius: 4
+        radius: control.Suru.units.dp(4)
 
         border.width: control.flat ? 0 : 1
 
@@ -108,10 +108,10 @@ T.ComboBox {
     popup: T.Popup {
         //y: control.height
         width: control.width
-        implicitHeight: Math.min(400, contentItem.implicitHeight)
-        topMargin: 8
-        bottomMargin: 8
-        padding: 1
+        implicitHeight: Math.min(control.Suru.units.gu(48), contentItem.implicitHeight)
+        topMargin: control.Suru.units.gu(1)
+        bottomMargin: control.Suru.units.gu(1)
+        padding: control.Suru.units.dp(1)
 
         Suru.theme: control.Suru.theme
 
@@ -130,7 +130,7 @@ T.ComboBox {
             color: control.Suru.secondaryBackgroundColor
          //   border.color: control.Suru.neutralColor
          //   border.width: 1
-            radius: 4
+            radius: control.Suru.units.dp(4)
 
             layer.enabled: true
             layer.effect: ElevationEffect {

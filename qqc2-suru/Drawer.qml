@@ -48,10 +48,10 @@ T.Drawer {
         color: control.Suru.secondaryBackgroundColor
         Rectangle {
             readonly property bool horizontal: control.edge === Qt.LeftEdge || control.edge === Qt.RightEdge
-            x: control.edge === Qt.LeftEdge ? parent.width - 1 : 0
-            y: control.edge === Qt.TopEdge ? parent.height - 1 : 0
-            width: horizontal ? 1 : parent.width
-            height: horizontal ? parent.height : 1
+            x: control.edge === Qt.LeftEdge ? parent.width - control.Suru.units.dp(1) : 0
+            y: control.edge === Qt.TopEdge ? parent.height - control.Suru.units.dp(1) : 0
+            width: horizontal ? control.Suru.units.dp(1) : parent.width
+            height: horizontal ? parent.height : control.Suru.units.dp(1)
 
             color: control.Suru.neutralColor
         }

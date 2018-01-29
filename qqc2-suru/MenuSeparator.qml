@@ -31,12 +31,12 @@ T.MenuSeparator {
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentItem.implicitHeight + topPadding + bottomPadding)
 
-    topPadding: 16
-    bottomPadding: 16
+    topPadding: control.Suru.units.gu(2)
+    bottomPadding: control.Suru.units.gu(2)
 
     contentItem: Rectangle {
-        implicitWidth: 192
-        implicitHeight: 1
+        implicitWidth: control.Suru.units.gu(24)
+        implicitHeight: control.Suru.units.dp(1)
         color: control.Suru.neutralColor
     }
 }

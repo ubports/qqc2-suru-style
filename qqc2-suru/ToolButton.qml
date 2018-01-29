@@ -34,7 +34,7 @@ T.ToolButton {
                              contentItem.implicitHeight + topPadding + bottomPadding)
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
-    padding: 4
+    padding: control.Suru.units.gu(0.5)
     property bool useSystemFocusVisuals: true
 
     opacity: control.enabled ? 1.0 : 0.5
@@ -57,8 +57,8 @@ T.ToolButton {
     }
 
     background: Rectangle {
-        implicitWidth: 32
-        implicitHeight: 48
+        implicitWidth: control.Suru.units.gu(4)
+        implicitHeight: control.Suru.units.gu(6)
 
         visible: control.down || control.hovered
         color: control.down ? Qt.darker(control.Suru.backgroundColor, 1.2) : Qt.darker(control.Suru.backgroundColor, 1.1)

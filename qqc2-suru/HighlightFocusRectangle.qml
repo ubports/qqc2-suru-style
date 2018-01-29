@@ -63,7 +63,7 @@ Item {
         visible: control.visualFocus
         color: "transparent"
         border {
-            width: 2
+            width: control.Suru.units.dp(2)
             color: control.Suru.activeFocusColor
         }
     }

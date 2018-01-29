@@ -53,9 +53,11 @@ QML_FILES += \
 HEADERS += \
     $$PWD/qquicksurustyle_p.h \
     $$PWD/qquicksurutheme_p.h \
-    $$PWD/qquicksuruanimations.h
+    $$PWD/qquicksuruanimations.h \
+    $$PWD/qquicksuruunits.h
 
 SOURCES += \
     $$PWD/qquicksurustyle.cpp \
     $$PWD/qquicksurutheme.cpp \
-    $$PWD/qquicksuruanimations.cpp
+    $$PWD/qquicksuruanimations.cpp \
+    $$PWD/qquicksuruunits.cpp

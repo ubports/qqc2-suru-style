@@ -26,6 +26,7 @@
 #include "qquicksurustyle_p.h"
 #include "qquicksurutheme_p.h"
 #include "qquicksuruanimations.h"
+#include "qquicksuruunits.h"
 
 #include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
 
@@ -60,6 +61,7 @@ QtQuickControls2SuruStylePlugin::QtQuickControls2SuruStylePlugin(QObject *parent
 void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<QQuickSuruAnimations>();
+    qmlRegisterType<QQuickSuruUnits>();
     qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
 }
 

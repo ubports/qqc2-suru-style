@@ -38,17 +38,17 @@ T.ScrollBar {
     // TODO: arrows
 
     contentItem: Rectangle {
-        implicitWidth: control.interactive ? 14 : 3
-        implicitHeight: control.interactive ? 14 : 3
+        implicitWidth: control.interactive ? control.Suru.units.gu(2) : control.Suru.units.dp(3)
+        implicitHeight: control.interactive ? control.Suru.units.gu(2) : control.Suru.units.dp(3)
 
         color: control.pressed ? control.Suru.foregroundColor :
                control.interactive && control.hovered ? Qt.darker(control.Suru.secondaryForegroundColor, 1.1) : control.Suru.secondaryForegroundColor
         opacity: 0.0
-        radius: 2
+        radius: control.Suru.units.dp(2)
     }
 
     background: Rectangle {
-        implicitWidth: control.interactive ? 14 : 0
+        implicitWidth: control.interactive ? control.Suru.units.gu(2) : 0
 
         color: control.Suru.neutralColor
         visible: control.size < 1.0

@@ -34,7 +34,7 @@ T.TabBar {
                              contentHeight + topPadding + bottomPadding)
 
     spacing: 1
-    contentHeight: 48
+    contentHeight: control.Suru.units.gu(6)
 
     contentItem: ListView {
         model: control.contentModel
@@ -50,13 +50,13 @@ T.TabBar {
         highlightResizeDuration: 0
         highlightFollowsCurrentItem: true
         highlightRangeMode: ListView.ApplyRange
-        preferredHighlightBegin: 48
-        preferredHighlightEnd: width - 48
+        preferredHighlightBegin: control.Suru.units.gu(6)
+        preferredHighlightEnd: width - control.Suru.units.gu(6)
 
         highlight: Item {
             z: 2
             Rectangle {
-                height: 3
+                height: control.Suru.units.dp(3)
                 width: parent.width
                 y: control.position === T.TabBar.Footer ? 0 : parent.height - height
                 color: control.Suru.highlightColor
@@ -65,8 +65,6 @@ T.TabBar {
     }
 
     background: Rectangle {
-        implicitWidth: 200
-        implicitHeight: 48
         color: control.Suru.secondaryBackgroundColor
 
         Rectangle {
