@@ -61,20 +61,19 @@ T.Label {
         var max_width = function () {
             switch (control.Suru.textLevel) {
             case Suru.HeadingOne:
-                return control.Suru.units.rem(20)
             case Suru.HeadingTwo:
-                return control.Suru.units.rem(25)
             case Suru.HeadingThree:
-            case Suru.Paragraph:
             case Suru.Small:
             case Suru.Caption:
+                return control.Suru.units.rem(35)
+            case Suru.Paragraph:
             case Suru.CodeBlock:
             default:
-                return control.Suru.units.rem(35)
+                return control.Suru.units.rem(50)
             }
         }
 
-        return Math.min(parent.width, max_width)
+        return Math.min(parent.width, max_width())
     }
 
     // EXPERIMENTAL
