@@ -41,7 +41,7 @@ T.Frame {
         anchors.fill: parent
         anchors.margins: -1
         radius: 2
-        color: control.Suru.secondaryBackgroundColor
+        color: control.Suru.backgroundColor
         border.width: 1
         border.color: control.Suru.neutralColor
     }
