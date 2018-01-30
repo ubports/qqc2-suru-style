@@ -60,11 +60,12 @@ T.TextArea {
 
         text: control.placeholderText
         font: control.font
-        color: control.Suru.secondaryForegroundColor
+        color: Suru.foregroundColor
         opacity: control.activeFocus ? 0.8 : 0.6
         visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
         verticalAlignment: control.verticalAlignment
         elide: Text.ElideRight
+        Suru.textLevel: Suru.SecondaryText
     }
 
     background: Rectangle {

@@ -59,6 +59,6 @@ T.CheckBox {
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
 
-        color: control.down ? control.Suru.secondaryForegroundColor : control.Suru.foregroundColor
+        color: control.Suru.foregroundColor
     }
 }

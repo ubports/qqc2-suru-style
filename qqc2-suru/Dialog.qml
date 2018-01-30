@@ -75,12 +75,11 @@ T.Dialog {
         visible: control.title
         elide: Label.ElideRight
         topPadding: control.Suru.units.gu(3)
-        bottomPadding: control.Suru.units.gu(2)
         leftPadding: control.Suru.units.gu(2)
         rightPadding: control.Suru.units.gu(2)
 
-        // TODO: Use font utils
-        font.pixelSize: 20
+        Suru.textLevel: Suru.HeadingThree
+        Suru.textStyle: Suru.PrimaryText
     }
 
     footer: DialogButtonBox {

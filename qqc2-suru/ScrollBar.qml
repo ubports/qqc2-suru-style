@@ -41,8 +41,8 @@ T.ScrollBar {
         implicitWidth: control.interactive ? control.Suru.units.gu(2) : control.Suru.units.dp(3)
         implicitHeight: control.interactive ? control.Suru.units.gu(2) : control.Suru.units.dp(3)
 
-        color: control.pressed ? control.Suru.foregroundColor :
-               control.interactive && control.hovered ? Qt.darker(control.Suru.secondaryForegroundColor, 1.1) : control.Suru.secondaryForegroundColor
+        color: control.pressed ? Qt.darker(control.Suru.highlightColor, 1.2) :
+               control.interactive && control.hovered ? Qt.darker(control.Suru.highlightColor, 1.1) : control.Suru.highlightColor
         opacity: 0.0
         radius: control.Suru.units.dp(2)
     }

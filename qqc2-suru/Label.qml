@@ -31,4 +31,52 @@ T.Label {
     opacity: enabled ? 1.0 : 0.5
     color: control.Suru.foregroundColor
     linkColor: control.Suru.highlightColor
+
+    wrapMode: Text.WordWrap
+
+    font: {
+        switch (control.Suru.textLevel) {
+        case Suru.HeadingOne:
+            return control.Suru.units.fontHeadingOne
+        case Suru.HeadingTwo:
+            return control.Suru.units.fontHeadingTwo
+        case Suru.HeadingThree:
+            return control.Suru.units.fontHeadingThree
+        case Suru.Paragraph:
+            return control.Suru.units.fontParagraph
+        case Suru.Small:
+            return control.Suru.units.fontSmall
+        case Suru.Caption:
+            return control.Suru.units.fontCaption
+        case Suru.CodeBlock:
+            return control.Suru.units.fontCodeBlock
+
+        default:
+            return control.Suru.units.fontParagraph
+        }
+    }
+
+    // EXPERIMENTAL
+    width: {
+        var max_width = function () {
+            switch (control.Suru.textLevel) {
+            case Suru.HeadingOne:
+                return control.Suru.units.rem(20)
+            case Suru.HeadingTwo:
+                return control.Suru.units.rem(25)
+            case Suru.HeadingThree:
+            case Suru.Paragraph:
+            case Suru.Small:
+            case Suru.Caption:
+            case Suru.CodeBlock:
+            default:
+                return control.Suru.units.rem(35)
+            }
+        }
+
+        return Math.min(parent.width, max_width)
+    }
+
+    // EXPERIMENTAL
+    lineHeight: 1.5
 }

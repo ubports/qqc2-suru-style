@@ -60,11 +60,12 @@ T.TextField {
 
         text: control.placeholderText
         font: control.font
-        color: control.Suru.secondaryForegroundColor
+        color: Suru.foregroundColor
         opacity: control.activeFocus ? 0.8 : 0.6
         visible: !control.length && !control.preeditText && (!control.activeFocus || control.horizontalAlignment !== Qt.AlignHCenter)
         verticalAlignment: control.verticalAlignment
         elide: Text.ElideRight
+        Suru.textLevel: Suru.SecondaryText
     }
 
     background: Rectangle {
@@ -73,8 +74,8 @@ T.TextField {
 
         radius: control.Suru.units.dp(4)
         border.width: control.Suru.units.dp(1)
-        border.color: control.activeFocusColor
-                      ? control.Suru.highlightColor
+        border.color: control.activeFocus
+                      ? control.Suru.activeFocusColor
                       : control.Suru.neutralColor
 
         color: control.hovered && !control.activeFocus ? control.Suru.secondaryBackgroundColor

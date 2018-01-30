@@ -56,7 +56,7 @@ T.RadioButton {
         text: control.text
         font: control.font
 
-        color: control.down ? control.Suru.secondaryForegroundColor : control.Suru.foregroundColor
+        color: control.Suru.foregroundColor
         elide: Text.ElideRight
         visible: control.text
         horizontalAlignment: Text.AlignLeft

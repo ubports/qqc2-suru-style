@@ -27,16 +27,16 @@
 #include <QtGui/qfont.h>
 #include <QtQuickControls2/private/qquickproxytheme_p.h>
 
+class QQuickSuruUnits;
+
 class QQuickSuruTheme :  public QQuickProxyTheme
 {
 public:
     explicit QQuickSuruTheme(QPlatformTheme *theme = nullptr);
-
     const QFont *font(Font type = SystemFont) const override;
 
 private:
-    QFont body;
-    QFont small;
+    QQuickSuruUnits *m_suruUnits;
 };
 
 #endif // QQUICKSURUTHEME_P_H

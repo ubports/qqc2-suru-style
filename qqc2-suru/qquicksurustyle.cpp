@@ -101,10 +101,15 @@ static QQuickSuruStyle::Theme qquicksuru_effective_theme(QQuickSuruStyle::Theme 
 QQuickSuruStyle::QQuickSuruStyle(QObject *parent) : QQuickStyleAttached(parent),
     m_explicitTheme(false),
     m_theme(globalTheme),
-    m_highlightType(InformationHighlight)
+    m_highlightType(InformationHighlight),
+    m_textLevel(Paragraph),
+    m_textStyle(PrimaryText)
 {
     m_animations = new QQuickSuruAnimations(this);
     m_units = new QQuickSuruUnits(this);
+
+    connect(this, &QQuickSuruStyle::highlightTypeChanged, this, &QQuickSuruStyle::paletteChanged);
+    connect(this, &QQuickSuruStyle::textStyleChanged, this, &QQuickSuruStyle::paletteChanged);
 
     for (int i=0; i<2; ++i) {
         for (int j=0; j<9; ++j) {
@@ -196,6 +201,46 @@ void QQuickSuruStyle::resetHighlightType()
     emit highlightTypeChanged();
 }
 
+QQuickSuruStyle::TextLevel QQuickSuruStyle::textLevel() const
+{
+    return m_textLevel;
+}
+
+void QQuickSuruStyle::setTextLevel(QQuickSuruStyle::TextLevel level)
+{
+    if (m_textLevel == level)
+        return;
+
+    m_textLevel = level;
+    emit textLevelChanged();
+}
+
+void QQuickSuruStyle::resetTextLevel()
+{
+    m_textLevel = Paragraph;
+    emit textLevelChanged();
+}
+
+QQuickSuruStyle::TextStyle QQuickSuruStyle::textStyle() const
+{
+    return m_textStyle;
+}
+
+void QQuickSuruStyle::setTextStyle(QQuickSuruStyle::TextStyle style)
+{
+    if (m_textStyle == style)
+        return;
+
+    m_textStyle = style;
+    emit textStyleChanged();
+}
+
+void QQuickSuruStyle::resetTextStyle()
+{
+    m_textStyle = PrimaryText;
+    emit textStyleChanged();
+}
+
 void QQuickSuruStyle::inheritPaletteColor(const QQuickSuruStyle::Theme &theme, const QQuickSuruStyle::PaletteColor &paletteColor, QRgb value, bool custom)
 {
     if (m_explicits[theme][paletteColor] || m_colors[theme][paletteColor] == value)
@@ -273,14 +318,16 @@ QColor QQuickSuruStyle::neutralColor() const
     return QColor::fromRgba(m_colors[m_theme][Mid]);
 }
 
-QColor QQuickSuruStyle::secondaryForegroundColor() const
-{
-    return QColor::fromRgba(m_colors[m_theme][m_theme == Light ? MidLow : MidHigh]);
-}
-
 QColor QQuickSuruStyle::foregroundColor() const
 {
-    return QColor::fromRgba(m_colors[m_theme][m_theme == Light ? Low : High]);
+    QColor c = QColor::fromRgba(m_colors[m_theme][m_theme == Light ? Low : High]);
+
+    if (m_textStyle == SecondaryText)
+        c.setAlphaF(0.8571);
+    else if (m_textStyle == TertiaryText)
+        c.setAlphaF(0.6429);
+
+    return c;
 }
 
 void QQuickSuruStyle::parentStyleChange(QQuickStyleAttached *newParent, QQuickStyleAttached *oldParent)

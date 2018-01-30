@@ -39,7 +39,7 @@ T.ScrollIndicator {
         implicitWidth: control.Suru.units.dp(3)
         implicitHeight: control.Suru.units.dp(3)
 
-        color: control.Suru.secondaryForegroundColor
+        color: control.Suru.highlightColor
         visible: control.size < 1.0
         opacity: 0.0
 

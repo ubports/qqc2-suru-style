@@ -41,6 +41,8 @@ T.GroupBox {
     padding: control.Suru.units.gu(2)
     topPadding: padding + (label && label.implicitWidth > 0 ? label.implicitHeight + spacing : 0)
 
+    Suru.textStyle: Suru.SecondaryText
+
     label: Text {
         width: control.availableWidth
         text: control.title
@@ -49,7 +51,7 @@ T.GroupBox {
         verticalAlignment: Text.AlignVCenter
 
         font: control.font
-        color: control.Suru.secondaryForegroundColor
+        color: control.Suru.foregroundColor
     }
 
     background: Rectangle {

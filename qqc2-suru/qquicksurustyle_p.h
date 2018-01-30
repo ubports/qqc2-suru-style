@@ -71,12 +71,14 @@ class QQuickSuruStyle : public QQuickStyleAttached
     // Default is Highlight. If unset, it's InformationHighlight as well
     Q_PROPERTY(HighlightType highlightType READ highlightType WRITE setHighlightType RESET resetHighlightType NOTIFY highlightTypeChanged FINAL)
 
+    Q_PROPERTY(TextLevel textLevel READ textLevel WRITE setTextLevel RESET resetTextLevel NOTIFY textLevelChanged FINAL)
+    Q_PROPERTY(TextStyle textStyle READ textStyle WRITE setTextStyle RESET resetTextStyle NOTIFY textStyleChanged FINAL)
+
     // Colors as result from 'theme' + '{dark|light}Palette' properties
     Q_PROPERTY(QColor highlightColor READ highlightColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor activeFocusColor READ activeFocusColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor overlayColor READ overlayColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor foregroundColor READ foregroundColor NOTIFY paletteChanged FINAL)
-    Q_PROPERTY(QColor secondaryForegroundColor READ secondaryForegroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor neutralColor READ neutralColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor secondaryBackgroundColor READ secondaryBackgroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY paletteChanged FINAL)
@@ -113,6 +115,17 @@ public:
     };
     Q_ENUM(PaletteColor)
 
+    enum TextLevel {
+        HeadingOne, HeadingTwo, HeadingThree,
+        Paragraph, Small, Caption, CodeBlock
+    };
+    Q_ENUM(TextLevel)
+
+    enum TextStyle {
+        PrimaryText, SecondaryText, TertiaryText
+    };
+    Q_ENUM(TextStyle)
+
     explicit QQuickSuruStyle(QObject *parent = nullptr);
 
     static QQuickSuruStyle *qmlAttachedProperties(QObject *object);
@@ -127,11 +140,18 @@ public:
     void setHighlightType(HighlightType type);
     void resetHighlightType();
 
+    TextLevel textLevel() const;
+    void setTextLevel(TextLevel level);
+    void resetTextLevel();
+
+    TextStyle textStyle() const;
+    void setTextStyle(TextStyle style);
+    void resetTextStyle();
+
     QColor highlightColor() const;
     QColor activeFocusColor() const;
     QColor overlayColor() const;
     QColor foregroundColor() const;
-    QColor secondaryForegroundColor() const;
     QColor neutralColor() const;
     QColor secondaryBackgroundColor() const;
     QColor backgroundColor() const;
@@ -144,6 +164,8 @@ public:
 Q_SIGNALS:
     void themeChanged();
     void highlightTypeChanged();
+    void textLevelChanged();
+    void textStyleChanged();
     void paletteChanged();
 
 protected:
@@ -161,6 +183,8 @@ private:
     bool m_explicitTheme;
     QQuickSuruStyle::Theme m_theme;
     HighlightType m_highlightType;
+    TextLevel m_textLevel;
+    TextStyle m_textStyle;
 
     bool m_explicits[2][9];
     bool m_customs[2][9];

@@ -22,33 +22,19 @@
 ****************************************************************************/
 
 #include "qquicksurutheme_p.h"
-
-#include <QtGui/qfont.h>
-#include <QtGui/qfontinfo.h>
+#include "qquicksuruunits.h"
 
 QQuickSuruTheme::QQuickSuruTheme(QPlatformTheme *theme)
     : QQuickProxyTheme(theme)
 {
-    body.setPixelSize(14);
-    body.setWeight(QFont::Light);
-
-    small.setPixelSize(12);
-    small.setWeight(QFont::Light);
-
-    const QFont font(QLatin1String("Ubuntu"));
-    if (QFontInfo(font).family() == QLatin1String("Ubuntu")) {
-        const QString family = font.family();
-
-        body.setFamily(family);
-        small.setFamily(family);
-    }
+    m_suruUnits = new QQuickSuruUnits();
 }
 
 const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const
 {
     switch (type) {
     case QPlatformTheme::GroupBoxTitleFont:
-        return &small;
+        return &m_suruUnits->fontSmall();
     case QPlatformTheme::ComboMenuItemFont:
     case QPlatformTheme::TipLabelFont:
     case QPlatformTheme::TabButtonFont:
@@ -74,11 +60,9 @@ const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const
     case QPlatformTheme::SmallFont:
     case QPlatformTheme::MiniFont:
     case QPlatformTheme::FixedFont:
-//    case QPlatformTheme::GroupBoxTitleFont:
-//    case QPlatformTheme::TabButtonFont:
     case QPlatformTheme::EditorFont:
     case QPlatformTheme::NFonts:
     default:
-        return &body;
+        return &m_suruUnits->fontParagraph();
     }
 }

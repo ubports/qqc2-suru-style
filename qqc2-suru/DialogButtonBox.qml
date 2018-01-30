@@ -45,6 +45,7 @@ T.DialogButtonBox {
         highlighted: true
         flat: true
         font.capitalization: Font.AllUppercase
+        font.weight: Font.Normal
     }
 
     contentItem: ListView {
