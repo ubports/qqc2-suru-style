@@ -1,0 +1,12 @@
+Source: qqc2-suru-style
+Section: libs
+Priority: optional
+Maintainer: JBBgameich <jbb.mail@gmx.de>
+Build-Depends: debhelper (>= 10), qtquickcontrols2-5-dev, qtquickcontrols2-5-private-dev, qtdeclarative5-dev, qt5-qmake
+Standards-Version: 4.1.2
+Homepage: https://github.com/sverzegnassi/qqc2-suru-style
+
+Package: qml-module-qtquick-controls2-suru
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${qmlc:Depends}
+Description: Suru style for QtQuick Controls 2
