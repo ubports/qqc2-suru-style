@@ -2,8 +2,13 @@ Source: qqc2-suru-style
 Section: libs
 Priority: optional
 Maintainer: JBBgameich <jbb.mail@gmx.de>
-Build-Depends: debhelper (>= 9), qtquickcontrols2-5-dev, qtquickcontrols2-5-private-dev, qtdeclarative5-dev, qt5-qmake
-Standards-Version: 4.1.2
+Build-Depends: debhelper (>= 9),
+               qtquickcontrols2-5-dev,
+               qtquickcontrols2-5-private-dev,
+               qtdeclarative5-dev,
+               qt5-qmake,
+               pkg-kde-tools
+Standards-Version: 4.1.3
 Homepage: https://github.com/sverzegnassi/qqc2-suru-style
 
 Package: qml-module-qtquick-controls2-suru
