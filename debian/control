@@ -6,6 +6,8 @@ Build-Depends: debhelper (>= 9),
                qtquickcontrols2-5-dev,
                qtquickcontrols2-5-private-dev,
                qtdeclarative5-dev,
+               qtdeclarative5-private-dev,
+               qtdeclarative5-dev-tools,
                qt5-qmake,
                pkg-kde-tools
 Standards-Version: 4.1.3
