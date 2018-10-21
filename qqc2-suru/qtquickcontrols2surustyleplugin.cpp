@@ -28,6 +28,9 @@
 #include "qquicksuruanimations.h"
 #include "qquicksuruunits.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#include <QQmlEngine>
+#else
 #include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
 
 static inline void initResources()
@@ -37,6 +40,7 @@ static inline void initResources()
     Q_INIT_RESOURCE(qmake_QtQuick_Controls_2_Suru);
 #endif
 }
+#endif
 
 class QtQuickControls2SuruStylePlugin: public QQuickStylePlugin
 {
@@ -47,15 +51,25 @@ public:
     QtQuickControls2SuruStylePlugin(QObject *parent = nullptr);
 
     void registerTypes(const char *uri) override;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#else
     void initializeEngine(QQmlEngine *engine, const char *uri) override;
+#endif
 
     QString name() const override;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    void initializeTheme(QQuickTheme *theme) override;
+#else
     QQuickProxyTheme *createTheme() const override;
+#endif
 };
 
 QtQuickControls2SuruStylePlugin::QtQuickControls2SuruStylePlugin(QObject *parent) : QQuickStylePlugin(parent)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#else
     initResources();
+#endif
 }
 
 void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
@@ -65,21 +79,31 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
     qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#else
 void QtQuickControls2SuruStylePlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
     QQuickStylePlugin::initializeEngine(engine, uri);
 
     engine->addImageProvider(name(), new QQuickColorImageProvider(QStringLiteral(":/qt-project.org/imports/QtQuick/Controls.2/Suru/assets")));
 }
+#endif
 
 QString QtQuickControls2SuruStylePlugin::name() const
 {
     return QStringLiteral("suru");
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+void QtQuickControls2SuruStylePlugin::initializeTheme(QQuickTheme *theme)
+{
+    QQuickSuruTheme::initialize(theme);
+}
+#else
 QQuickProxyTheme *QtQuickControls2SuruStylePlugin::createTheme() const
 {
     return new QQuickSuruTheme;
 }
+#endif
 
 #include "qtquickcontrols2surustyleplugin.moc"

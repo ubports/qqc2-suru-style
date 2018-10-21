@@ -25,7 +25,12 @@
 #define QQUICKSURUSTYLE_P_H
 
 #include <QtGui/qcolor.h>
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#include <QtQuickControls2/private/qquickattachedobject_p.h>
+#else
 #include <QtQuickControls2/private/qquickstyleattached_p.h>
+#endif
+#include <QSettings>
 
 #define SURU_PALETTE_COLOR(name, theme, palettecolor) \
     Q_PROPERTY(QVariant name READ name WRITE set##name RESET reset##name NOTIFY paletteChanged FINAL) \
@@ -39,7 +44,11 @@
 class QQuickSuruAnimations;
 class QQuickSuruUnits;
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+class QQuickSuruStyle : public QQuickAttachedObject
+#else
 class QQuickSuruStyle : public QQuickStyleAttached
+#endif
 {
     Q_OBJECT
 
@@ -173,7 +182,11 @@ Q_SIGNALS:
     void paletteChanged();
 
 protected:
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    void attachedParentChange(QQuickAttachedObject *newParent, QQuickAttachedObject *oldParent) override;
+#else
     void parentStyleChange(QQuickStyleAttached *newParent, QQuickStyleAttached *oldParent) override;
+#endif
 
 private:
     void init();

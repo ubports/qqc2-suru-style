@@ -29,7 +29,11 @@
 #include <QtCore/qsettings.h>
 #include <QtCore/qstandardpaths.h>
 #include <QtQml/qqmlinfo.h>
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#include <QtQuickControls2/private/qquickstyle_p.h>
+#else
 #include <QtQuickControls2/private/qquickstyleattached_p.h>
+#endif
 
 static QRgb qquicksuru_color(QQuickSuruStyle::Color colorRole)
 {
@@ -113,7 +117,11 @@ static QQuickSuruStyle::Theme qquicksuru_effective_theme(QQuickSuruStyle::Theme 
     return theme;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+QQuickSuruStyle::QQuickSuruStyle(QObject *parent) : QQuickAttachedObject(parent),
+#else
 QQuickSuruStyle::QQuickSuruStyle(QObject *parent) : QQuickStyleAttached(parent),
+#endif
     m_explicitTheme(false),
     m_theme(globalTheme),
     m_highlightType(InformationHighlight),
@@ -178,8 +186,13 @@ void QQuickSuruStyle::inheritTheme(Theme theme)
 
 void QQuickSuruStyle::propagateTheme()
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    const auto styles = attachedChildren();
+    for (QQuickAttachedObject *child : styles) {
+#else
     const auto styles = childStyles();
     for (QQuickStyleAttached *child : styles) {
+#endif
         QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(child);
         if (suru)
             suru->inheritTheme(m_theme);
@@ -192,7 +205,11 @@ void QQuickSuruStyle::resetTheme()
         return;
 
     m_explicitTheme = false;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(attachedParent());
+#else
     QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(parentStyle());
+#endif
     inheritTheme(suru ? suru->theme() : globalTheme);
 }
 
@@ -271,8 +288,13 @@ void QQuickSuruStyle::inheritPaletteColor(const QQuickSuruStyle::Theme &theme, c
 
 void QQuickSuruStyle::propagatePaletteColor(const QQuickSuruStyle::Theme &theme, const QQuickSuruStyle::PaletteColor &paletteColor)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    const auto styles = attachedChildren();
+    for (QQuickAttachedObject *child : styles) {
+#else
     const auto styles = childStyles();
     for (QQuickStyleAttached *child : styles) {
+#endif
         QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(child);
 
         if (suru)
@@ -288,7 +310,11 @@ void QQuickSuruStyle::resetPaletteColor(const QQuickSuruStyle::Theme &theme, con
     m_customs[theme][paletteColor] = false;
     m_explicits[theme][paletteColor] = false;
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(attachedParent());
+#else
     QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(parentStyle());
+#endif
     if (suru)
         inheritPaletteColor(theme, paletteColor, suru->m_colors[theme][paletteColor], suru->m_customs[theme][paletteColor]);
     else
@@ -362,7 +388,11 @@ QColor QQuickSuruStyle::tertiaryForegroundColor() const
     return c;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+void QQuickSuruStyle::attachedParentChange(QQuickAttachedObject *newParent, QQuickAttachedObject *oldParent)
+#else
 void QQuickSuruStyle::parentStyleChange(QQuickStyleAttached *newParent, QQuickStyleAttached *oldParent)
+#endif
 {
     Q_UNUSED(oldParent);
     QQuickSuruStyle *suru = qobject_cast<QQuickSuruStyle *>(newParent);
@@ -401,7 +431,11 @@ void QQuickSuruStyle::init()
 {
     static bool globalsInitialized = false;
     if (!globalsInitialized) {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        QSharedPointer<QSettings> settings = QQuickStylePrivate::settings(QStringLiteral("Suru"));
+#else
         QSharedPointer<QSettings> settings = QQuickStyleAttached::settings(QStringLiteral("Suru"));
+#endif
 
         bool ok = false;
         QByteArray themeValue = resolveSetting("QT_QUICK_CONTROLS_SURU_THEME", settings, QStringLiteral("Theme"));
@@ -436,7 +470,11 @@ void QQuickSuruStyle::init()
         globalsInitialized = true;
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+    QQuickAttachedObject::init(); // TODO: lazy init?
+#else
     QQuickStyleAttached::init(); // TODO: lazy init?
+#endif
 }
 
 void QQuickSuruStyle::initPaletteColor(const Theme &theme, const PaletteColor &paletteColor,
