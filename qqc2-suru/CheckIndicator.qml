@@ -80,9 +80,8 @@ Item {
     Image {
         anchors { fill: parent; margins: control.Suru.units.dp(2) }
 
-        source: control.checkState == Qt.PartiallyChecked
-                ? "image://suru/checkmark-undefined/" + control.Suru.backgroundColor
-                : "image://suru/checkmark/" + control.Suru.backgroundColor
+        color: control.Suru.backgroundColor
+        source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/" + (control.checkState == Qt.PartiallyChecked ? "checkmark-undefined" : "checkmark") + ".png"
 
         sourceSize.width: width
         sourceSize.height: height

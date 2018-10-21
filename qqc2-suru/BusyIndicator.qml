@@ -35,7 +35,8 @@ T.BusyIndicator {
         width: control.Suru.units.gu(12)
         height: control.Suru.units.gu(12)
 
-        source: "image://suru/spinner/" + control.Suru.highlightColor
+        color: control.Suru.highlightColor
+        source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/spinner.png"
         opacity: running ? 1.0 : 0.0
 
         RotationAnimator on rotation {
