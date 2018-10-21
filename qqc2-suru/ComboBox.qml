@@ -61,7 +61,8 @@ T.ComboBox {
         width: control.Suru.units.gu(2)
         height: control.Suru.units.gu(2)
 
-        source: "image://suru/down/" + control.Suru.foregroundColor
+        color: control.Suru.foregroundColor
+        source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/down.png"
         sourceSize.width: width
         sourceSize.height: height
     }

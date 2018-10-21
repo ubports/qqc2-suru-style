@@ -28,7 +28,9 @@
 #include "qquicksuruanimations.h"
 #include "qquicksuruunits.h"
 
-#include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
+#include <QQmlEngine>
+
+//#include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
 
 static inline void initResources()
 {
@@ -69,7 +71,7 @@ void QtQuickControls2SuruStylePlugin::initializeEngine(QQmlEngine *engine, const
 {
     QQuickStylePlugin::initializeEngine(engine, uri);
 
-    engine->addImageProvider(name(), new QQuickColorImageProvider(QStringLiteral(":/qt-project.org/imports/QtQuick/Controls.2/Suru/assets")));
+    //engine->addImageProvider(name(), new QQuickColorImageProvider(QStringLiteral(":/qt-project.org/imports/QtQuick/Controls.2/Suru/assets")));
 }
 
 QString QtQuickControls2SuruStylePlugin::name() const
