@@ -13,6 +13,7 @@ include(suru.pri)
 
 OTHER_FILES += \
     qmldir \
+    plugins.qmltypes \
     $$QML_FILES
 
 SOURCES += \
