@@ -90,12 +90,10 @@ static uint globalColors[2][9] = {
 
 static bool globalCustoms[2][9] = { { false } };
 
-extern bool qt_is_dark_system_theme();
-
 static QQuickSuruStyle::Theme qquicksuru_effective_theme(QQuickSuruStyle::Theme theme)
 {
     if (theme == QQuickSuruStyle::System)
-        theme = qt_is_dark_system_theme() ? QQuickSuruStyle::Dark : QQuickSuruStyle::Light;
+        theme = QQuickStylePrivate::isDarkSystemTheme() ? QQuickSuruStyle::Dark : QQuickSuruStyle::Light;
     return theme;
 }
 
@@ -136,7 +134,7 @@ QQuickSuruStyle::Theme QQuickSuruStyle::theme() const
 void QQuickSuruStyle::setTheme(Theme theme)
 {
     if (theme == System)
-        theme = qt_is_dark_system_theme() ? Dark : Light;
+        theme = QQuickStylePrivate::isDarkSystemTheme() ? Dark : Light;
 
     m_explicitTheme = true;
     if (m_theme == theme)
