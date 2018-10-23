@@ -62,7 +62,7 @@ T.ItemDelegate {
         implicitHeight: control.Suru.units.gu(7)
         color: control.Suru.backgroundColor
 
-        HighlightFocusRectangle {
+        myrect: HighlightFocusRectangle {
             control: control
             width: parent.width
             height: parent.height

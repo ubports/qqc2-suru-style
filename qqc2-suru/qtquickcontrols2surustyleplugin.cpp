@@ -64,6 +64,8 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<QQuickSuruAnimations>();
     qmlRegisterType<QQuickSuruUnits>();
+    QByteArray import = QByteArray(uri) + ".impl";
+    qmlRegisterType(typeUrl(QStringLiteral("HighlightFocusRectangle.qml")), import, 2, 2, "HighlightFocusRectangle");
     qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
 }
 
