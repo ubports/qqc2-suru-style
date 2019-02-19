@@ -44,6 +44,15 @@ T.ItemDelegate {
 
     opacity: control.enabled ? 1.0 : 0.5
 
+    //Divider property: Hides the bottom line of a list item
+    /*
+     * ItemDelegate {
+     *  divider: false
+     * }
+    */
+
+    property bool divider: true
+
     contentItem: Text {
         leftPadding: !control.mirrored ? 0 : (control.indicator ? control.indicator.width : 0) + control.spacing
         rightPadding: control.mirrored ? 0 : (control.indicator ? control.indicator.width : 0) + control.spacing
@@ -69,6 +78,7 @@ T.ItemDelegate {
         }
 
         Rectangle {
+            visible: control.divider
             anchors.bottom: parent.bottom
             width: parent.width
             height: control.Suru.units.dp(1)
