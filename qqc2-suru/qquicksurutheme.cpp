@@ -24,45 +24,11 @@
 #include "qquicksurutheme_p.h"
 #include "qquicksuruunits.h"
 
-QQuickSuruTheme::QQuickSuruTheme(QPlatformTheme *theme)
-    : QQuickProxyTheme(theme)
-{
-    m_suruUnits = new QQuickSuruUnits();
-}
+#include <QtQuickTemplates2/private/qquicktheme_p.h>
 
-const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const
+void QQuickSuruTheme::initialize(QQuickTheme *theme)
 {
-    switch (type) {
-    case QPlatformTheme::GroupBoxTitleFont:
-        return &m_suruUnits->fontSmall();
-    case QPlatformTheme::ComboMenuItemFont:
-    case QPlatformTheme::TipLabelFont:
-    case QPlatformTheme::TabButtonFont:
-    case QPlatformTheme::SystemFont:
-    case QPlatformTheme::MenuFont:
-    case QPlatformTheme::MenuBarFont:
-    case QPlatformTheme::MenuItemFont:
-    case QPlatformTheme::MessageBoxFont:
-    case QPlatformTheme::LabelFont:
-    case QPlatformTheme::StatusBarFont:
-    case QPlatformTheme::TitleBarFont:
-    case QPlatformTheme::MdiSubWindowTitleFont:
-    case QPlatformTheme::DockWidgetTitleFont:
-    case QPlatformTheme::PushButtonFont:
-    case QPlatformTheme::CheckBoxFont:
-    case QPlatformTheme::RadioButtonFont:
-    case QPlatformTheme::ToolButtonFont:
-    case QPlatformTheme::ItemViewFont:
-    case QPlatformTheme::ListViewFont:
-    case QPlatformTheme::HeaderViewFont:
-    case QPlatformTheme::ListBoxFont:
-    case QPlatformTheme::ComboLineEditFont:
-    case QPlatformTheme::SmallFont:
-    case QPlatformTheme::MiniFont:
-    case QPlatformTheme::FixedFont:
-    case QPlatformTheme::EditorFont:
-    case QPlatformTheme::NFonts:
-    default:
-        return &m_suruUnits->fontParagraph();
-    }
+    QQuickSuruUnits suruUnits;
+    theme->setFont(QQuickTheme::System, suruUnits.fontParagraph());
+    theme->setFont(QQuickTheme::GroupBox, suruUnits.fontSmall());
 }

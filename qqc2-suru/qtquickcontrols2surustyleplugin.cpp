@@ -32,14 +32,6 @@
 
 //#include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
 
-static inline void initResources()
-{
-    Q_INIT_RESOURCE(qtquickcontrols2surustyleplugin);
-#ifdef QT_STATIC
-    Q_INIT_RESOURCE(qmake_QtQuick_Controls_2_Suru);
-#endif
-}
-
 class QtQuickControls2SuruStylePlugin: public QQuickStylePlugin
 {
     Q_OBJECT
@@ -52,12 +44,11 @@ public:
     void initializeEngine(QQmlEngine *engine, const char *uri) override;
 
     QString name() const override;
-    QQuickProxyTheme *createTheme() const override;
+    void initializeTheme(QQuickTheme *theme) override;
 };
 
 QtQuickControls2SuruStylePlugin::QtQuickControls2SuruStylePlugin(QObject *parent) : QQuickStylePlugin(parent)
 {
-    initResources();
 }
 
 void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
@@ -65,7 +56,7 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
     qmlRegisterType<QQuickSuruAnimations>();
     qmlRegisterType<QQuickSuruUnits>();
     QByteArray import = QByteArray(uri) + ".impl";
-    qmlRegisterType(typeUrl(QStringLiteral("HighlightFocusRectangle.qml")), import, 2, 2, "HighlightFocusRectangle");
+    qmlRegisterType(resolvedUrl(QStringLiteral("HighlightFocusRectangle.qml")), import, 2, 2, "HighlightFocusRectangle");
     qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
 }
 
@@ -81,9 +72,9 @@ QString QtQuickControls2SuruStylePlugin::name() const
     return QStringLiteral("suru");
 }
 
-QQuickProxyTheme *QtQuickControls2SuruStylePlugin::createTheme() const
+void QtQuickControls2SuruStylePlugin::initializeTheme(QQuickTheme *theme)
 {
-    return new QQuickSuruTheme;
+    QQuickSuruTheme::initialize(theme);
 }
 
 #include "qtquickcontrols2surustyleplugin.moc"

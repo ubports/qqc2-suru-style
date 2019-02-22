@@ -24,19 +24,14 @@
 #ifndef QQUICKSURUTHEME_P_H
 #define QQUICKSURUTHEME_P_H
 
-#include <QtGui/qfont.h>
-#include <QtQuickControls2/private/qquickproxytheme_p.h>
+#include <QtCore/qglobal.h>
 
-class QQuickSuruUnits;
+class QQuickTheme;
 
-class QQuickSuruTheme :  public QQuickProxyTheme
+class QQuickSuruTheme
 {
 public:
-    explicit QQuickSuruTheme(QPlatformTheme *theme = nullptr);
-    const QFont *font(Font type = SystemFont) const override;
-
-private:
-    QQuickSuruUnits *m_suruUnits;
+    static void initialize(QQuickTheme *theme);
 };
 
 #endif // QQUICKSURUTHEME_P_H
