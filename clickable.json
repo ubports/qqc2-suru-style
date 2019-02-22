@@ -1,0 +1,12 @@
+{
+  "template": "qmake",
+  "dependencies_target": [
+    "qtquickcontrols2-5-dev",
+    "qtquickcontrols2-5-private-dev",
+    "qtdeclarative5-dev"
+  ],
+  "scripts": {
+    "push": "adb push build/tmp/usr/lib/arm-linux-gnueabihf/qt5/qml/QtQuick/Controls.2/Suru/ /home/phablet/ && adb shell \"sudo cp -r /home/phablet/Suru/ /usr/lib/arm-linux-gnueabihf/qt5/qml/QtQuick/Controls.2/\""
+  },
+  "default": "build push"
+}
