@@ -1,5 +1,9 @@
-qqc2-suru-style (0.20180223) UNRELEASED; urgency=medium
+qqc2-suru-style (0.20180223ubuntu1) xenial; urgency=medium
 
+  [ JBBgameich ]
   * Initial release
 
- -- JBBgameich <jbb.mail@gmx.de>  Fri, 23 Feb 2018 09:37:54 +0100
+  [ Dan Chapman ]
+  * Add jenkinsfile and import to ubports repo
+
+ -- Dan Chapman <dan@ubports.com>  Fri, 04 May 2018 16:03:49 +0000
