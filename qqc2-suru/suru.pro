@@ -4,7 +4,7 @@ IMPORT_VERSION = 2.2
 
 uri = QtQuick.Controls.Suru
 
-QT += qml quick
+QT += gui qml quick
 QT_PRIVATE += quickcontrols2-private quick-private
 
 DEFINES += QT_NO_CAST_TO_ASCII QT_NO_CAST_FROM_ASCII

@@ -13,13 +13,13 @@ class QQuickSuruUnits : public QObject
     Q_PROPERTY(int breakpointMedium READ breakpointMedium CONSTANT)
     Q_PROPERTY(int breakpointLarge READ breakpointLarge CONSTANT)
 
-    Q_PROPERTY(QFont fontHeadingOne READ fontHeadingOne CONSTANT)
-    Q_PROPERTY(QFont fontHeadingTwo READ fontHeadingTwo CONSTANT)
-    Q_PROPERTY(QFont fontHeadingThree READ fontHeadingThree CONSTANT)
-    Q_PROPERTY(QFont fontParagraph READ fontParagraph CONSTANT)
-    Q_PROPERTY(QFont fontSmall READ fontSmall CONSTANT)
-    Q_PROPERTY(QFont fontCaption READ fontCaption CONSTANT)
-    Q_PROPERTY(QFont fontCodeBlock READ fontCodeBlock CONSTANT)
+    Q_PROPERTY(QFont fontHeadingOne READ fontHeadingOne NOTIFY fontsChanged)
+    Q_PROPERTY(QFont fontHeadingTwo READ fontHeadingTwo NOTIFY fontsChanged)
+    Q_PROPERTY(QFont fontHeadingThree READ fontHeadingThree NOTIFY fontsChanged)
+    Q_PROPERTY(QFont fontParagraph READ fontParagraph NOTIFY fontsChanged)
+    Q_PROPERTY(QFont fontSmall READ fontSmall NOTIFY fontsChanged)
+    Q_PROPERTY(QFont fontCaption READ fontCaption NOTIFY fontsChanged)
+    Q_PROPERTY(QFont fontCodeBlock READ fontCodeBlock NOTIFY fontsChanged)
 
 public:
     explicit QQuickSuruUnits(QObject *parent = 0);
@@ -42,17 +42,19 @@ public:
     Q_INVOKABLE int gu(qreal value) const;
 
     // Used for font-indipendent sizes. = 1 px
-    Q_INVOKABLE int dp(int value) const;
+    Q_INVOKABLE int dp(qreal value) const;
 
     // The size of the paragraph font, in px. = 16 px
     Q_INVOKABLE int rem(qreal value) const;
 
     Q_INVOKABLE int applyLabelTopPadding(const int previousBlockLevel) const;
-signals:
 
-public slots:
+signals:
+    void fontsChanged();
 
 private:
+    void setupFonts();
+
     QFont m_headingOne;
     QFont m_headingTwo;
     QFont m_headingThree;
@@ -60,6 +62,9 @@ private:
     QFont m_small;
     QFont m_caption;
     QFont m_codeBlock;
+
+    float m_devicePixelRatio;
+    float m_gridUnit;
 };
 
 #endif // QQUICKSURUUNITS_H
