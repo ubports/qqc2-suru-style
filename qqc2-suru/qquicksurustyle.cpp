@@ -27,6 +27,7 @@
 
 #include <QtCore/qdebug.h>
 #include <QtCore/qsettings.h>
+#include <QtCore/qstandardpaths.h>
 #include <QtQml/qqmlinfo.h>
 #include <QtQuickControls2/private/qquickstyleattached_p.h>
 
@@ -89,7 +90,21 @@ static uint globalColors[2][9] = {
 
 static bool globalCustoms[2][9] = { { false } };
 
-extern bool qt_is_dark_system_theme();
+static const QString settingsFile = QStringLiteral("%1/ubuntu-ui-toolkit/theme.ini");
+static const QString ubuntuDarkTheme = QStringLiteral("Ubuntu.Components.Themes.SuruDark");
+
+static bool qt_is_dark_system_theme() {
+    bool is_dark = false;
+
+    // TODO make this work on OSs other than Ubuntu Touch
+    QSettings settings(settingsFile.arg(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation)), QSettings::IniFormat);
+    QString themeName = settings.value(QStringLiteral("theme")).toString();
+    if (themeName == ubuntuDarkTheme) {
+        is_dark = true;
+    }
+
+    return is_dark;
+};
 
 static QQuickSuruStyle::Theme qquicksuru_effective_theme(QQuickSuruStyle::Theme theme)
 {
@@ -378,6 +393,8 @@ void QQuickSuruStyle::init()
             globalTheme = m_theme = qquicksuru_effective_theme(themeEnum);
         else if (!themeValue.isEmpty())
             qWarning().nospace().noquote() << "Suru: unknown theme value: " << themeValue;
+        else
+            globalTheme = m_theme = qquicksuru_effective_theme(QQuickSuruStyle::System);
 
         initPaletteColor(Light, Positive, "QT_QUICK_CONTROLS_SURU_LIGHT_POSITIVE", settings);
         initPaletteColor(Light, Negative, "QT_QUICK_CONTROLS_SURU_LIGHT_NEGATIVE", settings);
