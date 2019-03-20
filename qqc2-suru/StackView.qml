@@ -29,10 +29,7 @@ T.StackView {
     id: control
 
     popEnter: Transition {
-        ParallelAnimation {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
-            NumberAnimation { property: "x"; from: (control.mirrored ? -0.62 : 0.62) * -control.width; to: 0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingOut }
-        }
+        NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
     }
 
     popExit: Transition {
@@ -40,10 +37,7 @@ T.StackView {
     }
 
     pushEnter: Transition {
-        ParallelAnimation {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
-            NumberAnimation { property: "x"; from: (control.mirrored ? -0.62 : 0.62) * control.width; to: 0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingOut }
-        }
+        NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
     }
 
     pushExit: Transition {
@@ -51,10 +45,7 @@ T.StackView {
     }
 
     replaceEnter: Transition {
-        ParallelAnimation {
-            NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
-            NumberAnimation { property: "x"; from: (control.mirrored ? -0.62 : 0.62) * control.width; to: 0; duration: control.Suru.animations.BriskDuration; easing: control.Suru.animations.EasingOut }
-        }
+        NumberAnimation { property: "opacity"; from: 0; to: 1; duration: control.Suru.animations.FastDuration; easing: control.Suru.animations.EasingOut }
     }
 
     replaceExit: Transition {
