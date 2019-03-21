@@ -35,6 +35,9 @@ T.BusyIndicator {
         width: control.Suru.units.gu(12)
         height: control.Suru.units.gu(12)
 
+        sourceSize.width: control.Suru.units.gu(12)
+        sourceSize.height: control.Suru.units.gu(12)
+
         source: "image://suru/spinner/" + control.Suru.highlightColor
         opacity: running ? 1.0 : 0.0
 
