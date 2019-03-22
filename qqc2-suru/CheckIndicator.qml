@@ -21,6 +21,8 @@
 ****************************************************************************/
 
 import QtQuick 2.9
+import QtQuick.Controls 2.3
+import QtQuick.Controls.impl 2.3
 import QtQuick.Controls.Suru 2.2
 
 Item {
@@ -77,7 +79,7 @@ Item {
         }
     }
 
-    Image {
+    ColorImage {
         anchors { fill: parent; margins: control.Suru.units.dp(2) }
 
         color: control.Suru.backgroundColor

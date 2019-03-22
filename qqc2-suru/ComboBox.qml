@@ -22,7 +22,8 @@
 ****************************************************************************/
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.3
+import QtQuick.Controls.impl 2.3
 import QtQuick.Templates 2.2 as T
 import QtQuick.Controls.Suru 2.2
 
@@ -54,7 +55,7 @@ T.ComboBox {
         hoverEnabled: control.hoverEnabled
     }
 
-    indicator: Image {
+    indicator: ColorImage {
         x: control.mirrored ? control.leftPadding : control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
 
