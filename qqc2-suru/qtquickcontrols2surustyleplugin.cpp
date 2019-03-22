@@ -30,8 +30,6 @@
 
 #include <QQmlEngine>
 
-//#include <QtQuickControls2/private/qquickcolorimageprovider_p.h>
-
 class QtQuickControls2SuruStylePlugin: public QQuickStylePlugin
 {
     Q_OBJECT
@@ -41,7 +39,6 @@ public:
     QtQuickControls2SuruStylePlugin(QObject *parent = nullptr);
 
     void registerTypes(const char *uri) override;
-    void initializeEngine(QQmlEngine *engine, const char *uri) override;
 
     QString name() const override;
     void initializeTheme(QQuickTheme *theme) override;
@@ -55,16 +52,7 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<QQuickSuruAnimations>();
     qmlRegisterType<QQuickSuruUnits>();
-    QByteArray import = QByteArray(uri) + ".impl";
-    qmlRegisterType(resolvedUrl(QStringLiteral("HighlightFocusRectangle.qml")), import, 2, 2, "HighlightFocusRectangle");
     qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
-}
-
-void QtQuickControls2SuruStylePlugin::initializeEngine(QQmlEngine *engine, const char *uri)
-{
-    QQuickStylePlugin::initializeEngine(engine, uri);
-
-    //engine->addImageProvider(name(), new QQuickColorImageProvider(QStringLiteral(":/qt-project.org/imports/QtQuick/Controls.2/Suru/assets")));
 }
 
 QString QtQuickControls2SuruStylePlugin::name() const

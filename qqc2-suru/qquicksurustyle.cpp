@@ -29,7 +29,6 @@
 #include <QtCore/qsettings.h>
 #include <QtCore/qstandardpaths.h>
 #include <QtQml/qqmlinfo.h>
-//#include <QtQuickControls2/private/qquickstyleattached_p.h>
 #include <QtQuickControls2/private/qquickstyle_p.h>
 
 static QRgb qquicksuru_color(QQuickSuruStyle::Color colorRole)

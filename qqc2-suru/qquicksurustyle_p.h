@@ -26,7 +26,6 @@
 
 #include <QSettings>
 #include <QtGui/qcolor.h>
-//#include <QtQuickControls2/private/qquickstyleattached_p.h>
 #include <QtQuickControls2/private/qquickattachedobject_p.h>
 
 #define SURU_PALETTE_COLOR(name, theme, palettecolor) \
