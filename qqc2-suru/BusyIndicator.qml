@@ -32,10 +32,14 @@ T.BusyIndicator {
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
 
     contentItem: Image {
-        width: control.Suru.units.gu(12)
-        height: control.Suru.units.gu(12)
+        id: image
+        width: control.Suru.units.gu(6)
+        height: control.Suru.units.gu(6)
 
-        source: "image://suru/spinner/" + control.Suru.highlightColor
+        sourceSize.width: control.Suru.units.gu(6)
+        sourceSize.height: control.Suru.units.gu(6)
+
+        source: "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/spinner.svg"
         opacity: running ? 1.0 : 0.0
 
         RotationAnimator on rotation {
@@ -44,6 +48,31 @@ T.BusyIndicator {
             to: 360
             loops: Animation.Infinite
             duration: control.Suru.animations.SleepyDuration
+        }
+
+        ShaderEffect {
+            id: colorizedImage
+            objectName: "shader"
+
+            anchors.fill: parent
+            visible: image.status == Image.Ready
+
+            property Image source: image
+            property color keyColorOut: control.Suru.highlightColor
+            property color keyColorIn: "#808080"
+            property real threshold: 0.1
+
+            fragmentShader: "
+                varying highp vec2 qt_TexCoord0;
+                uniform sampler2D source;
+                uniform highp vec4 keyColorOut;
+                uniform highp vec4 keyColorIn;
+                uniform lowp float threshold;
+                uniform lowp float qt_Opacity;
+                void main() {
+                    lowp vec4 sourceColor = texture2D(source, qt_TexCoord0);
+                    gl_FragColor = mix(keyColorOut * vec4(sourceColor.a), sourceColor, step(threshold, distance(sourceColor.rgb / sourceColor.a, keyColorIn.rgb))) * qt_Opacity;
+                }"
         }
     }
 }

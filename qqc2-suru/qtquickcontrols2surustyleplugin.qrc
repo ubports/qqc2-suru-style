@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/qt-project.org/imports/QtQuick/Controls.2/Suru">
-        <file>assets/spinner.png</file>
+        <file>assets/spinner.svg</file>
         <file>assets/checkmark.png</file>
         <file>assets/checkmark@2.png</file>
         <file>assets/checkmark@3.png</file>
@@ -13,9 +13,6 @@
         <file>assets/down@2.png</file>
         <file>assets/down@3.png</file>
         <file>assets/down@4.png</file>
-        <file>assets/spinner@2.png</file>
-        <file>assets/spinner@3.png</file>
-        <file>assets/spinner@4.png</file>
         <file>assets/up.png</file>
         <file>assets/up@2.png</file>
         <file>assets/up@3.png</file>
