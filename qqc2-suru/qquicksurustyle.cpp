@@ -345,6 +345,13 @@ QColor QQuickSuruStyle::foregroundColor() const
     return c;
 }
 
+QColor QQuickSuruStyle::secondaryForegroundColor() const
+{
+    QColor c = QColor::fromRgba(m_colors[m_theme][m_theme == Light ? Low : High]);
+    c.setAlphaF(0.8571);
+    return c;
+}
+
 void QQuickSuruStyle::parentStyleChange(QQuickStyleAttached *newParent, QQuickStyleAttached *oldParent)
 {
     Q_UNUSED(oldParent);

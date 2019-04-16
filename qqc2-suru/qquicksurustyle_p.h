@@ -79,6 +79,7 @@ class QQuickSuruStyle : public QQuickStyleAttached
     Q_PROPERTY(QColor activeFocusColor READ activeFocusColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor overlayColor READ overlayColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor foregroundColor READ foregroundColor NOTIFY paletteChanged FINAL)
+    Q_PROPERTY(QColor secondaryForegroundColor READ secondaryForegroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor neutralColor READ neutralColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor secondaryBackgroundColor READ secondaryBackgroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY paletteChanged FINAL)
@@ -152,6 +153,7 @@ public:
     QColor activeFocusColor() const;
     QColor overlayColor() const;
     QColor foregroundColor() const;
+    QColor secondaryForegroundColor() const;
     QColor neutralColor() const;
     QColor secondaryBackgroundColor() const;
     QColor backgroundColor() const;
