@@ -335,20 +335,30 @@ QColor QQuickSuruStyle::neutralColor() const
 
 QColor QQuickSuruStyle::foregroundColor() const
 {
-    QColor c = QColor::fromRgba(m_colors[m_theme][m_theme == Light ? Low : High]);
-
     if (m_textStyle == SecondaryText)
-        c.setAlphaF(0.8571);
+        return secondaryForegroundColor();
     else if (m_textStyle == TertiaryText)
-        c.setAlphaF(0.6429);
+        return tertiaryForegroundColor();
 
-    return c;
+    return primaryForegroundColor();
+}
+
+QColor QQuickSuruStyle::primaryForegroundColor() const
+{
+    return QColor::fromRgba(m_colors[m_theme][m_theme == Light ? Low : High]);
 }
 
 QColor QQuickSuruStyle::secondaryForegroundColor() const
 {
-    QColor c = QColor::fromRgba(m_colors[m_theme][m_theme == Light ? Low : High]);
+    QColor c = primaryForegroundColor();
     c.setAlphaF(0.8571);
+    return c;
+}
+
+QColor QQuickSuruStyle::tertiaryForegroundColor() const
+{
+    QColor c = primaryForegroundColor();
+    c.setAlphaF(0.6429);
     return c;
 }
 
