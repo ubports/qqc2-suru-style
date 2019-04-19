@@ -79,6 +79,8 @@ class QQuickSuruStyle : public QQuickStyleAttached
     Q_PROPERTY(QColor activeFocusColor READ activeFocusColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor overlayColor READ overlayColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor foregroundColor READ foregroundColor NOTIFY paletteChanged FINAL)
+    Q_PROPERTY(QColor secondaryForegroundColor READ secondaryForegroundColor NOTIFY paletteChanged FINAL)
+    Q_PROPERTY(QColor tertiaryForegroundColor READ tertiaryForegroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor neutralColor READ neutralColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor secondaryBackgroundColor READ secondaryBackgroundColor NOTIFY paletteChanged FINAL)
     Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY paletteChanged FINAL)
@@ -152,6 +154,8 @@ public:
     QColor activeFocusColor() const;
     QColor overlayColor() const;
     QColor foregroundColor() const;
+    QColor secondaryForegroundColor() const;
+    QColor tertiaryForegroundColor() const;
     QColor neutralColor() const;
     QColor secondaryBackgroundColor() const;
     QColor backgroundColor() const;
@@ -179,6 +183,7 @@ private:
     void inheritPaletteColor(const Theme &theme, const PaletteColor &paletteColor, QRgb value, bool custom);
     void propagatePaletteColor(const Theme &theme, const PaletteColor &paletteColor);
     void resetPaletteColor(const Theme &theme, const PaletteColor &paletteColor);
+    QColor primaryForegroundColor() const;
 
     bool m_explicitTheme;
     QQuickSuruStyle::Theme m_theme;
