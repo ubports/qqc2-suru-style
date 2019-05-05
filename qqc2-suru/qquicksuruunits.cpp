@@ -23,10 +23,12 @@ QQuickSuruUnits::QQuickSuruUnits(QObject *parent) :
     m_devicePixelRatio(qGuiApp->devicePixelRatio())
 {
     // TODO recalculate based on window/devicePixelRatio changes like the ubuntu uitk
-    if (QHighDpiScaling::isActive())
-      m_gridUnit = qCeil(DEFAULT_GRID_UNIT_PX * m_devicePixelRatio);
-    else
-      m_gridUnit = getenvFloat(ENV_GRID_UNIT_PX, DEFAULT_GRID_UNIT_PX * m_devicePixelRatio);
+    if (QHighDpiScaling::isActive()) {
+        m_gridUnit = qCeil(DEFAULT_GRID_UNIT_PX * m_devicePixelRatio);
+    }
+    else {
+        m_gridUnit = getenvFloat(ENV_GRID_UNIT_PX, DEFAULT_GRID_UNIT_PX * m_devicePixelRatio);
+    }
 
     setupFonts();
 }
@@ -83,12 +85,17 @@ int QQuickSuruUnits::gu(qreal value) const
 
 int QQuickSuruUnits::dp(qreal value) const
 {
-    const qreal ratio = m_gridUnit / DEFAULT_GRID_UNIT_PX;
-    if (value <= 2.0) {
-        // for values under 2dp, return only multiples of the value
-        return qRound(value * qFloor(ratio)) / m_devicePixelRatio;
-    } else {
-        return qRound(value * ratio) / m_devicePixelRatio;
+    if (QHighDpiScaling::isActive()) {
+        return value;
+    }
+    else {
+        const qreal ratio = m_gridUnit / DEFAULT_GRID_UNIT_PX;
+        if (value <= 2.0) {
+            // for values under 2dp, return only multiples of the value
+            return qRound(value * qFloor(ratio)) / m_devicePixelRatio;
+        } else {
+            return qRound(value * ratio) / m_devicePixelRatio;
+        }
     }
 }
 
