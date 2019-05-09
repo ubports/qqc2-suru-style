@@ -55,27 +55,4 @@ T.Label {
             return control.Suru.units.fontParagraph
         }
     }
-
-    // EXPERIMENTAL
-    width: {
-        var max_width = function () {
-            switch (control.Suru.textLevel) {
-            case Suru.HeadingOne:
-            case Suru.HeadingTwo:
-            case Suru.HeadingThree:
-            case Suru.Small:
-            case Suru.Caption:
-                return control.Suru.units.rem(35)
-            case Suru.Paragraph:
-            case Suru.CodeBlock:
-            default:
-                return control.Suru.units.rem(50)
-            }
-        }
-
-        return Math.min(parent.width, max_width())
-    }
-
-    // EXPERIMENTAL
-    lineHeight: 1.5
 }
