@@ -32,8 +32,6 @@ T.Label {
     color: control.Suru.foregroundColor
     linkColor: control.Suru.highlightColor
 
-    wrapMode: Text.WordWrap
-
     font: {
         switch (control.Suru.textLevel) {
         case Suru.HeadingOne:
