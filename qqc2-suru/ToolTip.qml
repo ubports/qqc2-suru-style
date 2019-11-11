@@ -44,7 +44,7 @@ T.ToolTip {
     contentItem: Text {
         text: control.text
         font: control.font
-        // TODO: wrapMode: Label.Wrap
+        wrapMode: Text.Wrap
         color: control.Suru.backgroundColor
     }
 
