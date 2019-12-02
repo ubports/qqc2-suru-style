@@ -51,7 +51,7 @@ T.SpinBox {
 
     contentItem: TextInput {
         text: control.textFromValue(control.value, control.locale)
-
+        color: control.Suru.foregroundColor
         font: control.font
         selectionColor: control.Suru.highlightColor
         selectedTextColor: "white"
