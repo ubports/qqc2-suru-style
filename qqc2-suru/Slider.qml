@@ -47,8 +47,8 @@ T.Slider {
         x: control.leftPadding + (horizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.visualPosition * (control.availableHeight - height))
 
-        //border.width: control.pressed ? 1 : 0
-     //   border.color: control.Suru.neutralColor
+        border.width: control.Suru.units.dp(1)
+        border.color: control.Suru.neutralColor
         radius: control.Suru.units.dp(4)
         color: control.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
@@ -58,7 +58,7 @@ T.Slider {
 
         Behavior on color {
             ColorAnimation {
-                duration: control.Suru.animations.FastDuration  
+                duration: control.Suru.animations.FastDuration
                 easing: control.Suru.animations.EasingIn
             }
         }

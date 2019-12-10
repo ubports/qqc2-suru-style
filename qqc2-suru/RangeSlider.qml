@@ -45,8 +45,8 @@ T.RangeSlider {
         x: control.leftPadding + (horizontal ? control.first.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.first.visualPosition * (control.availableHeight - height))
 
-        border.width: activeFocus ? control.Suru.units.dp(2) : 0   //(first.pressed ? 1 : 0)
-        border.color: /*activeFocus ?*/ control.Suru.activeFocusColor /*: control.Suru.neutralColor*/
+        border.width: activeFocus ? control.Suru.units.dp(2) : control.Suru.units.dp(1)   //(first.pressed ? 1 : 0)
+        border.color: activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
         radius: control.Suru.units.dp(4)
         color: first.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
@@ -74,8 +74,8 @@ T.RangeSlider {
         x: control.leftPadding + (horizontal ? control.second.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.second.visualPosition * (control.availableHeight - height))
 
-        border.width: activeFocus ? control.Suru.units.dp(2) : 0       //(second.pressed ? 1 : 0)
-        border.color: /*activeFocus ?*/ control.Suru.activeFocusColor /*: control.Suru.neutralColor*/
+        border.width: activeFocus ? control.Suru.units.dp(2) : control.Suru.units.dp(1)       //(second.pressed ? 1 : 0)
+        border.color: activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
         radius: control.Suru.units.dp(4)
         color: second.pressed
                ? Qt.darker(control.Suru.secondaryBackgroundColor, 1.1)
