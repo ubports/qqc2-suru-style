@@ -49,12 +49,12 @@ DropShadow {
     color: {
         switch(elevation) {
         case 1:
-            return "#26000000"
+            return "#56888888"
         case 2:
-            return "#40000000"
+            return "#70888888"
         case 3:
         default:
-            return "#32000000"
+            return "#62888888"
         }
     }
 }
