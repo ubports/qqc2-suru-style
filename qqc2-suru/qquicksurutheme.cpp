@@ -24,6 +24,16 @@
 #include "qquicksurutheme_p.h"
 #include "qquicksuruunits.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#include <QtQuickTemplates2/private/qquicktheme_p.h>
+
+void QQuickSuruTheme::initialize(QQuickTheme *theme)
+{
+    QQuickSuruUnits suruUnits;
+    theme->setFont(QQuickTheme::System, suruUnits.fontParagraph());
+    theme->setFont(QQuickTheme::GroupBox, suruUnits.fontSmall());
+}
+#else
 QQuickSuruTheme::QQuickSuruTheme(QPlatformTheme *theme)
     : QQuickProxyTheme(theme)
 {
@@ -66,3 +76,4 @@ const QFont *QQuickSuruTheme::font(QPlatformTheme::Font type) const
         return &m_suruUnits->fontParagraph();
     }
 }
+#endif

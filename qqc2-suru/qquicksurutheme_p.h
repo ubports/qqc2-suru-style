@@ -24,6 +24,19 @@
 #ifndef QQUICKSURUTHEME_P_H
 #define QQUICKSURUTHEME_P_H
 
+#include <QtGlobal>
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+#include <QtCore/qglobal.h>
+
+class QQuickTheme;
+
+class QQuickSuruTheme
+{
+public:
+    static void initialize(QQuickTheme *theme);
+};
+#else
 #include <QtGui/qfont.h>
 #include <QtQuickControls2/private/qquickproxytheme_p.h>
 
@@ -38,5 +51,6 @@ public:
 private:
     QQuickSuruUnits *m_suruUnits;
 };
+#endif
 
 #endif // QQUICKSURUTHEME_P_H
