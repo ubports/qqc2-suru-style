@@ -84,7 +84,6 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
     qmlRegisterType(resolvedUrl(QStringLiteral("CursorDelegate.qml")), uri, 2, 0, "CursorDelegate");
     qmlRegisterType(resolvedUrl(QStringLiteral("ElevationEffect.qml")), uri, 2, 0, "ElevationEffect");
     qmlRegisterType(resolvedUrl(QStringLiteral("HighlightFocusRectangle.qml")), uri, 2, 0, "HighlightFocusRectangle");
-    qmlRegisterType(resolvedUrl(QStringLiteral("Label.qml")), uri, 2, 0, "Label");
     qmlRegisterType(resolvedUrl(QStringLiteral("RadioIndicator.qml")), uri, 2, 0, "RadioIndicator");
     qmlRegisterType(resolvedUrl(QStringLiteral("SwitchIndicator.qml")), uri, 2, 0, "SwitchIndicator");
 #else
@@ -92,7 +91,6 @@ void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
     qmlRegisterType(typeUrl(QStringLiteral("CursorDelegate.qml")), uri, 2, 0, "CursorDelegate");
     qmlRegisterType(typeUrl(QStringLiteral("ElevationEffect.qml")), uri, 2, 0, "ElevationEffect");
     qmlRegisterType(typeUrl(QStringLiteral("HighlightFocusRectangle.qml")), uri, 2, 0, "HighlightFocusRectangle");
-    qmlRegisterType(typeUrl(QStringLiteral("Label.qml")), uri, 2, 0, "Label");
     qmlRegisterType(typeUrl(QStringLiteral("RadioIndicator.qml")), uri, 2, 0, "RadioIndicator");
     qmlRegisterType(typeUrl(QStringLiteral("SwitchIndicator.qml")), uri, 2, 0, "SwitchIndicator");
 #endif
