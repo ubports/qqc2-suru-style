@@ -21,5 +21,11 @@ SOURCES += \
 RESOURCES += \
     $$PWD/qtquickcontrols2surustyleplugin.qrc
 
-CONFIG += no_cxx_module install_qml_files builtin_resources qtquickcompiler
+# Qt 5.9 does not install *.qml files with the flags required for newer Qt versions
+equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 12) {
+    !static: CONFIG += qmlcache
+    CONFIG += no_cxx_module
+} else {
+    CONFIG += no_cxx_module install_qml_files builtin_resources qtquickcompiler
+}
 load(qml_plugin)
