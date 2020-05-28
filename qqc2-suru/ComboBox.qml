@@ -66,17 +66,27 @@ T.ComboBox {
         sourceSize.height: height
     }
 
-    contentItem: Text {
+    contentItem: T.TextField {
         leftPadding: control.mirrored && control.indicator ? control.indicator.width + control.spacing : 0
         rightPadding: !control.mirrored && control.indicator ? control.indicator.width + control.spacing : 0
 
-        text: control.displayText
+        text: control.editable ? control.editText : control.displayText
+
+        enabled: control.editable
+        autoScroll: control.editable
+        readOnly: control.down
+        inputMethodHints: control.inputMethodHints
+        validator: control.validator
+
         font: control.font
+        color: control.Suru.foregroundColor
+        selectionColor: Suru.highlightColor
+        selectedTextColor: 'white'
+
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
-        elide: Text.ElideRight
 
-        color: control.Suru.foregroundColor
+        cursorDelegate: CursorDelegate { }
     }
 
     background: Rectangle {
