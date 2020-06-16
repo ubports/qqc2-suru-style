@@ -6,7 +6,8 @@
     "qtdeclarative5-dev"
   ],
   "scripts": {
-    "push": "adb push build/tmp/usr/lib/arm-linux-gnueabihf/qt5/qml/QtQuick/Controls.2/Suru/ /home/phablet/ && adb shell \"sudo cp -r /home/phablet/Suru/ /usr/lib/arm-linux-gnueabihf/qt5/qml/QtQuick/Controls.2/\""
+    "push": "adb push build/arm-linux-gnueabihf/app/install/usr/lib/arm-linux-gnueabihf/qt5/qml/QtQuick/Controls.2/Suru/ /home/phablet/ && adb shell \"sudo cp -r /home/phablet/Suru/ /usr/lib/arm-linux-gnueabihf/qt5/qml/QtQuick/Controls.2/\""
   },
+  "postbuild": "cp ${ROOT}/manifest.json ${INSTALL_DIR}",
   "default": "build push"
 }
