@@ -1,2 +1,2 @@
-@Library('ubports-build-tools@repo-cleanup-step') _
+@Library('ubports-build-tools@very-clean') _
 buildAndProvideDebianPackage()
