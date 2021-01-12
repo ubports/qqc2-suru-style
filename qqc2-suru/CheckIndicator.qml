@@ -21,6 +21,8 @@
 ****************************************************************************/
 
 import QtQuick 2.9
+import QtQuick.Controls 2.12
+import QtQuick.Controls.impl 2.12
 import QtQuick.Controls.Suru 2.2
 
 Item {
@@ -77,16 +79,16 @@ Item {
         }
     }
 
-    Image {
+    ColorImage {
         anchors { fill: parent; margins: control.Suru.units.dp(2) }
 
-        source: control.checkState == Qt.PartiallyChecked
-                ? "image://suru/checkmark-undefined/" + control.Suru.backgroundColor
-                : "image://suru/checkmark/" + control.Suru.backgroundColor
-
+        color: control.Suru.backgroundColor
+        source: control.checkState === Qt.PartiallyChecked
+                ? "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/checkmark-undefined.png"
+                : "qrc:/qt-project.org/imports/QtQuick/Controls.2/Suru/assets/checkmark.png"
         sourceSize.width: width
         sourceSize.height: height
 
-        visible: control.checkState != Qt.Unchecked
+        visible: control.checkState !== Qt.Unchecked
     }
 }
