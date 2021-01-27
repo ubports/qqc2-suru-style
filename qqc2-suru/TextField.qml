@@ -26,6 +26,7 @@ import QtQuick.Templates 2.2 as T
 import QtQuick.Controls 2.2
 import QtQuick.Controls.impl 2.2
 import QtQuick.Controls.Suru 2.2
+import "impl"
 
 T.TextField {
     id: control
