@@ -1,21 +1,27 @@
+# Internal implementation files
+QML_FILES += \
+    $$PWD/impl/CheckIndicator.qml \
+    $$PWD/impl/CursorDelegate.qml \
+    $$PWD/impl/ElevationEffect.qml \
+    $$PWD/impl/HighlightFocusRectangle.qml \
+    $$PWD/impl/RadioIndicator.qml \
+    $$PWD/impl/SwitchIndicator.qml
+
+# Suru QtQuick Controls 2.x Style files
 QML_FILES += \
     $$PWD/ApplicationWindow.qml \
     $$PWD/BusyIndicator.qml \
     $$PWD/Button.qml \
     $$PWD/CheckBox.qml \
     $$PWD/CheckDelegate.qml \
-    $$PWD/CheckIndicator.qml \
     $$PWD/ComboBox.qml \
-    $$PWD/CursorDelegate.qml \
     $$PWD/DelayButton.qml \
     $$PWD/Dial.qml \
     $$PWD/Dialog.qml \
     $$PWD/DialogButtonBox.qml \
     $$PWD/Drawer.qml \
-    $$PWD/ElevationEffect.qml \
     $$PWD/Frame.qml \
     $$PWD/GroupBox.qml \
-    $$PWD/HighlightFocusRectangle.qml \
     $$PWD/ItemDelegate.qml \
     $$PWD/Label.qml \
     $$PWD/Menu.qml \
@@ -28,7 +34,6 @@ QML_FILES += \
     $$PWD/ProgressBar.qml \
     $$PWD/RadioButton.qml \
     $$PWD/RadioDelegate.qml \
-    $$PWD/RadioIndicator.qml \
     $$PWD/RangeSlider.qml \
     $$PWD/RoundButton.qml \
     $$PWD/ScrollBar.qml \
@@ -38,7 +43,6 @@ QML_FILES += \
     $$PWD/StackView.qml \
     $$PWD/SwipeDelegate.qml \
     $$PWD/SwitchDelegate.qml \
-    $$PWD/SwitchIndicator.qml \
     $$PWD/Switch.qml \
     $$PWD/TabBar.qml \
     $$PWD/TabButton.qml \
