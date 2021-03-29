@@ -1,6 +1,6 @@
 TARGET = qtquickcontrols2surustyleplugin
 TARGETPATH = QtQuick/Controls.2/Suru
-IMPORT_VERSION = 2.2
+IMPORT_VERSION = 2.5
 
 uri = QtQuick.Controls.Suru
 

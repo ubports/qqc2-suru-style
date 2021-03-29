@@ -74,8 +74,8 @@ QtQuickControls2SuruStylePlugin::QtQuickControls2SuruStylePlugin(QObject *parent
 
 void QtQuickControls2SuruStylePlugin::registerTypes(const char *uri)
 {
-    qmlRegisterModule(uri, 2, 2);
-    qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 2, "Suru", tr("Suru is an attached property"));
+    qmlRegisterModule(uri, 2, 5);
+    qmlRegisterUncreatableType<QQuickSuruStyle>(uri, 2, 5, "Suru", tr("Suru is an attached property"));
 
     qmlRegisterType<QQuickSuruAnimations>();
     qmlRegisterType<QQuickSuruUnits>();
