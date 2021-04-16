@@ -22,8 +22,10 @@
 ****************************************************************************/
 
 import QtQuick 2.9
-import QtQuick.Templates 2.2 as T
 import QtQuick.Controls.Suru 2.2
+import QtQuick.Controls 2.12
+import QtQuick.Controls.impl 2.12
+import QtQuick.Templates 2.12 as T
 
 T.TabButton {
     id: control
@@ -38,13 +40,18 @@ T.TabButton {
 
     padding: control.Suru.units.gu(2)
 
-    contentItem: Text {
+    icon.width: 24
+    icon.height: 24
+    icon.color: checked ? control.palette.windowText : control.palette.brightText
+
+    contentItem: IconLabel {
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+
+        icon: control.icon
         text: control.text
         font: control.font
-        elide: Text.ElideRight
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-
         opacity: control.checked || control.down || control.hovered ? 1.0 : 0.5
         color: control.Suru.foregroundColor
 
