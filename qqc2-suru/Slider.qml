@@ -29,10 +29,8 @@ import "impl"
 T.Slider {
     id: control
 
-    readonly property bool horizontal: control.orientation === Qt.Horizontal
-
-    implicitWidth: horizontal ? control.Suru.units.gu(32) : control.Suru.units.gu(5)
-    implicitHeight: horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(32)
+    implicitWidth: control.horizontal ? control.Suru.units.gu(32) : control.Suru.units.gu(5)
+    implicitHeight: control.horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(32)
 
     padding: control.Suru.units.gu(1)
     opacity: control.enabled ? 1.0 : 0.5
@@ -43,10 +41,8 @@ T.Slider {
         implicitHeight: control.Suru.units.gu(2)
         implicitWidth: control.Suru.units.gu(2)
 
-        readonly property bool horizontal: control.orientation === Qt.Horizontal
-
-        x: control.leftPadding + (horizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
-        y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.visualPosition * (control.availableHeight - height))
+        x: control.leftPadding + (control.horizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
+        y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : control.visualPosition * (control.availableHeight - height))
 
         border.width: control.Suru.units.dp(1)
         border.color: control.Suru.neutralColor
@@ -71,32 +67,30 @@ T.Slider {
     }
 
     background: Item {
-        implicitWidth: horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(2)
-        implicitHeight: horizontal ? control.Suru.units.gu(2) : control.Suru.units.gu(5)
+        implicitWidth: control.horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(2)
+        implicitHeight: control.horizontal ? control.Suru.units.gu(2) : control.Suru.units.gu(5)
 
-        readonly property bool horizontal: control.orientation === Qt.Horizontal
+        x: control.leftPadding + (control.horizontal ? 0 : (control.availableWidth - width) / 2)
+        y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : 0)
+        width: control.horizontal ? control.availableWidth : implicitWidth
+        height: control.horizontal ? implicitHeight : control.availableHeight
 
-        x: control.leftPadding + (horizontal ? 0 : (control.availableWidth - width) / 2)
-        y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : 0)
-        width: horizontal ? control.availableWidth : implicitWidth
-        height: horizontal ? implicitHeight : control.availableHeight
-
-        scale: horizontal && control.mirrored ? -1 : 1
+        scale: control.horizontal && control.mirrored ? -1 : 1
 
         Rectangle {
-            x: parent.horizontal ? 0 : (parent.width - width) / 2
-            y: parent.horizontal ? (parent.height - height) / 2 : 0
-            width: parent.horizontal ? parent.width : 2
-            height: !parent.horizontal ? parent.height : 2
+            x: control.horizontal ? 0 : (parent.width - width) / 2
+            y: control.horizontal ? (parent.height - height) / 2 : 0
+            width: control.horizontal ? parent.width : 2
+            height: !control.horizontal ? parent.height : 2
 
             color: control.Suru.neutralColor
         }
 
         Rectangle {
-            x: parent.horizontal ? 0 : (parent.width - width) / 2
-            y: parent.horizontal ? (parent.height - height) / 2 : control.visualPosition * parent.height
-            width: parent.horizontal ? control.position * parent.width : 2
-            height: !parent.horizontal ? control.position * parent.height : 2
+            x: control.horizontal ? 0 : (parent.width - width) / 2
+            y: control.horizontal ? (parent.height - height) / 2 : control.visualPosition * parent.height
+            width: control.horizontal ? control.position * parent.width : 2
+            height: !control.horizontal ? control.position * parent.height : 2
 
             color: control.Suru.highlightColor
         }
