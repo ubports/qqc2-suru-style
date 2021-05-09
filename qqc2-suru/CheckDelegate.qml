@@ -49,7 +49,7 @@ T.CheckDelegate {
 
     icon.width: 24
     icon.height: 24
-    icon.color: control.palette.text
+    icon.color: control.Suru.foregroundColor
 
     indicator: CheckIndicator {
         x: text ? (control.mirrored ? control.leftPadding : control.width - width - control.rightPadding) : control.leftPadding + (control.availableWidth - width) / 2

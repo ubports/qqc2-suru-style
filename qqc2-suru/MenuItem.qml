@@ -49,7 +49,7 @@ T.MenuItem {
 
     icon.width: 24
     icon.height: 24
-    icon.color: control.palette.windowText
+    icon.color: control.Suru.foregroundColor
 
     contentItem: IconLabel {
         leftPadding: control.checkable && !control.mirrored ? control.indicator.width + control.spacing : 0

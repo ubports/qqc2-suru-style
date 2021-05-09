@@ -48,7 +48,7 @@ T.RoundButton {
 
     icon.width: 24
     icon.height: 24
-    color: control.flat && control.highlighted ? control.Suru.highlightColor
+    icon.color: control.flat && control.highlighted ? control.Suru.highlightColor
                                                : !control.flat && control.highlighted ? control.Suru.backgroundColor : control.Suru.foregroundColor
 
     contentItem: IconLabel {

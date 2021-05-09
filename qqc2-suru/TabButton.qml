@@ -42,7 +42,7 @@ T.TabButton {
 
     icon.width: 24
     icon.height: 24
-    icon.color: checked ? control.palette.windowText : control.palette.brightText
+    icon.color: control.Suru.foregroundColor
 
     contentItem: IconLabel {
         spacing: control.spacing

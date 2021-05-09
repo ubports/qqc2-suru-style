@@ -43,7 +43,7 @@ T.ToolButton {
 
     icon.width: 24
     icon.height: 24
-    icon.color: visualFocus ? control.palette.highlight : control.palette.buttonText
+    icon.color: (control.checked || control.highlighted) ? control.Suru.highlightColor : control.Suru.foregroundColor
 
     contentItem: IconLabel {
         spacing: control.spacing
