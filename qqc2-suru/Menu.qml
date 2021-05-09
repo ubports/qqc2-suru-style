@@ -22,8 +22,8 @@
 ****************************************************************************/
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Templates 2.2 as T
+import QtQuick.Controls 2.12
+import QtQuick.Templates 2.12 as T
 import QtQuick.Controls.Suru 2.2
 import "impl"
 
@@ -53,6 +53,8 @@ T.Menu {
         // fade_out
         NumberAnimation { property: "opacity"; from: 1.0; to: 0.0; easing: control.Suru.animations.EasingIn; duration: control.Suru.animations.FastDuration }
     }
+
+    delegate: MenuItem { }
 
     contentItem: ListView {
         implicitHeight: contentHeight

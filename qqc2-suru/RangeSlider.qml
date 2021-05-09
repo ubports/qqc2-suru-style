@@ -29,10 +29,8 @@ import "impl"
 T.RangeSlider {
     id: control
 
-    readonly property bool horizontal: control.orientation === Qt.Horizontal
-
-    implicitWidth: horizontal ? control.Suru.units.gu(32) : control.Suru.units.gu(5)
-    implicitHeight: horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(32)
+    implicitWidth: control.horizontal ? control.Suru.units.gu(32) : control.Suru.units.gu(5)
+    implicitHeight: control.horizontal ? control.Suru.units.gu(5) : control.Suru.units.gu(32)
 
     padding: control.Suru.units.gu(1)
     opacity: control.enabled ? 1.0 : 0.5
@@ -41,10 +39,8 @@ T.RangeSlider {
         implicitHeight: control.Suru.units.gu(2)
         implicitWidth: control.Suru.units.gu(2)
 
-        readonly property bool horizontal: control.orientation === Qt.Horizontal
-
-        x: control.leftPadding + (horizontal ? control.first.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
-        y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.first.visualPosition * (control.availableHeight - height))
+        x: control.leftPadding + (control.horizontal ? control.first.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
+        y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : control.first.visualPosition * (control.availableHeight - height))
 
         border.width: activeFocus ? control.Suru.units.dp(2) : control.Suru.units.dp(1)   //(first.pressed ? 1 : 0)
         border.color: activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
@@ -70,10 +66,8 @@ T.RangeSlider {
         implicitHeight: control.Suru.units.gu(2)
         implicitWidth: control.Suru.units.gu(2)
 
-        readonly property bool horizontal: control.orientation === Qt.Horizontal
-
-        x: control.leftPadding + (horizontal ? control.second.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
-        y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : control.second.visualPosition * (control.availableHeight - height))
+        x: control.leftPadding + (control.horizontal ? control.second.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
+        y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : control.second.visualPosition * (control.availableHeight - height))
 
         border.width: activeFocus ? control.Suru.units.dp(2) : control.Suru.units.dp(1)       //(second.pressed ? 1 : 0)
         border.color: activeFocus ? control.Suru.activeFocusColor : control.Suru.neutralColor
@@ -97,32 +91,30 @@ T.RangeSlider {
     }
 
     background: Item {
-        implicitWidth: horizontal ? control.Suru.units.gu(48) : control.Suru.units.gu(2)
-        implicitHeight: horizontal ? control.Suru.units.gu(2) : control.Suru.units.gu(48)
+        implicitWidth: control.horizontal ? control.Suru.units.gu(48) : control.Suru.units.gu(2)
+        implicitHeight: control.horizontal ? control.Suru.units.gu(2) : control.Suru.units.gu(48)
 
-        readonly property bool horizontal: control.orientation === Qt.Horizontal
+        x: control.leftPadding + (control.horizontal ? 0 : (control.availableWidth - width) / 2)
+        y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : 0)
+        width: control.horizontal ? control.availableWidth : implicitWidth
+        height: control.horizontal ? implicitHeight : control.availableHeight
 
-        x: control.leftPadding + (horizontal ? 0 : (control.availableWidth - width) / 2)
-        y: control.topPadding + (horizontal ? (control.availableHeight - height) / 2 : 0)
-        width: horizontal ? control.availableWidth : implicitWidth
-        height: horizontal ? implicitHeight : control.availableHeight
-
-        scale: horizontal && control.mirrored ? -1 : 1
+        scale: control.horizontal && control.mirrored ? -1 : 1
 
         Rectangle {
-            x: parent.horizontal ? 0 : (parent.width - width) / 2
-            y: parent.horizontal ? (parent.height - height) / 2 : 0
-            width: parent.horizontal ? parent.width : control.Suru.units.dp(3)
-            height: !parent.horizontal ? parent.height : control.Suru.units.dp(3)
+            x: control.horizontal ? 0 : (parent.width - width) / 2
+            y: control.horizontal ? (parent.height - height) / 2 : 0
+            width: control.horizontal ? parent.width : control.Suru.units.dp(3)
+            height: !control.horizontal ? parent.height : control.Suru.units.dp(3)
 
             color: control.Suru.neutralColor
         }
 
         Rectangle {
-            x: parent.horizontal ? control.first.position * parent.width : (parent.width - width) / 2
-            y: parent.horizontal ? (parent.height - height) / 2 : control.second.visualPosition * parent.height
-            width: parent.horizontal ? control.second.position * parent.width - control.first.position * parent.width : control.Suru.units.dp(3)
-            height: !parent.horizontal ? control.second.position * parent.height - control.first.position * parent.height : control.Suru.units.dp(3)
+            x: control.horizontal ? control.first.position * parent.width : (parent.width - width) / 2
+            y: control.horizontal ? (parent.height - height) / 2 : control.second.visualPosition * parent.height
+            width: control.horizontal ? control.second.position * parent.width - control.first.position * parent.width : control.Suru.units.dp(3)
+            height: !control.horizontal ? control.second.position * parent.height - control.first.position * parent.height : control.Suru.units.dp(3)
 
             color: control.Suru.highlightColor
         }

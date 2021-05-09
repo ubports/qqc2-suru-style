@@ -22,7 +22,9 @@
 ****************************************************************************/
 
 import QtQuick 2.9
-import QtQuick.Templates 2.2 as T
+import QtQuick.Controls 2.12
+import QtQuick.Controls.impl 2.12
+import QtQuick.Templates 2.12 as T
 import QtQuick.Controls.Suru 2.2
 import "impl"
 
@@ -47,18 +49,23 @@ T.SwipeDelegate {
 
     swipe.transition: Transition { SmoothedAnimation { velocity: 3; easing: control.Suru.animations.EasingInOut } }
 
-    contentItem: Text {
+    icon.width: 24
+    icon.height: 24
+    icon.color: control.Suru.foregroundColor
+
+    contentItem: IconLabel {
         leftPadding: !control.mirrored ? (control.indicator ? control.indicator.width + control.spacing : 0) : 0
         rightPadding: control.mirrored ? (control.indicator ? control.indicator.width + control.spacing : 0) : 0
 
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+        alignment: control.display === IconLabel.IconOnly || control.display === IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft
+
+        icon: control.icon
         text: control.text
         font: control.font
         color: control.Suru.foregroundColor
-
-        elide: Text.ElideRight
-        visible: control.text
-        horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
     }
 
     background: Rectangle {
