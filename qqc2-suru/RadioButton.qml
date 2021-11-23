@@ -22,9 +22,10 @@
 ****************************************************************************/
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.12
+import QtQuick.Controls.impl 2.12
+import QtQuick.Templates 2.12 as T
 import QtQuick.Controls.Suru 2.2
-import QtQuick.Templates 2.2 as T
 import "impl"
 
 T.RadioButton {
@@ -50,17 +51,21 @@ T.RadioButton {
         control: control
     }
 
-    contentItem: Text {
+    icon.width: 24
+    icon.height: 24
+    icon.color: control.Suru.foregroundColor
+
+    contentItem: IconLabel {
         leftPadding: control.indicator && !control.mirrored ? control.indicator.width + control.spacing : 0
         rightPadding: control.indicator && control.mirrored ? control.indicator.width + control.spacing : 0
 
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+
+        icon: control.icon
         text: control.text
         font: control.font
-
         color: control.Suru.foregroundColor
-        elide: Text.ElideRight
-        visible: control.text
-        horizontalAlignment: Text.AlignLeft
-        verticalAlignment: Text.AlignVCenter
     }
 }
